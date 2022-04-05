@@ -1,3 +1,4 @@
+@use "sass:math";
 //Подключение шрифта
 @mixin font($font_name, $file_name, $weight, $style) {
 	@font-face {

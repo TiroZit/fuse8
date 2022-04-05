@@ -1,3 +1,5 @@
+// import './scss/style.scss'
+
 // JS
 import './js/index.js';
 

@@ -134,6 +134,10 @@ const config = {
 						loader: 'sass-loader',
 						options: {
 							sourceMap: true,
+							additionalData: `
+								@import '${srcFolder}/scss/base/variables.scss';
+								@import '${srcFolder}/scss/base/mixins.scss';
+							`
 						}
 					}
 				],

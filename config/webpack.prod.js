@@ -135,6 +135,10 @@ const config = {
 						options: {
 							sassOptions: {
 								outputStyle: "expanded",
+								// additionalData: `
+								// 	@import '${srcFolder}/scss/base/variables.scss';
+								// 	@import '${srcFolder}/scss/base/mixins.scss';
+								// `
 							},
 						}
 					},
