@@ -1,5 +1,7 @@
 <template lang="pug">
-
+header
+aside
+main
 </template>
 
 <script>
