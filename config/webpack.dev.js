@@ -37,14 +37,24 @@ const config = {
 	mode: "development",
 	devtool: 'inline-source-map',
 	optimization: {
-		minimize: false
+		minimize: false,
+		splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendors',
+          test: /node_modules/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
 	},
 	entry: [
 		`${paths.src}/app.js`
 	],
 	output: {
 		path: `${paths.build}`,
-		filename: 'js/app.min.js',
+		filename: 'js/[name].min.js',
 		publicPath: '/'
 	},
 	devServer: {
@@ -127,43 +137,18 @@ const config = {
 						}
 					}
 				],
-			}, {
+			},
+			{
 				test: /\.pug$/,
 				oneOf: [
 					// это применяется к `<template lang="pug">` в компонентах Vue
 					{
 						resourceQuery: /^\?vue/,
-						use: [
-							{
-								loader: 'pug-loader'
-							}, {
-								loader: 'string-replace-loader',
-								options: {
-									search: '@img',
-									replace: 'img',
-									flags: 'g'
-								}
-							}
-						]
+						use: ['pug-plain-loader']
 					},
 					// это применяется к импортам pug внутри JavaScript
 					{
-						use: [
-							{
-								loader: 'raw-loader'
-							},
-							{ 
-								loader: 'pug-plain-loader'
-							},
-							{
-								loader: 'string-replace-loader',
-								options: {
-									search: '@img',
-									replace: 'img',
-									flags: 'g'
-								}
-							}
-						]
+						use: ['raw-loader', 'pug-plain-loader']
 					}
 				]
 			}
