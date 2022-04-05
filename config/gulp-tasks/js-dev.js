@@ -30,6 +30,7 @@ webPackConfigBeautify.optimization = {
 			keep_classnames: true,
 			keep_fnames: true,
 			format: {
+				indent_level: 2,
 				beautify: true
 			}
 		}
@@ -37,7 +38,7 @@ webPackConfigBeautify.optimization = {
 }
 webPackConfigBeautify.output = {
 	path: `${paths.build}`,
-	filename: 'app.js',
+	filename: '[name].js',
 	publicPath: '/',
 }
 

@@ -19,13 +19,14 @@
 		"bem": "fls-bemtree-from-html"
 	},
 	"devDependencies": {
+		"@babel/preset-env": "^7.16.11",
 		"babel-loader": "^8.2.4",
 		"copy-webpack-plugin": "latest",
 		"css-loader": "latest",
 		"del": "latest",
-		"gh-pages": "latest",
 		"file-include-webpack-plugin-replace": "latest",
 		"fls-bemtree-from-html": "^1.0.0",
+		"gh-pages": "latest",
 		"gulp": "latest",
 		"gulp-autoprefixer": "latest",
 		"gulp-avif-css": "latest",
