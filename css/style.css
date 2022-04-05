@@ -1,7 +1,10 @@
 @charset "UTF-8";
 :root {
   --color-black: #000;
+  --color-blackRaisin: #232021;
+  --color-gray: #474747;
   --color-white: #fff;
+  --color-yellow: #FFD642;
 }
 * {
   box-sizing: border-box;
@@ -21,7 +24,7 @@ body {
   color: var(--color-black);
   background-color: var(--color-white);
   line-height: 1;
-  font-family: "";
+  font-family: "GothamPro", sans-serif;
   font-size: 0.875rem;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -31,7 +34,7 @@ body {
 input,
 button,
 textarea {
-  font-family: "";
+  font-family: "GothamPro", sans-serif;
   font-size: inherit;
   color: inherit;
 }
@@ -71,13 +74,21 @@ address {
   font-style: unset;
 }
 .wrapper {
+  display: grid;
+  grid-template-columns: 6.25rem 1fr;
+  grid-template-rows: 6.25rem 1fr;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
 }
+.wrapper > header {
+  grid-column: 2;
+}
+.wrapper > aside {
+  grid-row: 1/span 2;
+  background-color: #FFD642;
+}
 .wrapper > main {
-  flex: 1 1 auto;
+  grid-column: 2;
 }
 .js-focus-visible :focus-visible {
   transition: outline 0.1s ease 0s;

@@ -1,12 +1,16 @@
 (() => {
   "use strict";
   var __webpack_modules__ = {
-    741: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    462: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
       __webpack_require__(944);
       window["FLS"] = false;
-      var runtime_dom_esm_bundler = __webpack_require__(239);
+      var runtime_dom_esm_bundler = __webpack_require__(341);
+      var runtime_core_esm_bundler = __webpack_require__(229);
+      var _hoisted_1 = (0, runtime_core_esm_bundler._)("header", null, null, -1);
+      var _hoisted_2 = (0, runtime_core_esm_bundler._)("aside", null, null, -1);
+      var _hoisted_3 = (0, runtime_core_esm_bundler._)("main", null, null, -1);
       function render(_ctx, _cache, $props, $setup, $data, $options) {
-        return null;
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, _hoisted_2, _hoisted_3 ], 64);
       }
       const Appvue_type_script_lang_js = {
         data: function data() {
@@ -107,6 +111,6 @@
     chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   })();
-  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(741)));
+  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(462)));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
