@@ -1,6 +1,6 @@
 (() => {
     var __webpack_modules__ = {
-        202: function() {
+        944: function() {
             (function(global, factory) {
                 true ? factory() : 0;
             })(0, (function() {
@@ -129,7 +129,7 @@
                 if ("undefined" !== typeof document) applyFocusVisiblePolyfill(document);
             }));
         },
-        744: (__unused_webpack_module, exports) => {
+        21: (__unused_webpack_module, exports) => {
             "use strict";
             ({
                 value: true
@@ -163,7 +163,7 @@
     })();
     (() => {
         "use strict";
-        __webpack_require__(202);
+        __webpack_require__(944);
         window["FLS"] = false;
         function shared_esm_bundler_makeMap(str, expectsLowerCase) {
             const map = Object.create(null);
@@ -3902,12 +3902,12 @@
             return null;
         }
         const Appvue_type_script_lang_js = {
-            data() {
+            data: function data() {
                 return {};
             },
             methods: {}
         };
-        var exportHelper = __webpack_require__(744);
+        var exportHelper = __webpack_require__(21);
         const __exports__ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", Appvue_type_template_id_39eafa0c_render ] ]);
         const App = __exports__;
         const UI = {};
