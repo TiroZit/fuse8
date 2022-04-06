@@ -9,6 +9,6 @@ export default {
 </script>
 <style scoped lang="scss">
 aside{
-  font-size: rem(40);
+  font-size: rem(20);
 }
 </style>

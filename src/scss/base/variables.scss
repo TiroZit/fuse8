@@ -1,16 +1,12 @@
 @use "sass:math";
+
+// Подключение миксинов
+@import "mixins";
+
 // Шрифт по умолчанию
 $fontFamily: "GothamPro", sans-serif;
 $fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
 
-// Основные цвета
-:root{
-	--color-black: #000;
-	--color-blackRaisin: #232021;
-	--color-gray: #474747;
-	--color-white: #fff;
-	--color-yellow: #FFD642;
-}
 // НАСТРОЙКИ
 // Минимальная ширина страницы
 $minWidth: 320;

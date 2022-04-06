@@ -136,7 +136,6 @@ const config = {
 							sourceMap: true,
 							additionalData: `
 								@import '${srcFolder}/scss/base/variables.scss';
-								@import '${srcFolder}/scss/base/mixins.scss';
 							`
 						}
 					}

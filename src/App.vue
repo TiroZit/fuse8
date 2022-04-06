@@ -21,8 +21,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import './scss/style';
-header{
-  font-size: rem(200);
+header {
+  font-size: rem(20);
 }
 </style>

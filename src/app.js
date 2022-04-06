@@ -1,4 +1,5 @@
-// import './scss/style.scss'
+// SCSS
+import '@scss/style.scss';
 
 // JS
 import './js/index.js';

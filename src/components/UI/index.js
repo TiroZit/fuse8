@@ -1,7 +1,7 @@
 // Импортируем UI компоненты
-// import MyButton from '@/components/UI/MyButton';
+// import AsideBar from 'D:/Projects/fuse8/src/components/UI/AsideBar.vue';
 
 // Экоспортируем UI компоненты
-export default{
-  // MyButton,
-}
+export default[
+  // AsideBar,
+]
