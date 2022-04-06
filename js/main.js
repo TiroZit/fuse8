@@ -1,21 +1,28 @@
 (() => {
   var __webpack_modules__ = {
-    573: (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-      "use strict";
-      __webpack_require__.r(__webpack_exports__);
-    },
-    94: (module, __unused_webpack_exports, __webpack_require__) => {
-      var content = __webpack_require__(573);
+    605: () => {},
+    366: () => {},
+    864: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(605);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(23).Z;
-      add("7924b21b", content, false, {});
+      add("cd7e1bbe", content, false, {});
       if (false) ;
     },
-    265: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    966: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(366);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(23).Z;
+      add("55eecdc4", content, false, {});
+      if (false) ;
+    },
+    42: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
-      __webpack_require__(94);
+      __webpack_require__(864);
       __webpack_require__(944);
       window["FLS"] = false;
       var runtime_dom_esm_bundler = __webpack_require__(341);
@@ -27,12 +34,18 @@
         return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, (0, 
         runtime_core_esm_bundler.Wm)(_component_aside_bar), _hoisted_2 ], 64);
       }
-      function AsideBarvue_type_template_id_ae2b4014_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside");
+      var AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_hoisted_1 = {
+        class: "aside"
+      };
+      var AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<div class="aside__logo" data-v-27069c92><img src="img/logo.jpg" alt="логотип" width="66" height="100" loading="lazy" data-v-27069c92></div><div class="aside__menu" data-v-27069c92><div class="aside__burger active" data-v-27069c92><button class="burger" type="button" data-v-27069c92><span data-v-27069c92></span></button></div></div>', 2);
+      var _hoisted_4 = [ AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_hoisted_2 ];
+      function AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside", AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_hoisted_1, _hoisted_4);
       }
       const AsideBarvue_type_script_lang_js = {};
+      __webpack_require__(966);
       var exportHelper = __webpack_require__(21);
-      const __exports__ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_ae2b4014_lang_pug_render ] ]);
+      const __exports__ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_27069c92_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-27069c92" ] ]);
       const AsideBar = __exports__;
       const Appvue_type_script_lang_js = {
         components: {
@@ -113,16 +126,6 @@
     __webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
   })();
   (() => {
-    __webpack_require__.r = exports => {
-      if ("undefined" !== typeof Symbol && Symbol.toStringTag) Object.defineProperty(exports, Symbol.toStringTag, {
-        value: "Module"
-      });
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-    };
-  })();
-  (() => {
     var installedChunks = {
       179: 0
     };
@@ -146,6 +149,6 @@
     chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   })();
-  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(265)));
+  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(42)));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();

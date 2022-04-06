@@ -690,6 +690,7 @@
       iD: () => createElementBlock,
       ic: () => onUpdated,
       nK: () => setTransitionHooks,
+      uE: () => createStaticVNode,
       up: () => resolveComponent,
       wg: () => openBlock
     });
@@ -2919,6 +2920,11 @@
     }
     function createTextVNode(text = " ", flag = 0) {
       return createVNode(Text, null, text, flag);
+    }
+    function createStaticVNode(content, numberOfNodes) {
+      const vnode = createVNode(Static, null, content);
+      vnode.staticCount = numberOfNodes;
+      return vnode;
     }
     function normalizeVNode(child) {
       if (null == child || "boolean" === typeof child) return createVNode(Comment); else if ((0, 
