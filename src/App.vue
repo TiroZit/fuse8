@@ -21,7 +21,5 @@ export default {
 </script>
 
 <style lang='scss'>
-header {
-  font-size: rem(20);
-}
+
 </style>
