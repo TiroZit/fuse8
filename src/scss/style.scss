@@ -42,7 +42,6 @@ body {
 	}
 	> aside{
 		grid-row: 1 / span 2;
-		background-color: #FFD642;
 	}
 	> main {
 		grid-column: 2;
@@ -55,7 +54,7 @@ body {
 // Ограничивающий контейнер
 .js-focus-visible :focus-visible{
 	transition: outline .1s ease 0s;
-  outline: rem(3) solid var(--colorDarkRaspberry);
+  // outline: rem(3) solid var(--colorDarkRaspberry);
 }
 .js-focus-visible :focus:not(.focus-visible){
   outline: none

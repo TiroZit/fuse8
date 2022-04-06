@@ -107,7 +107,12 @@ const config = {
 				test: /\.(scss|css)$/,
 				use: [
 					'vue-style-loader',
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							esModule: false,
+						},
+					},
 					{
 						loader: 'string-replace-loader',
 						options: {
