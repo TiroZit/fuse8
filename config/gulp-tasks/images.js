@@ -1,5 +1,5 @@
-import webp from "gulp-sharp-responsive";
-import imagemin from "gulp-imagemin";
+import squoosh from 'gulp-squoosh'
+import path from 'path'
 
 export const images = () => {
 	return app.gulp.src(app.path.src.images)
@@ -13,14 +13,15 @@ export const images = () => {
 		.pipe(
 			app.plugins.if(
 				app.isWebP,
-				webp({
-          formats: [
-            { format: "avif", avifOptions: {
-              quality: 70
-            }},
-            { format: "webp" },
-          ]
-        })
+				squoosh(({ filePath }) => ({
+					encodeOptions: {
+						webp: { quality: 80 },
+						avif: { quality: 80 },
+						...(path.extname(filePath) === 'png'
+							? { oxipng: { level: 2 } }
+							: { mozjpeg: { level: 2 } })
+					}
+				}))
 			)
 		)
 		.pipe(
@@ -41,13 +42,13 @@ export const images = () => {
 				app.plugins.newer(app.path.build.images)
 			)
 		)
-		.pipe(imagemin({
-			progressive: true,
-			svgoPlugins: [{ removeViewBox: false }],
-			interlaced: true,
-			optimizationLevel: 3 // 0 to 7
-		}))
-		.pipe(app.gulp.dest(app.path.build.images))
-		.pipe(app.gulp.src(app.path.src.svg))
+		// .pipe(imagemin({
+		// 	progressive: true,
+		// 	svgoPlugins: [{ removeViewBox: false }],
+		// 	interlaced: true,
+		// 	optimizationLevel: 3 // 0 to 7
+		// }))
+		// .pipe(app.gulp.dest(app.path.build.images))
+		// .pipe(app.gulp.src(app.path.src.svg))
 		.pipe(app.gulp.dest(app.path.build.images));
 }
