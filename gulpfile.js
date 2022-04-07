@@ -33,9 +33,9 @@ import { gitPages } from "./config/gulp-tasks/git-pages.js";
 // Последовательная обработака шрифтов
 const fonts = gulp.series(reset, otfToTtf, ttfToWoff, fonstStyle);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
-const devTasks = gulp.parallel(fonts, gitignore);
+const devTasks = gulp.parallel(fonts, sprite, gitignore);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
-const buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, images, gitignore));
+const buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, images, sprite, gitignore));
 
 // Экспорт задач
 export { html }

@@ -72,13 +72,14 @@ const config = {
     // Расскоментировать на слабом ПК
     // (в режиме разработчика, папка с результаттом будет создаваться на диске)
     // devMiddleware: {
-    // 	writeToDisk: true,
+    //   writeToDisk: true,
     // },
 
     watchFiles: [
       `${paths.src}/**/*.html`,
       `${paths.src}/**/*.pug`,
       `${paths.src}/**/*.htm`,
+      `${paths.src}/svg/*.svg`,
       `${paths.src}/img/**/*.*`,
     ],
   },

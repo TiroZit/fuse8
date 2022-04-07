@@ -2,11 +2,20 @@
 include /_mixins
 aside.aside
   .aside__logo
-    +image("@img/logo.jpg", 'логотип', '66', '100')
+    svg.i-logo(aria-hidden)
+      use(xlink:href=`img/icons/icons.svg#svg-logo`)
   .aside__menu
-    .aside__burger.active
+    .aside__burger
       button.burger(type='button')
         span
+    a.aside__search(href='#')
+      svg.i-search(style=`fill: currentColor;` aria-hidden)
+        use(xlink:href=`img/icons/icons.svg#svg-search`)
+    a.aside__edit.active(href='#')
+      svg.i-pencil(style=`fill: currentColor;` aria-hidden)
+        use(xlink:href=`img/icons/icons.svg#svg-pencil`)
+    a.aside__avatar(href='#')
+      +image('@img/avatar.png', 'аватар', '41', '41')
 </template>
 <script>
 export default {};
@@ -15,19 +24,22 @@ export default {};
 .aside {
   position: relative;
   background-color: var(--color-yellow);
-  padding: 0 rem(17) rem(34) rem(17);
   &__logo {
     position: relative;
     margin-bottom: rem(50);
+    & .i-logo{
+      width: rem(100);
+      height: rem(100);
+    }
     &::after {
       content: "";
       display: block;
       position: absolute;
-      left: 0;
+      left: calc(50% - rem(33));
       bottom: 0;
-      width: 100%;
+      width: rem(66);
       height: 2px;
-      background-color: var(--color-black);
+      background-color: #000;
     }
   }
   &__menu {
@@ -35,14 +47,43 @@ export default {};
     flex-direction: column;
     align-items: center;
   }
-  &__burger {
-    padding: rem(20) 0;
+  &__burger,
+  &__search,
+  &__edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(62);
     &.active {
-      position: absolute;
-      left: 0;
-      right: 0;
       width: 100%;
       background-color: var(--color-black);
+    }
+  }
+  &__search{
+    color: var(--color-blackRaisin);
+    &.active{
+      color: var(--color-white);
+    }
+    & .i-search {
+      width: rem(30);
+      height: rem(30);
+    }
+    
+  }
+  &__edit{
+    color: var(--color-blackRaisin);
+    &.active{
+      color: var(--color-white);
+    }
+    & .i-pencil {
+      width: rem(30);
+      height: rem(30);
+    }
+  }
+  &__avatar{
+    margin-top: rem(35);
+    & img{
+      border-radius: 50%;
     }
   }
 }
@@ -62,7 +103,7 @@ export default {};
     position: absolute;
     width: 100%;
     height: rem(4);
-    background-color: #fff;
+    background-color: #000;
   }
   &::before {
     top: 0;
@@ -73,19 +114,20 @@ export default {};
   span {
     top: calc(50% - rem(2));
   }
-  .menu-open & {
+  .active & {
     span {
       width: 0;
     }
     &::before,
     &::after {
+      background-color: var(--color-white);
     }
     &::before {
-      top: calc(50% - rem(1));
+      top: calc(50% - rem(2));
       transform: rotate(-45deg);
     }
     &::after {
-      bottom: calc(50% - rem(1));
+      bottom: calc(50% - rem(2));
       transform: rotate(45deg);
     }
   }
