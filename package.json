@@ -1,7 +1,7 @@
 {
-	"name": "Gulp&Webpack",
-	"version": "4.0.0",
-	"description": "Start template with Gulp and Webpack",
+	"name": "gulp_vue",
+	"version": "1.0.0",
+	"description": "Start template with Gulp and Webpack for Vue",
 	"author": "TiroZit",
 	"private": true,
 	"license": "",
@@ -15,8 +15,7 @@
 		"fonts": "gulp fonts --rewrite",
 		"deploy": "gulp deployFTP --build",
 		"zip": "gulp deployZIP --build",
-		"devbuild": "gulp build --build --nowebp",
-		"tmp": "gulp -f gulpfile.tmp.js"
+		"devbuild": "gulp build --build --nowebp"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.11",
@@ -33,6 +32,7 @@
 		"gulp-clean-css": "latest",
 		"gulp-fonter-fix": "latest",
 		"gulp-group-css-media-queries": "latest",
+		"gulp-htmlmin": "^5.0.1",
 		"gulp-if": "latest",
 		"gulp-newer": "latest",
 		"gulp-notify": "latest",

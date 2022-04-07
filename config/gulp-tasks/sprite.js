@@ -1,4 +1,6 @@
-import svgSprite from "gulp-svg-sprite";
+import svgmin from 'gulp-svgmin';
+import svgSprite from 'gulp-svg-sprite';
+import cheerio from 'gulp-cheerio';
 
 export const sprite = () => {
 	return app.gulp.src(`${app.path.src.svgicons}`, {})
@@ -8,6 +10,30 @@ export const sprite = () => {
 				message: "Error: <%= error.message %>"
 			}))
 		)
+		.pipe(svgmin({
+			multipass: true,
+      full: true,
+      plugins: [
+        'removeDoctype',
+        'removeComments',
+        'sortAttrs',
+        'removeUselessStrokeAndFill',
+      ],
+    }))
+		.pipe(
+      cheerio({
+        run: function ($) {
+          $('[style]').removeAttr('style');
+          $('[width]').removeAttr('width');
+          $('[height]').removeAttr('height');
+          $('[class]').removeAttr('class');
+          $('[id]').removeAttr('id');
+        },
+        parserOptions: {
+          xmlMode: true
+        },
+      })
+    )
 		.pipe(svgSprite({
 			mode: {
 				symbol: {
