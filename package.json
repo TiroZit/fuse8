@@ -10,6 +10,7 @@
 		"dev": "gulp && webpack serve --progress -c config/webpack.dev.js",
 		"build": "gulp build --build",
 		"deployGH": "gulp deployGH --build",
+		"sptite": "gulp sprite",
 		"npm": "npm install",
 		"fonts": "gulp fonts --rewrite",
 		"deploy": "gulp deployFTP --build",
