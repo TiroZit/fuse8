@@ -9,6 +9,7 @@ import * as path from 'path';
 const srcFolder = "src";
 const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
+const isDev = !process.argv.includes('--build');
 
 let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
 let htmlPages = [];
@@ -147,7 +148,14 @@ const config = {
 					// это применяется к `<template lang="pug">` в компонентах Vue
 					{
 						resourceQuery: /^\?vue/,
-						use: ['pug-plain-loader']
+						use: [
+							{
+								loader: 'pug-plain-loader',
+								options: {
+									data: { isDev }
+								}
+							}
+						]
 					},
 					// это применяется к импортам pug внутри JavaScript
 					{

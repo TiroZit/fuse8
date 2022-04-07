@@ -1,7 +1,8 @@
 <template lang="pug">
+include ../_mixins
 aside.aside
   .aside__logo
-    img(src='@img/logo.jpg' alt="логотип" width="66" height="100" loading='lazy')
+    +image("logo.jpg")
   .aside__menu
     .aside__burger.active
       button.burger(type='button')

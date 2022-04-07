@@ -1,0 +1,14 @@
+mixin image(file, alt="", widht="", height="")
+  - const [fileName, ext] = file.split(".")
+
+  if isDev
+    img(src=`img/${file}` alt=`${alt}` width=`${widht}` height=`${height}` loading='lazy')&attributes(attributes)
+  
+  else if ext === "svg"
+    img(src=`img/${file}` alt=`${alt}` width=`${widht}` height=`${height}` loading='lazy')&attributes(attributes)
+
+  else
+    picture
+      source(srcset=`img/${fileName}.avif` type="image/avif")
+      source(srcset=`img/${fileName}.webp` type="image/webp")
+      img(src=`img/${file}` alt=`${alt}` width=`${widht}` height=`${height}` loading='lazy')&attributes(attributes)

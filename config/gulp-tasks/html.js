@@ -1,5 +1,4 @@
 import versionNumber from "gulp-version-number";
-import webpHtmlNosvg from "gulp-webp-avif-html";
 
 export const html = () => {
 	return app.gulp.src(`${app.path.build.html}*.html`)
@@ -8,12 +7,6 @@ export const html = () => {
 				title: "HTML",
 				message: "Error: <%= error.message %>"
 			}))
-		)
-		.pipe(
-			app.plugins.if(
-				app.isWebP,
-				webpHtmlNosvg()
-			)
 		)
 		.pipe(versionNumber({
 			'value': '%DT%',

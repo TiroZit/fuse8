@@ -15,8 +15,7 @@
 		"deploy": "gulp deployFTP --build",
 		"zip": "gulp deployZIP --build",
 		"devbuild": "gulp build --build --nowebp",
-		"tmp": "gulp -f gulpfile.tmp.js",
-		"bem": "fls-bemtree-from-html"
+		"tmp": "gulp -f gulpfile.tmp.js"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.11",
@@ -25,7 +24,6 @@
 		"css-loader": "latest",
 		"del": "latest",
 		"file-include-webpack-plugin-replace": "latest",
-		"fls-bemtree-from-html": "^1.0.0",
 		"gh-pages": "latest",
 		"gulp": "latest",
 		"gulp-autoprefixer": "latest",
@@ -45,7 +43,6 @@
 		"gulp-ttf2woff2": "latest",
 		"gulp-util": "latest",
 		"gulp-version-number": "latest",
-		"gulp-webp-avif-html": "latest",
 		"gulp-zip": "latest",
 		"html-webpack-plugin": "latest",
 		"load-plugins": "latest",
@@ -84,6 +81,6 @@
 		"swiper": "latest",
 		"tippy.js": "latest",
 		"vanilla-lazyload": "latest",
-		"vue": "^3.2.31"
+		"vue": "latest"
 	}
 }

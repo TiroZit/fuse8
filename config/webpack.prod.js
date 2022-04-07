@@ -11,6 +11,7 @@ import * as path from 'path';
 const srcFolder = "src";
 const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
+const isBuild = process.argv.includes('--build');
 
 let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
 let htmlPages = [];
@@ -73,19 +74,23 @@ const config = {
         loader: 'babel-loader',
         exclude: '/node_modules/'
       },
-      {
+			{
 				test: /\.pug$/,
-        oneOf: [
-          // это применяется к `<template lang="pug">` в компонентах Vue
-          {
-            resourceQuery: /^\?vue/,
-            use: ['pug-plain-loader']
-          },
-          // это применяется к импортам pug внутри JavaScript
-          {
-            use: ['raw-loader', 'pug-plain-loader']
-          }
-        ]
+				oneOf: [
+					// это применяется к `<template lang="pug">` в компонентах Vue
+					{
+						resourceQuery: /^\?vue/,
+						use: [
+							{
+								loader: 'pug-plain-loader',
+							}
+						]
+					},
+					// это применяется к импортам pug внутри JavaScript
+					{
+						use: ['raw-loader', 'pug-plain-loader']
+					}
+				]
 			},
       { 
 				test: /\.vue$/,
