@@ -15,7 +15,7 @@ aside.aside
       svg.i-pencil(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-pencil`)
     a.aside__avatar(href='#')
-      +image('@img/avatar.png', 'аватар', '41', '41')
+      +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
 export default {};
