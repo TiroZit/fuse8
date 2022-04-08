@@ -11,16 +11,7 @@ include /_mixins
       .about-person__info-paragraphs
         p.about-person__paragraph Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.
         p.about-person__paragraph Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.
-      .about-person__socials.person-socials
-        a.person-socials__item(href="#" target="_blank")
-          svg.i-behance(style=`fill: currentColor;` aria-hidden)
-            use(xlink:href=`img/icons/icons.svg#svg-behance`)
-        a.person-socials__item(href="#" target="_blank")
-          svg.i-vk(style=`fill: currentColor;` aria-hidden)
-            use(xlink:href=`img/icons/icons.svg#svg-vk`)
-        a.person-socials__item(href="#" target="_blank")
-          svg.i-twitter(style=`fill: currentColor;` aria-hidden)
-            use(xlink:href=`img/icons/icons.svg#svg-twitter`)
+      socials.about-person__socials
 </template>
 <script>
 export default {
@@ -29,6 +20,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .about-person {
+  color: var(--color-blackRaisin);
   // .about-person__container
   &__container {
     display: flex;
@@ -50,7 +42,6 @@ export default {
   &__title {
     font-size: rem(78);
     font-weight: 900;
-    color: var(--color-blackRaisin);
   }
   // .about-person__subtitle
   &__subtitle {
@@ -73,23 +64,6 @@ export default {
   // .about-person__socials
   &__socials {
     margin-top: rem(30);
-  }
-}
-.person-socials {
-  display: flex;
-  gap: rem(20);
-  // .person-socials__item
-  &__item {
-    display: flex;
-    width: rem(46);
-    height: rem(47);
-    border: rem(4) solid var(--color-yellow);
-    border-radius: 50%;
-    svg{
-      margin: auto;
-      width: rem(23);
-      height: rem(23);
-    }
   }
 }
 </style>
