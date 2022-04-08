@@ -9,6 +9,7 @@ import { VueLoaderPlugin } from "vue-loader";
 import * as path from "path";
 
 const srcFolder = "src";
+const assetsFolder = "assets";
 const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
 
@@ -37,6 +38,7 @@ if (!pugPages.length) {
 
 const paths = {
   src: path.resolve(srcFolder),
+  assets: path.resolve(assetsFolder),
   build: path.resolve(builFolder),
 };
 const config = {
@@ -142,7 +144,7 @@ const config = {
               modules: false,
               url: {
                 filter: (url, resourcePath) => {
-                  if (url.includes("img") || url.includes("fonts")) {
+                  if (url.includes(`img/`) || url.includes(`fonts/`)) {
                     return false;
                   }
                   return true;
@@ -154,7 +156,7 @@ const config = {
             loader: "sass-loader",
             options: {
               additionalData: `
-								@import '${srcFolder}/scss/base/variables.scss';
+								@import '${assetsFolder}/scss/base/variables.scss';
 							`,
               sassOptions: {
                 outputStyle: "expanded",
@@ -197,13 +199,14 @@ const config = {
   ],
   resolve: {
     alias: {
-      "@scss": `${paths.src}/scss`,
+      "@scss": `${paths.assets}/scss`,
       "@js": `${paths.src}/js`,
-      "@img": `${paths.src}/img`,
+      "@img": `${paths.assets}/img`,
       "@components": `${paths.src}/components`,
       "vue": "@vue/runtime-dom",
+      "@dist": ".."
     },
-    extensions: ['.vue', '.js', '.json']
+    extensions: ['.vue', '.scss', '.js', '.json']
   },
 };
 export default config;

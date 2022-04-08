@@ -7,6 +7,7 @@ import { VueLoaderPlugin } from "vue-loader";
 import * as path from "path";
 
 const srcFolder = "src";
+const assetsFolder = "assets";
 const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
 const isDev = !process.argv.includes("--build");
@@ -36,6 +37,7 @@ if (!pugPages.length) {
 
 const paths = {
   src: path.resolve(srcFolder),
+  assets: path.resolve(assetsFolder),
   build: path.resolve(builFolder),
 };
 const config = {
@@ -79,8 +81,8 @@ const config = {
       `${paths.src}/**/*.html`,
       `${paths.src}/**/*.pug`,
       `${paths.src}/**/*.htm`,
-      `${paths.src}/svg/*.svg`,
-      `${paths.src}/img/**/*.*`,
+      `${paths.assets}/svg/*.svg`,
+      `${paths.assets}/img/**/*.*`,
     ],
   },
   module: {
@@ -109,7 +111,7 @@ const config = {
       },
       {
         test: /\.(scss|css)$/,
-        exclude: `${paths.src}/fonts`,
+        exclude: `${paths.assets}/fonts`,
         use: [
           "vue-style-loader",
           {
@@ -128,7 +130,7 @@ const config = {
               modules: false,
               url: {
                 filter: (url, resourcePath) => {
-                  if (url.includes("img/") || url.includes("fonts/")) {
+                  if (url.includes(`img/`) || url.includes(`fonts/`)) {
                     return false;
                   }
                   return true;
@@ -141,7 +143,7 @@ const config = {
             options: {
               sourceMap: true,
               additionalData: `
-								@import '${srcFolder}/scss/base/variables.scss';
+								@import '${assetsFolder}/scss/base/variables.scss';
 							`,
             },
           },
@@ -185,7 +187,7 @@ const config = {
     new CopyPlugin({
       patterns: [
         {
-          from: `${srcFolder}/img`,
+          from: `${assetsFolder}/img`,
           to: `img`,
           noErrorOnMissing: true,
           force: true,
@@ -206,9 +208,9 @@ const config = {
   ],
   resolve: {
     alias: {
-      "@scss": `${paths.src}/scss`,
+      "@scss": `${paths.assets}/scss`,
       "@js": `${paths.src}/js`,
-      "@img": `${paths.src}/img`,
+      "@img": `${paths.assets}/img`,
       "@components": `${paths.src}/components`,
       "vue": "@vue/runtime-dom",
     },

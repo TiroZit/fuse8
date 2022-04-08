@@ -66,5 +66,5 @@ export const sprite = () => {
 				xmlDeclaration: false
 			}
 		}))
-		.pipe(app.gulp.dest(`${app.path.srcFolder}`));
+		.pipe(app.gulp.dest(`${app.path.assetsFolder}`));
 }

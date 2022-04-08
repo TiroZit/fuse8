@@ -39,6 +39,7 @@
 		"gulp-plumber": "latest",
 		"gulp-prettier": "latest",
 		"gulp-rename": "latest",
+		"gulp-replace": "^1.1.3",
 		"gulp-squoosh": "^0.9.0",
 		"gulp-svg-sprite": "latest",
 		"gulp-svgmin": "^4.1.0",
