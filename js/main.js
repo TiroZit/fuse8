@@ -1,7 +1,9 @@
 (() => {
   var __webpack_modules__ = {
     605: () => {},
-    137: () => {},
+    256: () => {},
+    693: () => {},
+    685: () => {},
     864: (module, __unused_webpack_exports, __webpack_require__) => {
       var content = __webpack_require__(605);
       if (content.__esModule) content = content.default;
@@ -11,16 +13,34 @@
       add("cd7e1bbe", content, false, {});
       if (false) ;
     },
-    764: (module, __unused_webpack_exports, __webpack_require__) => {
-      var content = __webpack_require__(137);
+    519: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(256);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(23).Z;
-      add("9dc1d9fa", content, false, {});
+      add("56359af1", content, false, {});
       if (false) ;
     },
-    758: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    400: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(693);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(23).Z;
+      add("29acbfb8", content, false, {});
+      if (false) ;
+    },
+    377: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(685);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(23).Z;
+      add("6d860d6e", content, false, {});
+      if (false) ;
+    },
+    580: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
       __webpack_require__(864);
       __webpack_require__(944);
@@ -28,39 +48,59 @@
       var runtime_dom_esm_bundler = __webpack_require__(341);
       var runtime_core_esm_bundler = __webpack_require__(229);
       var _hoisted_1 = (0, runtime_core_esm_bundler._)("header", null, null, -1);
-      var _hoisted_2 = (0, runtime_core_esm_bundler._)("main", null, null, -1);
+      var _hoisted_2 = {
+        class: "page__profile"
+      };
       function render(_ctx, _cache, $props, $setup, $data, $options) {
         var _component_aside_bar = (0, runtime_core_esm_bundler.up)("aside-bar");
+        var _component_about_person = (0, runtime_core_esm_bundler.up)("about-person");
         return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, (0, 
-        runtime_core_esm_bundler.Wm)(_component_aside_bar), _hoisted_2 ], 64);
+        runtime_core_esm_bundler.Wm)(_component_aside_bar), (0, runtime_core_esm_bundler._)("main", _hoisted_2, [ (0, 
+        runtime_core_esm_bundler.Wm)(_component_about_person) ]) ], 64);
       }
-      var AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_1 = {
-        class: "aside"
-      };
-      var AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<div class="aside__logo" data-v-07f4cca5><svg class="i-logo" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-logo" data-v-07f4cca5></use></svg></div><div class="aside__menu" data-v-07f4cca5><div class="aside__burger" data-v-07f4cca5><button class="burger" type="button" data-v-07f4cca5><span data-v-07f4cca5></span></button></div><a class="aside__search" href="#" data-v-07f4cca5><svg class="i-search" style="fill:currentColor;" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-search" data-v-07f4cca5></use></svg></a><a class="aside__edit active" href="#" data-v-07f4cca5><svg class="i-pencil" style="fill:currentColor;" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-pencil" data-v-07f4cca5></use></svg></a><a class="aside__avatar" href="#" data-v-07f4cca5><picture data-v-07f4cca5><source srcset="img/avatar.avif" type="image/avif" data-v-07f4cca5><source srcset="img/avatar.webp" type="image/webp" data-v-07f4cca5><img src="img/avatar.jpg" alt="аватар" width="41" height="41" loading="lazy" data-v-07f4cca5></picture></a></div>', 2);
-      var _hoisted_4 = [ AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_2 ];
-      function AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside", AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_1, _hoisted_4);
-      }
-      const AsideBarvue_type_script_lang_js = {};
-      __webpack_require__(764);
-      var exportHelper = __webpack_require__(21);
-      const __exports__ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-07f4cca5" ] ]);
-      const AsideBar = __exports__;
       const Appvue_type_script_lang_js = {
-        components: {
-          AsideBar
-        },
+        components: {},
         data: function data() {
           return {};
         },
         methods: {}
       };
-      const App_exports_ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", render ] ]);
-      const App = App_exports_;
-      const UI = [];
+      __webpack_require__(519);
+      var exportHelper = __webpack_require__(21);
+      const __exports__ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", render ] ]);
+      const App = __exports__;
+      var AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_hoisted_1 = {
+        class: "aside"
+      };
+      var AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<div class="aside__logo" data-v-1cb37da4><svg class="i-logo" aria-hidden data-v-1cb37da4><use xlink:href="img/icons/icons.svg#svg-logo" data-v-1cb37da4></use></svg></div><div class="aside__menu" data-v-1cb37da4><div class="aside__burger" data-v-1cb37da4><button class="burger" type="button" data-v-1cb37da4><span data-v-1cb37da4></span></button></div><a class="aside__search" href="#" data-v-1cb37da4><svg class="i-search" style="fill:currentColor;" aria-hidden data-v-1cb37da4><use xlink:href="img/icons/icons.svg#svg-search" data-v-1cb37da4></use></svg></a><a class="aside__edit active" href="#" data-v-1cb37da4><svg class="i-pencil" style="fill:currentColor;" aria-hidden data-v-1cb37da4><use xlink:href="img/icons/icons.svg#svg-pencil" data-v-1cb37da4></use></svg></a><a class="aside__avatar" href="#" data-v-1cb37da4><picture data-v-1cb37da4><source srcset="img/avatar.avif" type="image/avif" data-v-1cb37da4><source srcset="img/avatar.webp" type="image/webp" data-v-1cb37da4><img src="img/avatar.jpg" alt="аватар" width="41" height="41" loading="lazy" data-v-1cb37da4></picture></a></div>', 2);
+      var _hoisted_4 = [ AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_hoisted_2 ];
+      function AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside", AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_hoisted_1, _hoisted_4);
+      }
+      const AsideBarvue_type_script_lang_js = {
+        name: "aside-bar"
+      };
+      __webpack_require__(377);
+      const AsideBar_exports_ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-1cb37da4" ] ]);
+      const AsideBar = AsideBar_exports_;
+      var AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_hoisted_1 = {
+        class: "about-person"
+      };
+      var AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_hoisted_2 = (0, 
+      runtime_core_esm_bundler.uE)('<div class="about-person__container" data-v-a2958d6a><div class="about-person__avatar" data-v-a2958d6a><picture data-v-a2958d6a><source srcset="img/persons/mark-walton.avif" type="image/avif" data-v-a2958d6a><source srcset="img/persons/mark-walton.webp" type="image/webp" data-v-a2958d6a><img src="img/persons/mark-walton.jpg" alt="Марк Уолтон" width="384" height="540" loading="lazy" data-v-a2958d6a></picture></div><div class="about-person__info" data-v-a2958d6a><div class="about-person__info-headings" data-v-a2958d6a><h1 class="about-person__title" data-v-a2958d6a>Марк Уолтон</h1><div class="about-person__subtitle" data-v-a2958d6a>Основатель компании</div></div><div class="about-person__info-paragraphs" data-v-a2958d6a><p class="about-person__paragraph" data-v-a2958d6a>Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.</p><p class="about-person__paragraph" data-v-a2958d6a>Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.</p></div><div class="about-person__socials person-socials" data-v-a2958d6a><a class="person-socials__item" href="#" target="_blank" data-v-a2958d6a><svg class="i-behance" style="fill:currentColor;" aria-hidden data-v-a2958d6a><use xlink:href="img/icons/icons.svg#svg-behance" data-v-a2958d6a></use></svg></a><a class="person-socials__item" href="#" target="_blank" data-v-a2958d6a><svg class="i-vk" style="fill:currentColor;" aria-hidden data-v-a2958d6a><use xlink:href="img/icons/icons.svg#svg-vk" data-v-a2958d6a></use></svg></a><a class="person-socials__item" href="#" target="_blank" data-v-a2958d6a><svg class="i-twitter" style="fill:currentColor;" aria-hidden data-v-a2958d6a><use xlink:href="img/icons/icons.svg#svg-twitter" data-v-a2958d6a></use></svg></a></div></div></div>', 1);
+      var _hoisted_3 = [ AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_hoisted_2 ];
+      function AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_hoisted_1, _hoisted_3);
+      }
+      const AboutPersonvue_type_script_lang_js = {
+        name: "about-person"
+      };
+      __webpack_require__(400);
+      const AboutPerson_exports_ = (0, exportHelper.Z)(AboutPersonvue_type_script_lang_js, [ [ "render", AboutPersonvue_type_template_id_a2958d6a_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-a2958d6a" ] ]);
+      const AboutPerson = AboutPerson_exports_;
+      const UI = [ AsideBar, AboutPerson ];
       var app = (0, runtime_dom_esm_bundler.ri)(App);
-      if (null === !UI) UI.forEach((function(component) {
+      if (UI.length >= 1) UI.forEach((function(component) {
         app.component(component.name, component);
       }));
       app.mount("#app");
@@ -149,6 +189,6 @@
     chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   })();
-  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(758)));
+  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(580)));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
