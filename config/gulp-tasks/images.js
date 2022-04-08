@@ -17,7 +17,7 @@ export const images = () => {
 					encodeOptions: {
 						webp: { quality: 80 },
 						avif: { quality: 80 },
-						...(path.extname(filePath) === 'png'
+						...(path.extname(filePath) === '.png'
 							? { oxipng: { level: 2 } }
 							: { mozjpeg: { level: 2 } })
 					}
