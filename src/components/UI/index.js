@@ -1,7 +1,9 @@
 // Импортируем UI компоненты
-// import AsideBar from 'D:/Projects/fuse8/src/components/UI/AsideBar.vue';
+import AsideBar from '@components/UI/AsideBar';
+import AboutPerson from '@components/UI/AboutPerson';
 
 // Экоспортируем UI компоненты
 export default[
-  // AsideBar,
+  AsideBar,
+  AboutPerson,
 ]

@@ -18,7 +18,9 @@ aside.aside
       +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
-export default {};
+export default {
+  name: 'aside-bar'
+};
 </script>
 <style scoped lang="scss">
 .aside {
@@ -26,7 +28,7 @@ export default {};
   background-color: var(--color-yellow);
   &__logo {
     position: relative;
-    margin-bottom: rem(50);
+    margin-bottom: rem(30);
     & .i-logo{
       width: rem(100);
       height: rem(100);

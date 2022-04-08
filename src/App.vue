@@ -1,15 +1,14 @@
 <template lang="pug">
 header
 aside-bar
-main
+main.page__profile
+  about-person
 </template>
 
 <script>
-import AsideBar from './components/UI/AsideBar.vue';
 
 export default {
   components:{
-    AsideBar,
   },
   data(){
     return{
@@ -21,5 +20,7 @@ export default {
 </script>
 
 <style lang='scss'>
-
+.page__profile{
+  margin-top: rem(50);
+}
 </style>

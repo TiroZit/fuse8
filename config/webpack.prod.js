@@ -200,8 +200,10 @@ const config = {
       "@scss": `${paths.src}/scss`,
       "@js": `${paths.src}/js`,
       "@img": `${paths.src}/img`,
+      "@components": `${paths.src}/components`,
       "vue": "@vue/runtime-dom",
     },
+    extensions: ['.vue', '.js', '.json']
   },
 };
 export default config;

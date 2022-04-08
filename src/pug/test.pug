@@ -1,0 +1,22 @@
+include _mixins
+.about-person
+  .about-person__container
+    .about-person__avatar
+      +image('@img/persons/mark-walton.jpg', 'Марк Уолтон', '384', '540')
+    .about-person__info
+      .about-person__info-headings
+        h1.about-person__title Марк Уолтон
+        .about-person__subtitle Основатель компании
+      .about-person__info-paragraphs
+        p.about-person__paragraph Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.
+        p.about-person__paragraph Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.
+      .about-person__socials.person-socials
+        .person-socials__item
+          svg.i-behance(style=`fill: currentColor;` aria-hidden)
+            use(xlink:href=`img/icons/icons.svg#svg-behance`)
+        .person-socials__item
+          svg.i-vk(style=`fill: currentColor;` aria-hidden)
+            use(xlink:href=`img/icons/icons.svg#svg-vk`)
+        .person-socials__item
+          svg.i-twitter(style=`fill: currentColor;` aria-hidden)
+            use(xlink:href=`img/icons/icons.svg#svg-twitter`)

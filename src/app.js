@@ -2,17 +2,17 @@
 import '@scss/style.scss';
 
 // JS
-import './js/index.js';
+import '@js/index.js';
 
 import { createApp } from 'vue';
 import App from './App.vue';
 // Импорт UI компонентов
-import components from './components/UI';
+import components from '@components/UI';
 
 const app = createApp(App);
 
 // Глобальная регистрация UI компонентов
-if(!components === null){
+if(components.length >= 1) {
   components.forEach(component => {
     app.component(component.name, component);
   });
