@@ -1,7 +1,7 @@
 (() => {
   var __webpack_modules__ = {
     605: () => {},
-    676: () => {},
+    137: () => {},
     864: (module, __unused_webpack_exports, __webpack_require__) => {
       var content = __webpack_require__(605);
       if (content.__esModule) content = content.default;
@@ -11,16 +11,16 @@
       add("cd7e1bbe", content, false, {});
       if (false) ;
     },
-    244: (module, __unused_webpack_exports, __webpack_require__) => {
-      var content = __webpack_require__(676);
+    764: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(137);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(23).Z;
-      add("da2b7a5a", content, false, {});
+      add("9dc1d9fa", content, false, {});
       if (false) ;
     },
-    449: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    758: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
       __webpack_require__(864);
       __webpack_require__(944);
@@ -34,18 +34,18 @@
         return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, (0, 
         runtime_core_esm_bundler.Wm)(_component_aside_bar), _hoisted_2 ], 64);
       }
-      var AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_hoisted_1 = {
+      var AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_1 = {
         class: "aside"
       };
-      var AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<div class="aside__logo" data-v-7274a56c><img src="img/logo.svg" alt="логотип" width="100" height="100" loading="lazy" data-v-7274a56c></div><div class="aside__menu" data-v-7274a56c><div class="aside__burger" data-v-7274a56c><button class="burger" type="button" data-v-7274a56c><span data-v-7274a56c></span></button></div><a class="aside__search" href="#" data-v-7274a56c><svg class="i-search" style="fill:currentColor;" aria-hidden data-v-7274a56c><use xlink:href="img/icons/icons.svg#svg-search" data-v-7274a56c></use></svg></a><a class="aside__edit active" href="#" data-v-7274a56c><svg class="i-pencil" style="fill:currentColor;" aria-hidden data-v-7274a56c><use xlink:href="img/icons/icons.svg#svg-pencil" data-v-7274a56c></use></svg></a><a class="aside__avatar" href="#" data-v-7274a56c><picture data-v-7274a56c><source srcset="img/avatar.avif" type="image/avif" data-v-7274a56c><source srcset="img/avatar.webp" type="image/webp" data-v-7274a56c><img src="img/avatar.jpg" alt="аватар" width="41" height="41" loading="lazy" data-v-7274a56c></picture></a></div>', 2);
-      var _hoisted_4 = [ AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_hoisted_2 ];
-      function AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside", AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_hoisted_1, _hoisted_4);
+      var AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<div class="aside__logo" data-v-07f4cca5><svg class="i-logo" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-logo" data-v-07f4cca5></use></svg></div><div class="aside__menu" data-v-07f4cca5><div class="aside__burger" data-v-07f4cca5><button class="burger" type="button" data-v-07f4cca5><span data-v-07f4cca5></span></button></div><a class="aside__search" href="#" data-v-07f4cca5><svg class="i-search" style="fill:currentColor;" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-search" data-v-07f4cca5></use></svg></a><a class="aside__edit active" href="#" data-v-07f4cca5><svg class="i-pencil" style="fill:currentColor;" aria-hidden data-v-07f4cca5><use xlink:href="img/icons/icons.svg#svg-pencil" data-v-07f4cca5></use></svg></a><a class="aside__avatar" href="#" data-v-07f4cca5><picture data-v-07f4cca5><source srcset="img/avatar.avif" type="image/avif" data-v-07f4cca5><source srcset="img/avatar.webp" type="image/webp" data-v-07f4cca5><img src="img/avatar.jpg" alt="аватар" width="41" height="41" loading="lazy" data-v-07f4cca5></picture></a></div>', 2);
+      var _hoisted_4 = [ AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_2 ];
+      function AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("aside", AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_hoisted_1, _hoisted_4);
       }
       const AsideBarvue_type_script_lang_js = {};
-      __webpack_require__(244);
+      __webpack_require__(764);
       var exportHelper = __webpack_require__(21);
-      const __exports__ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_7274a56c_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-7274a56c" ] ]);
+      const __exports__ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_07f4cca5_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-07f4cca5" ] ]);
       const AsideBar = __exports__;
       const Appvue_type_script_lang_js = {
         components: {
@@ -149,6 +149,6 @@
     chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   })();
-  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(449)));
+  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(758)));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
