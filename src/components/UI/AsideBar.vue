@@ -2,7 +2,8 @@
 include /_mixins
 aside.aside
   .aside__logo
-    +image('@img/logo.svg', 'логотип', '100', '100')
+    svg.i-logo(aria-hidden)
+      use(xlink:href=`img/icons/icons.svg#svg-logo`)
   .aside__menu
     .aside__burger
       button.burger(type='button')
