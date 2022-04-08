@@ -56,7 +56,7 @@ const config = {
       },
     },
   },
-  entry: [`${paths.src}/app.js`],
+  entry: [`${paths.src}/main.js`],
   output: {
     path: `${paths.build}`,
     filename: "js/[name].min.js",
