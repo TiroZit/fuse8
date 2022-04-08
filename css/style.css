@@ -324,50 +324,60 @@ address {
   bottom: calc(50% - 0.125rem);
   transform: rotate(45deg);
 }
-.about-person__container[data-v-a2958d6a] {
+.about-person[data-v-35ae58ea] {
+  color: var(--color-blackRaisin);
+}
+.about-person__container[data-v-35ae58ea] {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.about-person__info[data-v-a2958d6a] {
+.about-person__info[data-v-35ae58ea] {
   flex: 0 1 53.4375rem;
   margin-left: 1.25rem;
 }
-.about-person__title[data-v-a2958d6a] {
+.about-person__title[data-v-35ae58ea] {
   font-size: 4.875rem;
   font-weight: 900;
-  color: var(--color-blackRaisin);
 }
-.about-person__subtitle[data-v-a2958d6a] {
+.about-person__subtitle[data-v-35ae58ea] {
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-gray);
 }
-.about-person__info-paragraphs[data-v-a2958d6a] {
+.about-person__info-paragraphs[data-v-35ae58ea] {
   margin-top: 3.125rem;
 }
-.about-person__paragraph[data-v-a2958d6a] {
+.about-person__paragraph[data-v-35ae58ea] {
   font-size: 1.5rem;
   font-weight: 700;
 }
-.about-person__paragraph[data-v-a2958d6a]:not(:last-child) {
+.about-person__paragraph[data-v-35ae58ea]:not(:last-child) {
   margin-bottom: 1.25rem;
 }
-.about-person__socials[data-v-a2958d6a] {
+.about-person__socials[data-v-35ae58ea] {
   margin-top: 1.875rem;
 }
-.person-socials[data-v-a2958d6a] {
+.socials[data-v-3d33456a] {
   display: flex;
   gap: 1.25rem;
 }
-.person-socials__item[data-v-a2958d6a] {
+.socials__item[data-v-3d33456a] {
   display: flex;
   width: 2.875rem;
   height: 2.9375rem;
   border: 0.25rem solid var(--color-yellow);
   border-radius: 50%;
 }
-.person-socials__item svg[data-v-a2958d6a] {
+@media (any-hover: hover) {
+.socials__item[data-v-3d33456a] {
+    transition: transform 0.3s ease 0s;
+}
+.socials__item[data-v-3d33456a]:hover {
+    transform: scale(1.1);
+}
+}
+.socials__item svg[data-v-3d33456a] {
   margin: auto;
   width: 1.4375rem;
   height: 1.4375rem;

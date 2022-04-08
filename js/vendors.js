@@ -677,6 +677,7 @@
     "use strict";
     __webpack_require__.d(__webpack_exports__, {
       $d: () => callWithAsyncErrorHandling,
+      Cn: () => popScopeId,
       FN: () => getCurrentInstance,
       HY: () => Fragment,
       P$: () => BaseTransition,
@@ -686,6 +687,7 @@
       Wm: () => createVNode,
       Y8: () => useTransitionState,
       _: () => createBaseVNode,
+      dD: () => pushScopeId,
       h: () => h,
       iD: () => createElementBlock,
       ic: () => onUpdated,
@@ -987,6 +989,12 @@
       currentRenderingInstance = instance;
       currentScopeId = instance && instance.type.__scopeId || null;
       return prev;
+    }
+    function pushScopeId(id) {
+      currentScopeId = id;
+    }
+    function popScopeId() {
+      currentScopeId = null;
     }
     function withCtx(fn, ctx = currentRenderingInstance, isNonScopedSlot) {
       if (!ctx) return fn;
