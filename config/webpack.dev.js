@@ -53,9 +53,9 @@ const config = {
 
     // Расскоментировать на слабом ПК
     // (в режиме разработчика, папка с результаттом будет создаваться на диске)
-    // devMiddleware: {
-    //   writeToDisk: true,
-    // },
+    devMiddleware: {
+      writeToDisk: true,
+    },
 
     watchFiles: [
       `${paths.assets}/**/*.pug`,
