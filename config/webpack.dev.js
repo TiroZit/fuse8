@@ -1,5 +1,4 @@
 import fs from "fs";
-import FileIncludeWebpackPlugin from "file-include-webpack-plugin-replace";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import { VueLoaderPlugin } from "vue-loader";
@@ -15,25 +14,6 @@ const isDev = !process.argv.includes("--build");
 let pugPages = fs
   .readdirSync(srcFolder)
   .filter((fileName) => fileName.endsWith(".pug"));
-let htmlPages = [];
-
-if (!pugPages.length) {
-  htmlPages = [
-    new FileIncludeWebpackPlugin({
-      source: srcFolder,
-      htmlBeautifyOptions: {
-        "indent-with-tabs": true,
-        indent_size: 2,
-      },
-      replace: [
-        { regex: '<link rel="stylesheet" href="css/style.min.css">', to: "" },
-        { regex: "../img", to: "img" },
-        { regex: "@img", to: "img" },
-        { regex: "NEW_PROJECT_NAME", to: rootFolder },
-      ],
-    }),
-  ];
-}
 
 const paths = {
   src: path.resolve(srcFolder),
@@ -78,7 +58,7 @@ const config = {
     // },
 
     watchFiles: [
-      `${paths.src}/**/*.html`,
+      // `${paths.src}/**/*.html`,
       `${paths.src}/**/*.pug`,
       `${paths.src}/**/*.htm`,
       `${paths.assets}/svg/*.svg`,
@@ -143,8 +123,9 @@ const config = {
             options: {
               sourceMap: true,
               additionalData: `
-								@import '${assetsFolder}/scss/base/variables.scss';
-							`,
+                @use "sass:math";
+                @import '${assetsFolder}/scss/base/variables.scss';
+              `,
             },
           },
         ],
@@ -167,20 +148,33 @@ const config = {
           },
           // это применяется к импортам pug внутри JavaScript
           {
-            use: ["raw-loader", "pug-plain-loader"],
+            use: [
+              "raw-loader", 
+              "pug-plain-loader",
+              {
+                loader: 'string-replace-loader',
+                options: {
+                  multiple: [
+                    { search: "link(rel='stylesheet' href='css/style.min.css')", replace: " " },
+                    { search: '../img', replace: 'img' },
+                    { search: '@img', replace: 'img' }
+                  ]
+                }
+              }
+            ],
           },
         ],
       },
     ],
   },
   plugins: [
-    ...htmlPages,
     ...pugPages.map(
       (pugPage) =>
         new HtmlWebpackPlugin({
           minify: false,
           template: `${srcFolder}/${pugPage}`,
           filename: `${pugPage.replace(/\.pug/, ".html")}`,
+          inject: false,
         })
     ),
     new VueLoaderPlugin(),

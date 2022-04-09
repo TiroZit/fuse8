@@ -1,6 +1,5 @@
 import fs from "fs";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import FileIncludeWebpackPlugin from "file-include-webpack-plugin-replace";
 import CopyPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
@@ -16,25 +15,6 @@ const rootFolder = path.basename(path.resolve());
 let pugPages = fs
   .readdirSync(srcFolder)
   .filter((fileName) => fileName.endsWith(".pug"));
-let htmlPages = [];
-
-if (!pugPages.length) {
-  htmlPages = [
-    new FileIncludeWebpackPlugin({
-      source: srcFolder,
-      destination: "../",
-      htmlBeautifyOptions: {
-        "indent-with-tabs": true,
-        indent_size: 3,
-      },
-      replace: [
-        { regex: "../img", to: "img" },
-        { regex: "@img", to: "img" },
-        { regex: "NEW_PROJECT_NAME", to: rootFolder },
-      ],
-    }),
-  ];
-}
 
 const paths = {
   src: path.resolve(srcFolder),
@@ -98,7 +78,10 @@ const config = {
           },
           // это применяется к импортам pug внутри JavaScript
           {
-            use: ["raw-loader", "pug-plain-loader"],
+            use: [
+              "raw-loader", 
+              "pug-plain-loader",
+            ],
           },
         ],
       },
@@ -156,8 +139,9 @@ const config = {
             loader: "sass-loader",
             options: {
               additionalData: `
-								@import '${assetsFolder}/scss/base/variables.scss';
-							`,
+                @use "sass:math";
+                @import '${assetsFolder}/scss/base/variables.scss';
+              `,
               sassOptions: {
                 outputStyle: "expanded",
               },
@@ -168,14 +152,13 @@ const config = {
     ],
   },
   plugins: [
-    ...htmlPages,
     ...pugPages.map(
       (pugPage) =>
         new HtmlWebpackPlugin({
           minify: false,
           template: `${srcFolder}/${pugPage}`,
           filename: `../${pugPage.replace(/\.pug/, ".html")}`,
-          inject: true,
+          inject: false,
         })
     ),
     new VueLoaderPlugin(),
