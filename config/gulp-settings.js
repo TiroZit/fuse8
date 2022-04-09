@@ -18,8 +18,8 @@ export const path = {
 		files: `${buildFolder}/files/`
 	},
 	src: {
-		html: `${srcFolder}/*.html`,
-		pug: `${srcFolder}/pug/*.pug`,
+		html: `${assetsFolder}/*.html`,
+		pug: `${assetsFolder}/pug/*.pug`,
 		js: `${srcFolder}/main.js`,
 		scss: `${assetsFolder}/scss/style.scss`,
 		images: `${assetsFolder}/img/**/*.{jpg,jpeg,png,gif,webp,avif}`,

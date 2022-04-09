@@ -12,7 +12,7 @@ const rootFolder = path.basename(path.resolve());
 const isDev = !process.argv.includes("--build");
 
 let pugPages = fs
-  .readdirSync(srcFolder)
+  .readdirSync(assetsFolder)
   .filter((fileName) => fileName.endsWith(".pug"));
 
 const paths = {
@@ -58,9 +58,7 @@ const config = {
     // },
 
     watchFiles: [
-      // `${paths.src}/**/*.html`,
-      `${paths.src}/**/*.pug`,
-      `${paths.src}/**/*.htm`,
+      `${paths.assets}/**/*.pug`,
       `${paths.assets}/svg/*.svg`,
       `${paths.assets}/img/**/*.*`,
     ],
@@ -141,7 +139,7 @@ const config = {
                 loader: "pug-plain-loader",
                 options: {
                   data: { isDev },
-                  basedir: `${paths.src}/pug`
+                  basedir: `${paths.assets}/pug`
                 },
               },
             ],
@@ -172,7 +170,7 @@ const config = {
       (pugPage) =>
         new HtmlWebpackPlugin({
           minify: false,
-          template: `${srcFolder}/${pugPage}`,
+          template: `${assetsFolder}/${pugPage}`,
           filename: `${pugPage.replace(/\.pug/, ".html")}`,
           inject: false,
         })
