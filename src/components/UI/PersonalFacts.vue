@@ -23,13 +23,14 @@ export default {
 .personal-facts {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   gap: rem(15);
   border: 2px solid var(--color-blackRaisin);
   background-color: var(--color-yellow);
   padding: rem(20);
   // .personal-facts__item
   &__item {
-    flex: 0 1 rem(210);
+    flex: 0 0 rem(210);
     text-align: center;
   }
   // .personal-facts__title
