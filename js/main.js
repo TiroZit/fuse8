@@ -2,8 +2,9 @@
   var __webpack_modules__ = {
     745: () => {},
     256: () => {},
-    334: () => {},
+    837: () => {},
     685: () => {},
+    178: () => {},
     47: () => {},
     372: (module, __unused_webpack_exports, __webpack_require__) => {
       var content = __webpack_require__(745);
@@ -23,13 +24,13 @@
       add("56359af1", content, false, {});
       if (false) ;
     },
-    38: (module, __unused_webpack_exports, __webpack_require__) => {
-      var content = __webpack_require__(334);
+    233: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(837);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(23).Z;
-      add("031f3219", content, false, {});
+      add("6231bd11", content, false, {});
       if (false) ;
     },
     377: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -41,6 +42,15 @@
       add("6d860d6e", content, false, {});
       if (false) ;
     },
+    899: (module, __unused_webpack_exports, __webpack_require__) => {
+      var content = __webpack_require__(178);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(23).Z;
+      add("f781e196", content, false, {});
+      if (false) ;
+    },
     770: (module, __unused_webpack_exports, __webpack_require__) => {
       var content = __webpack_require__(47);
       if (content.__esModule) content = content.default;
@@ -50,7 +60,7 @@
       add("7cc39c71", content, false, {});
       if (false) ;
     },
-    431: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    559: (__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
       __webpack_require__(372);
       __webpack_require__(944);
@@ -93,17 +103,20 @@
       __webpack_require__(377);
       const AsideBar_exports_ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_1cb37da4_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-1cb37da4" ] ]);
       const AsideBar = AsideBar_exports_;
-      var AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_withScopeId = function _withScopeId(n) {
-        return (0, runtime_core_esm_bundler.dD)("data-v-35ae58ea"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
+      var AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_withScopeId = function _withScopeId(n) {
+        return (0, runtime_core_esm_bundler.dD)("data-v-62174252"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
         n;
       };
-      var AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_1 = {
+      var AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_1 = {
         class: "about-person"
       };
-      var AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_2 = {
+      var AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_2 = {
         class: "about-person__container"
       };
-      var _hoisted_3 = AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_withScopeId((function() {
+      var _hoisted_3 = {
+        class: "about-person__wrapper"
+      };
+      var AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_4 = AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_withScopeId((function() {
         return (0, runtime_core_esm_bundler._)("div", {
           class: "about-person__avatar"
         }, [ (0, runtime_core_esm_bundler._)("picture", null, [ (0, runtime_core_esm_bundler._)("source", {
@@ -120,24 +133,27 @@
           loading: "lazy"
         }) ]) ], -1);
       }));
-      var AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_4 = {
+      var _hoisted_5 = {
         class: "about-person__info"
       };
-      var _hoisted_5 = (0, runtime_core_esm_bundler.uE)('<div class="about-person__info-headings" data-v-35ae58ea><h1 class="about-person__title" data-v-35ae58ea>Марк Уолтон</h1><div class="about-person__subtitle" data-v-35ae58ea>Основатель компании</div></div><div class="about-person__info-paragraphs" data-v-35ae58ea><p class="about-person__paragraph" data-v-35ae58ea>Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.</p><p class="about-person__paragraph" data-v-35ae58ea>Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.</p></div>', 2);
-      function AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+      var _hoisted_6 = (0, runtime_core_esm_bundler.uE)('<div class="about-person__info-headings" data-v-62174252><h1 class="about-person__title" data-v-62174252>Марк Уолтон</h1><div class="about-person__subtitle" data-v-62174252>Основатель компании</div></div><div class="about-person__info-paragraphs" data-v-62174252><p class="about-person__paragraph" data-v-62174252>Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.</p><p class="about-person__paragraph" data-v-62174252>Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.</p></div>', 2);
+      function AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
         var _component_socials = (0, runtime_core_esm_bundler.up)("socials");
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_1, [ (0, 
-        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_2, [ _hoisted_3, (0, 
-        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_hoisted_4, [ _hoisted_5, (0, 
-        runtime_core_esm_bundler.Wm)(_component_socials, {
+        var _component_personal_facts = (0, runtime_core_esm_bundler.up)("personal-facts");
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_1, [ (0, 
+        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_2, [ (0, 
+        runtime_core_esm_bundler._)("div", _hoisted_3, [ AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_hoisted_4, (0, 
+        runtime_core_esm_bundler._)("div", _hoisted_5, [ _hoisted_6, (0, runtime_core_esm_bundler.Wm)(_component_socials, {
           class: "about-person__socials"
-        }) ]) ]) ]);
+        }) ]) ]), (0, runtime_core_esm_bundler.Wm)(_component_personal_facts, {
+          class: "about-person__facts"
+        }) ]) ]);
       }
       const AboutPersonvue_type_script_lang_js = {
         name: "about-person"
       };
-      __webpack_require__(38);
-      const AboutPerson_exports_ = (0, exportHelper.Z)(AboutPersonvue_type_script_lang_js, [ [ "render", AboutPersonvue_type_template_id_35ae58ea_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-35ae58ea" ] ]);
+      __webpack_require__(233);
+      const AboutPerson_exports_ = (0, exportHelper.Z)(AboutPersonvue_type_script_lang_js, [ [ "render", AboutPersonvue_type_template_id_62174252_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-62174252" ] ]);
       const AboutPerson = AboutPerson_exports_;
       var Socialsvue_type_template_id_3d33456a_scoped_true_lang_pug_hoisted_1 = {
         class: "socials"
@@ -153,7 +169,22 @@
       __webpack_require__(770);
       const Socials_exports_ = (0, exportHelper.Z)(Socialsvue_type_script_lang_js, [ [ "render", Socialsvue_type_template_id_3d33456a_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-3d33456a" ] ]);
       const Socials = Socials_exports_;
-      const UI = [ AsideBar, AboutPerson, Socials ];
+      var PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_1 = {
+        class: "personal-facts"
+      };
+      var PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_2 = (0, 
+      runtime_core_esm_bundler.uE)('<div class="personal-facts__item" data-v-d4361bda><div class="personal-facts__title" data-v-d4361bda>13</div><div class="personal-facts__subtitle" data-v-d4361bda>Законченых проектов</div></div><div class="personal-facts__item" data-v-d4361bda><div class="personal-facts__title" data-v-d4361bda>10</div><div class="personal-facts__subtitle" data-v-d4361bda>Опыт работы</div></div><div class="personal-facts__item" data-v-d4361bda><div class="personal-facts__title" data-v-d4361bda>3</div><div class="personal-facts__subtitle" data-v-d4361bda>Прекрасных детей</div></div><div class="personal-facts__item" data-v-d4361bda><div class="personal-facts__title" data-v-d4361bda>2</div><div class="personal-facts__subtitle" data-v-d4361bda>оконченных образований </div></div>', 4);
+      var PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_6 = [ PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_2 ];
+      function PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_1, PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_hoisted_6);
+      }
+      const PersonalFactsvue_type_script_lang_js = {
+        name: "personal-facts"
+      };
+      __webpack_require__(899);
+      const PersonalFacts_exports_ = (0, exportHelper.Z)(PersonalFactsvue_type_script_lang_js, [ [ "render", PersonalFactsvue_type_template_id_d4361bda_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-d4361bda" ] ]);
+      const PersonalFacts = PersonalFacts_exports_;
+      const UI = [ AsideBar, AboutPerson, Socials, PersonalFacts ];
       var app = (0, runtime_dom_esm_bundler.ri)(App);
       if (UI.length >= 1) UI.forEach((function(component) {
         app.component(component.name, component);
@@ -244,6 +275,6 @@
     chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   })();
-  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(431)));
+  var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (() => __webpack_require__(559)));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
