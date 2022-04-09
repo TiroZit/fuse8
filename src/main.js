@@ -7,7 +7,7 @@ import '@js/index.js';
 import { createApp } from 'vue';
 import App from './App.vue';
 // Импорт UI компонентов
-import components from '@components/UI';
+import components from '@components/UI/_index';
 
 const app = createApp(App);
 
