@@ -20,9 +20,8 @@ export const css = () => {
 			app.plugins.if(
 				app.isBuild,
 				autoprefixer({
-					grid: false,
-					flexbox: false,
-					overrideBrowserslist: ["last 3 versions"],
+					grid: true,
+					flexbox: true,
 					cascade: true
 				})
 			)
