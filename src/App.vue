@@ -3,6 +3,7 @@ header
 aside-bar
 main.page__profile
   about-person
+  about-me
 </template>
 
 <script>

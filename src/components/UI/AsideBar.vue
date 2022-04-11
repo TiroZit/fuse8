@@ -1,21 +1,22 @@
 <template lang="pug">
 include /_mixins
 aside.aside
-  .aside__logo
-    svg.i-logo(aria-hidden)
-      use(xlink:href=`img/icons/icons.svg#svg-logo`)
-  .aside__menu
-    .aside__burger
-      button.burger(type='button')
-        span
-    a.aside__search(href='#')
-      svg.i-search(style=`fill: currentColor;` aria-hidden)
-        use(xlink:href=`img/icons/icons.svg#svg-search`)
-    a.aside__edit.active(href='#')
-      svg.i-pencil(style=`fill: currentColor;` aria-hidden)
-        use(xlink:href=`img/icons/icons.svg#svg-pencil`)
-    a.aside__avatar(href='#')
-      +image('@img/avatar.jpg', 'аватар', '41', '41')
+  .aside__wrapper
+    .aside__logo
+      svg.i-logo(aria-hidden)
+        use(xlink:href=`img/icons/icons.svg#svg-logo`)
+    .aside__menu
+      .aside__burger
+        button.burger(type='button')
+          span
+      a.aside__search(href='#')
+        svg.i-search(style=`fill: currentColor;` aria-hidden)
+          use(xlink:href=`img/icons/icons.svg#svg-search`)
+      a.aside__edit.active(href='#')
+        svg.i-pencil(style=`fill: currentColor;` aria-hidden)
+          use(xlink:href=`img/icons/icons.svg#svg-pencil`)
+      a.aside__avatar(href='#')
+        +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
 export default {
@@ -26,6 +27,9 @@ export default {
 .aside {
   position: relative;
   background-color: var(--color-yellow);
+  &__wrapper{
+    position: fixed;
+  }
   &__logo {
     position: relative;
     margin-bottom: rem(30);

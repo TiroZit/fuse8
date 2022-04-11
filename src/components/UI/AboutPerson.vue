@@ -1,6 +1,6 @@
 <template lang="pug">
 include /_mixins
-.about-person
+section.about-person
   .about-person__container
     .about-person__wrapper
       .about-person__avatar
