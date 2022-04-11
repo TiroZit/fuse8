@@ -168,6 +168,87 @@ address {
 [class*=-ibg_contain] img {
   object-fit: contain;
 }
+.basic-skills__title, .basic-skills__item {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.basic-skills__items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5625rem;
+}
+.basic-skills__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 13.4375rem;
+  min-height: 13.4375rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+}
+.basic-skills__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.25rem);
+  right: calc(-50% - 1.46875rem);
+  display: block;
+  width: 5.9375rem;
+  height: 0.5rem;
+  background-color: var(--color-blackRaisin);
+}
+.secondary-skills__title[data-v-ca5959ca], .secondary-skills__item[data-v-ca5959ca] {
+  font-weight: 700;
+  font-size: 26px;
+}
+.secondary-skills__items[data-v-ca5959ca] {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 1.125rem;
+  margin-top: 1.5625rem;
+}
+.secondary-skills__item[data-v-ca5959ca] {
+  border: 1px solid var(--color-blackRaisin);
+  padding: 0.625rem 1.5625rem;
+}
+.qualification-skills__title[data-v-a456cf1e] {
+  font-weight: 700;
+  font-size: 1.625rem;
+}
+.qualification-skills__items[data-v-a456cf1e] {
+  margin-top: 1.5625rem;
+}
+.qualification-skills__item[data-v-a456cf1e] {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 1.625rem;
+  line-height: 1.1;
+}
+.qualification-skills__item[data-v-a456cf1e]:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.qualification-skills__time_begin[data-v-a456cf1e]:not(:last-child)::after {
+  content: " - ";
+}
+.skills[data-v-782ef64b] {
+  margin-top: 4.375rem;
+}
+.skills__title[data-v-782ef64b] {
+  font-weight: 900;
+  font-size: 3.75rem;
+}
+.skills__basic-skills[data-v-782ef64b] {
+  margin-top: 1.5625rem;
+}
+.skills__secondary-skills[data-v-782ef64b] {
+  margin-top: 3.4375rem;
+}
+.skills__qualification-skills[data-v-782ef64b] {
+  margin-top: 3.4375rem;
+}
 .page__profile {
   margin-top: 3.125rem;
 }
