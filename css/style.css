@@ -249,8 +249,52 @@ address {
 .skills__qualification-skills[data-v-782ef64b] {
   margin-top: 3.4375rem;
 }
+.more-employees[data-v-45f32e1a] {
+  margin-top: 4.0625rem;
+  font-weight: 900;
+}
+.more-employees__title[data-v-45f32e1a] {
+  font-size: 3.75rem;
+}
+.more-employees__items[data-v-45f32e1a] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.9375rem;
+  margin-top: 3.125rem;
+}
+.more-employees__item[data-v-45f32e1a] {
+  position: relative;
+  border: 2px solid var(--color-blackRaisin);
+}
+.more-employees__item-footer[data-v-45f32e1a] {
+  display: block;
+  border-top: 2px solid var(--color-blackRaisin);
+  padding: 0.9375rem 0.625rem;
+  background-color: var(--color-yellow);
+}
+.more-employees__item-footer[data-v-45f32e1a]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.more-employees__item-title[data-v-45f32e1a] {
+  font-size: 1.5rem;
+}
+.more-employees__item-subtitle[data-v-45f32e1a] {
+  font-size: 0.9375rem;
+}
+.more-employees__btn-more[data-v-45f32e1a] {
+  display: block;
+  font-weight: inherit;
+  font-size: 1.75rem;
+  border: 2px solid var(--color-blackRaisin);
+  margin: 4.6875rem auto 0rem auto;
+  padding: 0.625rem 1.5625rem;
+}
 .page__profile {
   margin-top: 3.125rem;
+  margin-bottom: 9.375rem;
 }
 .aside[data-v-257f4490] {
   position: relative;

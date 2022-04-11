@@ -1,7 +1,8 @@
 (function() {
   var __webpack_modules__ = {
     745: function() {},
-    872: function() {},
+    797: function() {},
+    971: function() {},
     899: function() {},
     857: function() {},
     6: function() {},
@@ -20,13 +21,22 @@
       add("63ddc780", content, false, {});
       if (false) ;
     },
-    452: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(872);
+    866: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(797);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(23).Z;
-      add("0a116f46", content, false, {});
+      add("002a4740", content, false, {});
+      if (false) ;
+    },
+    447: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(971);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(23).Z;
+      add("05502473", content, false, {});
       if (false) ;
     },
     548: function(module, __unused_webpack_exports, __webpack_require__) {
@@ -110,7 +120,7 @@
       add("7cc39c71", content, false, {});
       if (false) ;
     },
-    925: function(__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) {
+    731: function(__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) {
       "use strict";
       __webpack_require__(372);
       __webpack_require__(944);
@@ -126,10 +136,11 @@
         var _component_about_person = (0, runtime_core_esm_bundler.up)("about-person");
         var _component_about_me = (0, runtime_core_esm_bundler.up)("about-me");
         var _component_skills = (0, runtime_core_esm_bundler.up)("skills");
+        var _component_more_employees = (0, runtime_core_esm_bundler.up)("more-employees");
         return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, (0, 
         runtime_core_esm_bundler.Wm)(_component_aside_bar), (0, runtime_core_esm_bundler._)("main", _hoisted_2, [ (0, 
         runtime_core_esm_bundler.Wm)(_component_about_person), (0, runtime_core_esm_bundler.Wm)(_component_about_me), (0, 
-        runtime_core_esm_bundler.Wm)(_component_skills) ]) ], 64);
+        runtime_core_esm_bundler.Wm)(_component_skills), (0, runtime_core_esm_bundler.Wm)(_component_more_employees) ]) ], 64);
       }
       var _withScopeId = function _withScopeId(n) {
         return (0, runtime_core_esm_bundler.dD)("data-v-782ef64b"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
@@ -216,16 +227,32 @@
       __webpack_require__(995);
       const Skills_exports_ = (0, exportHelper.Z)(Skillsvue_type_script_lang_js, [ [ "render", Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-782ef64b" ] ]);
       var Skills = Skills_exports_;
+      var MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_1 = {
+        class: "more-employees"
+      };
+      var MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_2 = (0, 
+      runtime_core_esm_bundler.uE)('<div class="more-employees__container" data-v-45f32e1a><h2 class="more-employees__title" data-v-45f32e1a>Больше сотрудников</h2><div class="more-employees__items" data-v-45f32e1a><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/anton-shapovalov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/anton-shapovalov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/anton-shapovalov.jpg" alt="Антон Шаповалов" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Антон Шаповалов</div><div class="more-employees__item-subtitle" data-v-45f32e1a>QA-специалист</div></a></article><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/anton-permyakov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/anton-permyakov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/anton-permyakov.jpg" alt="Антон Пермяков" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Антон Пермяков</div><div class="more-employees__item-subtitle" data-v-45f32e1a>Директор, совладелец компании</div></a></article><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/andrey-stepanov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/andrey-stepanov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/andrey-stepanov.jpg" alt="Андрей Степанов" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Андрей Степанов</div><div class="more-employees__item-subtitle" data-v-45f32e1a>Технический директор</div></a></article></div><button class="more-employees__btn-more" data-v-45f32e1a>Посмотреть ещё</button></div>', 1);
+      var MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_3 = [ MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_2 ];
+      function MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_1, MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_3);
+      }
+      var MoreEmployeesvue_type_script_lang_js = {
+        name: "more-employees"
+      };
+      __webpack_require__(447);
+      const MoreEmployees_exports_ = (0, exportHelper.Z)(MoreEmployeesvue_type_script_lang_js, [ [ "render", MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-45f32e1a" ] ]);
+      var MoreEmployees = MoreEmployees_exports_;
       var Appvue_type_script_lang_js = {
         components: {
-          Skills: Skills
+          Skills: Skills,
+          MoreEmployees: MoreEmployees
         },
         data: function data() {
           return {};
         },
         methods: {}
       };
-      __webpack_require__(452);
+      __webpack_require__(866);
       const App_exports_ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", render ] ]);
       var App = App_exports_;
       var AsideBarvue_type_template_id_257f4490_scoped_true_lang_pug_hoisted_1 = {
@@ -441,7 +468,7 @@
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   }();
   var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (function() {
-    return __webpack_require__(925);
+    return __webpack_require__(731);
   }));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
