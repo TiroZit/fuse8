@@ -34,8 +34,8 @@ export default {
     position: relative;
     margin-bottom: rem(30);
     & .i-logo{
-      width: rem(100);
-      height: rem(100);
+      width: rem(80);
+      height: rem(80);
     }
     &::after {
       content: "";

@@ -47,7 +47,9 @@ export default {
     width: fit-content;
     background-color: var(--color-yellow);
     padding: rem(5) rem(15) rem(5) rem(20);
-    margin-left: rem(-20);
+    @include media-breakpoint-up(pc){
+      margin-left: rem(-20);
+    }
   }
   // .about-me__item-decription
   &__item-decription {

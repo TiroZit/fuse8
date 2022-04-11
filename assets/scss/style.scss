@@ -32,7 +32,7 @@ body {
 // Оболочка
 .wrapper {
 	display: grid;
-	grid-template-columns: rem(100) 1fr;
+	grid-template-columns: rem(80) 1fr;
 	grid-template-rows: rem(100) 1fr;
 	min-height: 100%;
 	overflow: hidden;

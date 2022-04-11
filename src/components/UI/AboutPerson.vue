@@ -43,7 +43,8 @@ export default {
   }
   // .about-person__title
   &__title {
-    font-size: rem(78);
+    // font-size: rem(78);
+    @include adaptiveValue("font-size", 78, 54);
     font-weight: 900;
   }
   // .about-person__subtitle

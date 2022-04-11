@@ -25,13 +25,15 @@ $tablet: em(991.98); // Планшеты, некоторые телефоны в
 $mobile: em(767.98); // Телефоны L
 $mobileSmall: em(479.98); // Телефоны S
 $grid-breakpoints: (
-  mobileSmall: 480em, // Телефоны S 480px
-  mobile: 768em, // Телефоны L 768px
-  tablet: 992em, // Планшеты, некоторые телефоны в горизонтальном положении 992px
+  mobile: 480em, // Телефоны S 480px
+  tablet: 768em, // Телефоны L 768px
+  tablet-xl: 992em, // Планшеты, некоторые телефоны в горизонтальном положении 992px
   laptop: 1024em, // Ноутбуки S 1024px
   laptop-xl: 1200em, // Ноутбуки L 1200px
-  pc: 1130em // ПК $containerWidth
+  laptop-xxl: 1400em, // Ноутбуки 1400px
+  container: 1354em // ПК $containerWidth
 );
+
 
 // Тип адаптива:
 // 1 = отзывчивость (у контейнера нет брейкпоинтов),
