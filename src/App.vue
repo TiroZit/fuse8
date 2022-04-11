@@ -4,12 +4,14 @@ aside-bar
 main.page__profile
   about-person
   about-me
+  skills
 </template>
 
 <script>
-
+import Skills from '@components/Skills/Skills'
 export default {
   components:{
+    Skills,
   },
   data(){
     return{
