@@ -5,13 +5,17 @@ main.page__profile
   about-person
   about-me
   skills
+  more-employees
 </template>
 
 <script>
 import Skills from '@components/Skills/Skills'
+import MoreEmployees from '@components/MoreEmployees'
+
 export default {
   components:{
     Skills,
+    MoreEmployees,
   },
   data(){
     return{
@@ -25,5 +29,6 @@ export default {
 <style lang='scss'>
 .page__profile{
   margin-top: rem(50);
+  margin-bottom: rem(150);
 }
 </style>

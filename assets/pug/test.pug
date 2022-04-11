@@ -1,12 +1,23 @@
 include _mixins
-section.qualification-skills
-  h3.qualification-skills__title Квалификация 
-  .qualification-skills__items
-    .qualification-skills__item
-      span Курсы Skillbox
-      time.qualification-skills__time.qualification-skills__time_begin(datetime='2021') 2021
-      time.qualification-skills__time.qualification-skills__time_end(datetime='2022') 2022
-    .qualification-skills__item
-      span Курсы GeekBrains
-      time.qualification-skills__time.qualification-skills__time_begin(datetime='2019') 2019
-      time.qualification-skills__time.qualification-skills__time_end(datetime='2020') 2020
+section.more-employees
+  .more-employees__container
+    h2.more-employees__title
+    .more-employees__items
+      article.more-employees__item
+        .more-employees__item-img
+          +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов', '324', '320')
+        .more-employees__item-footer
+          .more-employees__item-title Антон Шаповалов
+          .more-employees__item-subtitle QA-специалист
+      article.more-employees__item
+        .more-employees__item-img
+          +image('@img/persons/anton-permyakov.jpg', 'Антон Пермяков', '324', '320')
+        .more-employees__item-footer
+          .more-employees__item-title Антон Пермяков
+          .more-employees__item-subtitle Директор, совладелец компании
+      article.more-employees__item
+        .more-employees__item-img
+          +image('@img/persons/andrey-stepanov.jpg', 'Андрей Степанов', '324', '320')
+        .more-employees__item-footer
+          .more-employees__item-title Андрей Степанов
+          .more-employees__item-subtitle Технический директор
