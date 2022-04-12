@@ -2,22 +2,32 @@
 include /_mixins
 section.about-person
   .about-person__container
-    .about-person__wrapper
+    .about-person__wrapper(v-for="profile in profiles" :key="profile.id_profile")
       .about-person__avatar
-        +image('@img/persons/mark-walton.jpg', 'Марк Уолтон', '384', '540')
+        img(:src='profile.last_name' :alt='profile.first_name' width='384' height='540' loading='lazy')
       .about-person__info
         .about-person__info-headings
-          h1.about-person__title Марк Уолтон
-          .about-person__subtitle Основатель компании
+          h1.about-person__title
+            | {{profile.first_name}}
+            |  
+            | {{profile.last_name}}
+          .about-person__subtitle {{profile.position_name}}
         .about-person__info-paragraphs
-          p.about-person__paragraph Марк — основатель fuse8 и сооснователь британского агентства Delete. Он обладает деловой хваткой и превосходными знаниями в области цифровых технологий и маркетинга.
-          p.about-person__paragraph Марк играет важную роль в управлении компанией и отвечает за развитие каждого отдельного сотрудника fuse8 и Delete, предоставляя всё необходимое для профессионального роста и процветания.
+          p.about-person__paragraph(v-html="profile.about_me")
         socials.about-person__socials
     personal-facts.about-person__facts
 </template>
 <script>
 export default {
   name: "about-person",
+  props:{
+    profiles: {
+      type: Array,
+    },
+    profile:{
+      type: Object
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -29,6 +39,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap-reverse;
   }
   // .about-person__avatar
   &__avatar {
@@ -43,7 +54,6 @@ export default {
   }
   // .about-person__title
   &__title {
-    // font-size: rem(78);
     @include adaptiveValue("font-size", 78, 54);
     font-weight: 900;
   }
@@ -59,11 +69,8 @@ export default {
   }
   // .about-person__paragraph
   &__paragraph {
-    font-size: rem(24);
+    @include adaptiveValue("font-size", 24, 16);
     font-weight: 700;
-    &:not(:last-child) {
-      margin-bottom: rem(20);
-    }
   }
   // .about-person__socials
   &__socials {

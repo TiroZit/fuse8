@@ -2,15 +2,18 @@
 header
 aside-bar
 main.page__profile
-  about-person
+  about-person(:profiles='profiles')
   about-me
   skills
   more-employees
+  button.page__btn-load(@click='fetchProfile') Загрузить данные 
+  //- spinner-loader
 </template>
 
 <script>
-import Skills from '@components/Skills/Skills'
-import MoreEmployees from '@components/MoreEmployees'
+import axios from 'axios';
+import Skills from '@components/Skills/Skills';
+import MoreEmployees from '@components/MoreEmployees';
 
 export default {
   components:{
@@ -19,10 +22,25 @@ export default {
   },
   data(){
     return{
+      profiles: [],
     }
   },
   methods:{
-  }
+    async fetchProfile(){
+      try {
+        // setTimeout(async() => {
+          const response = await axios.get('http://www.pageform.ru/api/profile/');
+          this.profiles = response.data.profile;
+          console.log(response.data.profile);
+        // }, 1000);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  mounted() {
+    this.fetchProfile();
+  },
 }
 </script>
 

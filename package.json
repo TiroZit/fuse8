@@ -78,6 +78,7 @@
 	},
 	"dependencies": {
 		"aos": "latest",
+		"axios": "^0.26.1",
 		"focus-visible": "latest",
 		"inputmask": "latest",
 		"lightgallery": "latest",

@@ -47,7 +47,7 @@ export default {
     width: fit-content;
     background-color: var(--color-yellow);
     padding: rem(5) rem(15) rem(5) rem(20);
-    @include media-breakpoint-up(pc){
+    @include media-breakpoint-up(container){
       margin-left: rem(-20);
     }
   }

@@ -56,11 +56,11 @@ const config = {
           fullySpecified: false,
         },
       },
-      {
-        test: /\.js$/,
-        loader: "babel-loader",
-        exclude: "/node_modules/",
-      },
+      // {
+      //   test: /\.js$/,
+      //   loader: "babel-loader",
+      //   exclude: "/node_modules/",
+      // },
       {
         test: /\.pug$/,
         oneOf: [
