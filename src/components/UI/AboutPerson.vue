@@ -2,32 +2,28 @@
 include /_mixins
 section.about-person
   .about-person__container
-    .about-person__wrapper(v-for="profile in profiles" :key="profile.id_profile")
+    .about-person__wrapper
       .about-person__avatar
-        img(:src='profile.last_name' :alt='profile.first_name' width='384' height='540' loading='lazy')
+        img(:src='`@img/persons/` + profile.photo' alt='' width='384' height='540' loading='lazy')
       .about-person__info
         .about-person__info-headings
           h1.about-person__title
-            | {{profile.first_name}}
+            | {{ profile.first_name }}
             |  
-            | {{profile.last_name}}
-          .about-person__subtitle {{profile.position_name}}
+            | {{ profile.last_name }}
+          .about-person__subtitle {{ profile.position_name }}
         .about-person__info-paragraphs
-          p.about-person__paragraph(v-html="profile.about_me")
+          p.about-person__paragraph() {{ profile.about_me }}
         socials.about-person__socials
-    personal-facts.about-person__facts
+    personal-facts.about-person__facts(:facts='facts' )
 </template>
 <script>
 export default {
   name: "about-person",
   props:{
-    profiles: {
-      type: Array,
-    },
-    profile:{
-      type: Object
-    }
-  }
+    profile: {},
+    facts: {}
+  },
 };
 </script>
 <style lang="scss" scoped>

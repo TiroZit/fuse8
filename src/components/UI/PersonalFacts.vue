@@ -1,22 +1,16 @@
 <template lang="pug">
 include /_mixins
 .personal-facts
-  .personal-facts__item
-    .personal-facts__title 13
-    .personal-facts__subtitle Законченых проектов
-  .personal-facts__item
-    .personal-facts__title 10
-    .personal-facts__subtitle Опыт работы
-  .personal-facts__item
-    .personal-facts__title 3
-    .personal-facts__subtitle Прекрасных детей
-  .personal-facts__item
-    .personal-facts__title 2
-    .personal-facts__subtitle оконченных образований 
+  .personal-facts__item(v-for="fact in facts" :key="fact.id_fact")
+    .personal-facts__title {{fact.count}}
+    .personal-facts__subtitle {{fact.name}}
 </template>
 <script>
 export default {
   name: "personal-facts",
+  props:{
+    facts: {}
+  },
 };
 </script>
 <style lang="scss" scoped>

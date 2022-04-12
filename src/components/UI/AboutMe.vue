@@ -4,19 +4,16 @@ section.about-me
   .about-me__container
     h2.about-me__title О себе
     .about-me__body
-      .about-me__item
-        h3.about-me__item-title Как я добился такого успеха?
-        p.about-me__item-decription Для современного мира сплочённость команды профессионалов однозначно определяет каждого участника как способного принимать собственные решения касаемо поэтапного и последовательного развития общества.
-      .about-me__item
-        h3.about-me__item-title Где работал до Fuse8?
-        p.about-me__item-decription Внезапно, независимые государства будут функционально разнесены на независимые элементы. Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: разбавленное изрядной полей.
-      .about-me__item
-        h3.about-me__item-title Сколько вы зарабатываете?
-        p.about-me__item-decription А также стремящиеся вытеснить традиционное производство, нанотехнологии на чай хватает популярность среди определенных слоев населения, а значит, должны быть функционально разнесены на независимые элементы.
+      .about-me__item(v-for="question in questions" :key="question.id_question")
+        h3.about-me__item-title {{question.question}}
+        p.about-me__item-decription {{question.answer}}
 </template>
 <script>
 export default {
   name: "about-me",
+  props:{
+    questions: {}
+  }
 };
 </script>
 <style lang="scss" scoped>

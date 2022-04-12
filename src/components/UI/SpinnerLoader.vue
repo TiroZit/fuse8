@@ -11,10 +11,12 @@ export default {
 .loader {
   display: block;
   position: relative;
+  // top: calc(50% - rem(100));
+  // left: calc(50% - rem(90));
+  margin: auto;
   width: rem(100);
   height: rem(100);
   border-radius: 50%;
-  margin: 0 auto;
   &::before,
   &::after {
     content: "";

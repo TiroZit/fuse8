@@ -2,19 +2,17 @@
 header
 aside-bar
 main.page__profile
-  about-person(:profiles='profiles')
-  about-me
+  about-person(:profile='profile' :facts='facts' v-if="!isProfileLoading")
+  spinner-loader(v-else)
+  about-me(:questions='questions')
   skills
   more-employees
-  button.page__btn-load(@click='fetchProfile') Загрузить данные 
-  //- spinner-loader
 </template>
 
 <script>
 import axios from 'axios';
 import Skills from '@components/Skills/Skills';
 import MoreEmployees from '@components/MoreEmployees';
-
 export default {
   components:{
     Skills,
@@ -22,19 +20,31 @@ export default {
   },
   data(){
     return{
-      profiles: [],
+      data: [],
+      profile: [],
+      facts: [],
+      questions: [],
+      isProfileLoading: false,
     }
   },
   methods:{
     async fetchProfile(){
       try {
-        // setTimeout(async() => {
+        this.isProfileLoading = true;
+        setTimeout(async() => {
           const response = await axios.get('http://www.pageform.ru/api/profile/');
-          this.profiles = response.data.profile;
-          console.log(response.data.profile);
-        // }, 1000);
+          this.data = response.data;
+          this.profile = this.data.profile[0];
+          this.facts = this.data.Fact;
+          this.questions = this.data.question;
+          console.log(this.data);
+          console.log(this.questions);
+          this.isProfileLoading = false;
+        }, 1000);
       } catch (error) {
         console.log(error);
+      } finally {
+        
       }
     }
   },
