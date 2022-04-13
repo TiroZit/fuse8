@@ -5,7 +5,7 @@ main.page__profile
   about-person(:profile='profile' :facts='facts' v-if="!isProfileLoading")
   about-me(:questions='questions' v-if="!isProfileLoading")
   skills(:skillsBase='skillsBase' :skillsSecondary='skillsSecondary' :qualifications='qualifications' v-if="!isProfileLoading")
-  spinner-loader(v-else)
+  //- spinner-loader(v-else)
   //- more-employees
 </template>
 
@@ -34,7 +34,7 @@ export default {
     async fetchProfile(){
       try {
         this.isProfileLoading = true;
-        setTimeout(async() => {
+        // setTimeout(async() => {
           const response = await axios.get('http://www.pageform.ru/api/profile/');
           this.data = response.data;
           this.profile = this.data.profile[0];
@@ -44,9 +44,9 @@ export default {
           this.skillsSecondary = this.data.skills[2];
           this.qualifications = this.data.certification;
           console.log(this.data);
-          console.log(this.qualifications);
+          console.log(this.profile);
           this.isProfileLoading = false;
-        }, 1000);
+        // }, 1000);
       } catch (error) {
         console.log(error);
       } finally {
@@ -62,7 +62,7 @@ export default {
 
 <style lang='scss'>
 .page__profile{
-  margin-top: rem(50);
-  margin-bottom: rem(150);
+  @include adaptiveValue("margin-top", 50, 0);
+  @include adaptiveValue("margin-bottom", 150, 50);
 }
 </style>

@@ -22,7 +22,7 @@ export default {
   // .qualification-skills__title
   &__title {
     font-weight: 700;
-    font-size: rem(26);
+    @include adaptiveValue("font-size", 26, 18);
   }
   // .qualification-skills__items
   &__items {
@@ -33,10 +33,10 @@ export default {
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    font-size: rem(26);
+    @include adaptiveValue("font-size", 26, 18);
     line-height: 1.1;
     &:not(:last-child) {
-      margin-bottom: rem(30);
+      @include adaptiveValue("margin-bottom", 30, 15);
     }
   }
   // .qualification-skills__time

@@ -3,8 +3,7 @@ include /_mixins
 section.about-person
   .about-person__container
     .about-person__wrapper
-      .about-person__avatar
-        img(:src='`@img/persons/` + profile.photo' alt='' width='384' height='540' loading='lazy')
+      img.about-person__avatar(:src='`@img/persons/` + profile.photo' alt='' loading='lazy')
       .about-person__info
         .about-person__info-headings
           h1.about-person__title
@@ -35,15 +34,25 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+    @include media-breakpoint-down(laptop-xxl){
+      justify-content: center;
+    }
   }
   // .about-person__avatar
   &__avatar {
+    @include adaptiveValue("width", 384, 268);
+    @include adaptiveValue("height", 540, 378);
+    @include media-breakpoint-down(laptop-xl){
+      margin-bottom: rem(20);
+    }
   }
   // .about-person__info
   &__info {
     flex: 0 1 rem(855);
-    margin-left: rem(20);
+    @include media-breakpoint-up(laptop-xl){
+      margin-left: rem(20);
+    }
   }
   // .about-person__info-headings
   &__info-headings {
@@ -61,19 +70,19 @@ export default {
   }
   // .about-person__info-paragraphs
   &__info-paragraphs {
-    margin-top: rem(50);
+    @include adaptiveValue("margin-top", 50, 35);
   }
   // .about-person__paragraph
   &__paragraph {
-    @include adaptiveValue("font-size", 24, 16);
+    @include adaptiveValue("font-size", 24, 18);
     font-weight: 700;
   }
   // .about-person__socials
   &__socials {
-    margin-top: rem(30);
+    @include adaptiveValue("margin-top", 30, 20);
   }
   &__facts{
-    margin-top: rem(85);
+    @include adaptiveValue("margin-top", 85, 55);
   }
 }
 </style>

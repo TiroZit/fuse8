@@ -19,18 +19,20 @@ export default {
   &__title,
   &__item{
     font-weight: 700;
-    font-size: 26px;
+    @include adaptiveValue("font-size", 26, 18);
   }
   &__items{
     display: flex;
     flex-wrap: wrap;
-    column-gap: rem(16);
-    row-gap: rem(18);
+    @include adaptiveValue("gap", 15, 10);
     margin-top: rem(25);
   }
   &__item{
     border: 1px solid var(--color-blackRaisin);
     padding: rem(10) rem(25);
+    @include media-breakpoint-down(tablet){
+      padding: rem(10) rem(15);
+    }
   }
 }
 </style>

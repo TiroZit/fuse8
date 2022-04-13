@@ -29,12 +29,12 @@ export default {
   }
   // .personal-facts__title
   &__title {
-    font-size: rem(60);
+    @include adaptiveValue("font-size", 60, 42);
     font-weight: 700;
   }
   // .personal-facts__subtitle
   &__subtitle {
-    font-size: rem(22);
+    @include adaptiveValue("font-size", 22, 18);
     font-weight: 500;
   }
 }

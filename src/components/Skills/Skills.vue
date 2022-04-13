@@ -28,19 +28,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 .skills{
-  margin-top: rem(70);
+  @include adaptiveValue("margin-top", 70, 55);
   &__title{
     font-weight: 900;
-    font-size: rem(60);
+    @include adaptiveValue("font-size", 60, 42);
   }
   &__basic-skills{
     margin-top: rem(25);
   }
   &__secondary-skills{
-    margin-top: rem(55);
+    @include adaptiveValue("margin-top", 55, 40);
   }
   &__qualification-skills{
-    margin-top: rem(55);
+    @include adaptiveValue("margin-top", 55, 40);
   }
 }
 </style>

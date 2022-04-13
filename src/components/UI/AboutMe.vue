@@ -18,14 +18,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .about-me {
-  margin-top: rem(70);
+  @include adaptiveValue("margin-top", 70, 55);
   // .about-me__container
   &__container {
   }
   // .about-me__title
   &__title {
     font-weight: 900;
-    font-size: rem(60);
+    @include adaptiveValue("font-size", 60, 42);
   }
   // .about-me__body
   &__body {
@@ -34,13 +34,13 @@ export default {
   // .about-me__item
   &__item {
     &:not(:last-child) {
-      margin-bottom: rem(70);
+      @include adaptiveValue("margin-bottom", 70, 30);
     }
   }
   // .about-me__item-title
   &__item-title {
     font-weight: 500;
-    font-size: rem(38);
+    @include adaptiveValue("font-size", 38, 22);
     width: fit-content;
     background-color: var(--color-yellow);
     padding: rem(5) rem(15) rem(5) rem(20);
@@ -50,7 +50,7 @@ export default {
   }
   // .about-me__item-decription
   &__item-decription {
-    font-size: rem(26);
+    @include adaptiveValue("font-size", 26, 16);
     margin-top: rem(5);
   }
 }
