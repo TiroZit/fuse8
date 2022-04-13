@@ -10,16 +10,26 @@ main.page__profile
 </template>
 
 <script>
-import axios from 'axios';
-import Skills from '@components/Skills/Skills';
-import MoreEmployees from '@components/MoreEmployees';
+import axios from "axios";
+
+import Skills from "@components/Skills/Skills";
+import MoreEmployees from "@components/MoreEmployees";
+import AboutPerson from "@components/Profile/AboutPerson";
+import Socials from "@components/Profile/Socials";
+import PersonalFacts from "@components/Profile/PersonalFacts";
+import AboutMe from "@components/Profile/AboutMe";
+
 export default {
-  components:{
+  components: {
     Skills,
     MoreEmployees,
+    AboutPerson,
+    Socials,
+    PersonalFacts,
+    AboutMe,
   },
-  data(){
-    return{
+  data() {
+    return {
       data: [],
       profile: [],
       facts: [],
@@ -28,14 +38,14 @@ export default {
       skillsSecondary: [],
       qualifications: [],
       isProfileLoading: false,
-    }
+    };
   },
-  methods:{
-    async fetchProfile(){
+  methods: {
+    async fetchProfile() {
       try {
         this.isProfileLoading = true;
-        // setTimeout(async() => {
-          const response = await axios.get('http://www.pageform.ru/api/profile/');
+        setTimeout(async() => {
+          const response = await axios.get("http://www.pageform.ru/api/profile/");
           this.data = response.data;
           this.profile = this.data.profile[0];
           this.facts = this.data.Fact;
@@ -43,25 +53,22 @@ export default {
           this.skillsBase = this.data.skills[1];
           this.skillsSecondary = this.data.skills[2];
           this.qualifications = this.data.certification;
-          console.log(this.data);
-          console.log(this.profile);
           this.isProfileLoading = false;
-        // }, 1000);
+        }, 1000);
       } catch (error) {
         console.log(error);
       } finally {
-        
       }
-    }
+    },
   },
   mounted() {
     this.fetchProfile();
   },
-}
+};
 </script>
 
-<style lang='scss'>
-.page__profile{
+<style lang="scss">
+.page__profile {
   @include adaptiveValue("margin-top", 50, 0);
   @include adaptiveValue("margin-bottom", 150, 50);
 }
