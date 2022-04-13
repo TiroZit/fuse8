@@ -5,8 +5,8 @@ main.page__profile
   about-person(:profile='profile' :facts='facts' v-if="!isProfileLoading")
   about-me(:questions='questions' v-if="!isProfileLoading")
   skills(:skillsBase='skillsBase' :skillsSecondary='skillsSecondary' :qualifications='qualifications' v-if="!isProfileLoading")
-  //- spinner-loader(v-else)
-  //- more-employees
+  spinner-loader(v-else)
+  more-employees
 </template>
 
 <script>
