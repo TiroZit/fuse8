@@ -204,6 +204,8 @@ const config = {
       "@js": `${paths.src}/js`,
       "@img": `${paths.assets}/img`,
       "@components": `${paths.src}/components`,
+      "@pages": `${paths.src}/pages`,
+      "@router": `${paths.src}/router`,
       "vue": "@vue/runtime-dom",
     },
     extensions: ['.vue', '.js', '.json']

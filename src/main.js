@@ -6,6 +6,7 @@ import '@js/index.js';
 
 import { createApp } from 'vue';
 import App from './App.vue';
+import router from '@router/router';
 // Импорт UI компонентов
 import components from '@components/UI/_index';
 
@@ -18,4 +19,6 @@ if(components.length >= 1) {
   });
 };
 
-app.mount('#app');
+app
+  .use(router)
+  .mount('#app');
