@@ -10,9 +10,9 @@ export default {
 <style lang="scss" scoped>
 .loader {
   display: block;
-  position: relative;
-  // top: calc(50% - rem(100));
-  // left: calc(50% - rem(90));
+  position: absolute;
+  top: calc(50% - rem(100));
+  left: calc(50% - rem(90));
   margin: auto;
   width: rem(100);
   height: rem(100);

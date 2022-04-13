@@ -3,14 +3,15 @@ include /_mixins
 section.basic-skills
   h3.basic-skills__title Основные навыки
   .basic-skills__items
-    .basic-skills__item Креативное мышление
-    .basic-skills__item Web-design
-    .basic-skills__item UX-design
-    .basic-skills__item Фигменный стиль
+    .basic-skills__item(v-for="skillBase in skillsBase" :key="skillBase.length")
+      .basic-skills__item-title {{ skillBase }}
 </template>
 <script>
 export default {
-  name: 'basic-skills'
+  name: 'basic-skills',
+  props:{
+    skillsBase: {},
+  }
 }
 </script>
 <style lang="scss">

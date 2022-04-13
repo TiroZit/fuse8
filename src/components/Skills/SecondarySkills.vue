@@ -3,17 +3,15 @@ include /_mixins
 section.secondary-skills
   h3.secondary-skills__title Вторичные навыки
   .secondary-skills__items
-    .secondary-skills__item Арт-дизайн
-    .secondary-skills__item CSS
-    .secondary-skills__item Брендинг
-    .secondary-skills__item Графический дизайнер
-    .secondary-skills__item HTML
-    .secondary-skills__item Социальные сети
-    .secondary-skills__item Иллюстрации
+    .secondary-skills__item(v-for="skillSecondary in skillsSecondary" :key="skillSecondary.length")
+      .secondary-skills__item-title {{ skillSecondary }}
 </template>
 <script>
 export default {
   name: 'secondary-skills',
+  props:{
+    skillsSecondary: {},
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -3,21 +3,18 @@ include /_mixins
 section.qualification-skills
   h3.qualification-skills__title Квалификация 
   .qualification-skills__items
-    .qualification-skills__item
-      span Курсы Skillbox
+    .qualification-skills__item(v-for="qualification in qualifications" :key="qualification.id_certification")
+      span {{ qualification.title }}
       span
-        time.qualification-skills__time.qualification-skills__time_begin(datetime='2021') 2021
-        time.qualification-skills__time.qualification-skills__time_end(datetime='2022') 2022
-    .qualification-skills__item
-      span Курсы GeekBrains
-      span
-        time.qualification-skills__time.qualification-skills__time_begin(datetime='2019') 2019
-        time.qualification-skills__time.qualification-skills__time_end(datetime='2020') 2020
-
+        time.qualification-skills__time.qualification-skills__time_begin(:datetime='qualification.start_year') {{ qualification.start_year }}
+        time.qualification-skills__time.qualification-skills__time_end(:datetime='qualification.ended_year') {{ qualification.ended_year }}
 </template>
 <script>
 export default {
   name: "qualification-skills",
+  props:{
+    qualifications: {}
+  }
 };
 </script>
 <style lang="scss" scoped>

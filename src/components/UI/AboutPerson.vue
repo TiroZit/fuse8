@@ -13,9 +13,9 @@ section.about-person
             | {{ profile.last_name }}
           .about-person__subtitle {{ profile.position_name }}
         .about-person__info-paragraphs
-          p.about-person__paragraph() {{ profile.about_me }}
+          p.about-person__paragraph(v-html="profile.about_me")
         socials.about-person__socials
-    personal-facts.about-person__facts(:facts='facts' )
+    personal-facts.about-person__facts(:facts='facts')
 </template>
 <script>
 export default {

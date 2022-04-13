@@ -3,9 +3,9 @@ include /_mixins
 section.skills
   .skills__container
     h2.skills__title Навыки
-    basic-skills.skills__basic-skills
-    secondary-skills.skills__secondary-skills
-    qualification-skills.skills__qualification-skills
+    basic-skills.skills__basic-skills(:skillsBase='skillsBase')
+    secondary-skills.skills__secondary-skills(:skillsSecondary='skillsSecondary')
+    qualification-skills.skills__qualification-skills(:qualifications='qualifications')
 </template>
 <script>
 import BasicSkills from '@components/Skills/BasicSkills'
@@ -14,6 +14,11 @@ import QualificationSkills from '@components/Skills/QualificationSkills'
 
 export default {
   name: 'skills',
+  props:{
+    skillsBase: {},
+    skillsSecondary: {},
+    qualifications: {},
+  },
   components:{
     BasicSkills,
     SecondarySkills,

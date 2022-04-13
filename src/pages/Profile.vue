@@ -3,10 +3,10 @@ header
 aside-bar
 main.page__profile
   about-person(:profile='profile' :facts='facts' v-if="!isProfileLoading")
+  about-me(:questions='questions' v-if="!isProfileLoading")
+  skills(:skillsBase='skillsBase' :skillsSecondary='skillsSecondary' :qualifications='qualifications' v-if="!isProfileLoading")
   spinner-loader(v-else)
-  about-me(:questions='questions')
-  skills
-  more-employees
+  //- more-employees
 </template>
 
 <script>
@@ -24,6 +24,9 @@ export default {
       profile: [],
       facts: [],
       questions: [],
+      skillsBase: [],
+      skillsSecondary: [],
+      qualifications: [],
       isProfileLoading: false,
     }
   },
@@ -37,8 +40,11 @@ export default {
           this.profile = this.data.profile[0];
           this.facts = this.data.Fact;
           this.questions = this.data.question;
+          this.skillsBase = this.data.skills[1];
+          this.skillsSecondary = this.data.skills[2];
+          this.qualifications = this.data.certification;
           console.log(this.data);
-          console.log(this.questions);
+          console.log(this.qualifications);
           this.isProfileLoading = false;
         }, 1000);
       } catch (error) {
