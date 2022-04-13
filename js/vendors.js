@@ -17,6 +17,9 @@
       PG: function() {
         return isReactive;
       },
+      SU: function() {
+        return unref;
+      },
       Um: function() {
         return shallowReactive;
       },
@@ -29,11 +32,17 @@
       X3: function() {
         return isProxy;
       },
+      XI: function() {
+        return shallowRef;
+      },
       Xl: function() {
         return markRaw;
       },
       dq: function() {
         return isRef;
+      },
+      iH: function() {
+        return ref;
       },
       j: function() {
         return track;
@@ -642,6 +651,37 @@
     function isRef(r) {
       return !!(r && true === r.__v_isRef);
     }
+    function ref(value) {
+      return createRef(value, false);
+    }
+    function shallowRef(value) {
+      return createRef(value, true);
+    }
+    function createRef(rawValue, shallow) {
+      if (isRef(rawValue)) return rawValue;
+      return new RefImpl(rawValue, shallow);
+    }
+    class RefImpl {
+      constructor(value, __v_isShallow) {
+        this.__v_isShallow = __v_isShallow;
+        this.dep = void 0;
+        this.__v_isRef = true;
+        this._rawValue = __v_isShallow ? value : toRaw(value);
+        this._value = __v_isShallow ? value : toReactive(value);
+      }
+      get value() {
+        trackRefValue(this);
+        return this._value;
+      }
+      set value(newVal) {
+        newVal = this.__v_isShallow ? newVal : toRaw(newVal);
+        if ((0, _vue_shared__WEBPACK_IMPORTED_MODULE_0__.aU)(newVal, this._rawValue)) {
+          this._rawValue = newVal;
+          this._value = this.__v_isShallow ? newVal : toReactive(newVal);
+          triggerRefValue(this, newVal);
+        }
+      }
+    }
     function unref(ref) {
       return isRef(ref) ? ref.value : ref;
     }
@@ -717,8 +757,14 @@
       FN: function() {
         return getCurrentInstance;
       },
+      Fl: function() {
+        return computed;
+      },
       HY: function() {
         return Fragment;
+      },
+      JJ: function() {
+        return provide;
       },
       Ko: function() {
         return renderList;
@@ -738,14 +784,26 @@
       Wm: function() {
         return createVNode;
       },
+      Y3: function() {
+        return nextTick;
+      },
       Y8: function() {
         return useTransitionState;
+      },
+      YP: function() {
+        return watch;
       },
       _: function() {
         return createBaseVNode;
       },
+      aZ: function() {
+        return defineComponent;
+      },
       dD: function() {
         return pushScopeId;
+      },
+      f3: function() {
+        return inject;
       },
       h: function() {
         return h;
@@ -758,6 +816,12 @@
       },
       j4: function() {
         return createBlock;
+      },
+      kq: function() {
+        return createCommentVNode;
+      },
+      m0: function() {
+        return watchEffect;
       },
       nK: function() {
         return setTransitionHooks;
@@ -1211,6 +1275,9 @@
         _vue_shared__WEBPACK_IMPORTED_MODULE_0__.mf)(defaultValue) ? defaultValue.call(instance.proxy) : defaultValue; else if (false) ;
       } else if (false) ;
     }
+    function watchEffect(effect, options) {
+      return doWatch(effect, null, options);
+    }
     const INITIAL_WATCHER_VALUE = {};
     function watch(source, cb, options) {
       if (false) ;
@@ -1511,6 +1578,12 @@
       }
       if (keyedFragmentCount > 1) for (let i = 0; i < ret.length; i++) ret[i].patchFlag = -2;
       return ret;
+    }
+    function defineComponent(options) {
+      return (0, _vue_shared__WEBPACK_IMPORTED_MODULE_0__.mf)(options) ? {
+        setup: options,
+        name: options.name
+      } : options;
     }
     const isAsyncWrapper = i => !!i.type.__asyncLoader;
     const isKeepAlive = vnode => vnode.type.__isKeepAlive;
@@ -3013,6 +3086,9 @@
       const vnode = createVNode(Static, null, content);
       vnode.staticCount = numberOfNodes;
       return vnode;
+    }
+    function createCommentVNode(text = "", asBlock = false) {
+      return asBlock ? (openBlock(), createBlock(Comment, null, text)) : createVNode(Comment, null, text);
     }
     function normalizeVNode(child) {
       if (null == child || "boolean" === typeof child) return createVNode(Comment); else if ((0, 
@@ -5196,6 +5272,1917 @@
       for (const [key, val] of props) target[key] = val;
       return target;
     };
+  },
+  4949: function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+    __webpack_require__.d(__webpack_exports__, {
+      p7: function() {
+        return createRouter;
+      },
+      PO: function() {
+        return createWebHistory;
+      }
+    });
+    var runtime_core_esm_bundler = __webpack_require__(6252);
+    var reactivity_esm_bundler = __webpack_require__(2262);
+    function getDevtoolsGlobalHook() {
+      return getTarget().__VUE_DEVTOOLS_GLOBAL_HOOK__;
+    }
+    function getTarget() {
+      return "undefined" !== typeof navigator && "undefined" !== typeof window ? window : "undefined" !== typeof __webpack_require__.g ? __webpack_require__.g : {};
+    }
+    const isProxyAvailable = "function" === typeof Proxy;
+    const HOOK_SETUP = "devtools-plugin:setup";
+    const HOOK_PLUGIN_SETTINGS_SET = "plugin:settings:set";
+    let supported;
+    let perf;
+    function isPerformanceSupported() {
+      var _a;
+      if (void 0 !== supported) return supported;
+      if ("undefined" !== typeof window && window.performance) {
+        supported = true;
+        perf = window.performance;
+      } else if ("undefined" !== typeof __webpack_require__.g && (null === (_a = __webpack_require__.g.perf_hooks) || void 0 === _a ? void 0 : _a.performance)) {
+        supported = true;
+        perf = __webpack_require__.g.perf_hooks.performance;
+      } else supported = false;
+      return supported;
+    }
+    function now() {
+      return isPerformanceSupported() ? perf.now() : Date.now();
+    }
+    class ApiProxy {
+      constructor(plugin, hook) {
+        this.target = null;
+        this.targetQueue = [];
+        this.onQueue = [];
+        this.plugin = plugin;
+        this.hook = hook;
+        const defaultSettings = {};
+        if (plugin.settings) for (const id in plugin.settings) {
+          const item = plugin.settings[id];
+          defaultSettings[id] = item.defaultValue;
+        }
+        const localSettingsSaveId = `__vue-devtools-plugin-settings__${plugin.id}`;
+        let currentSettings = Object.assign({}, defaultSettings);
+        try {
+          const raw = localStorage.getItem(localSettingsSaveId);
+          const data = JSON.parse(raw);
+          Object.assign(currentSettings, data);
+        } catch (e) {}
+        this.fallbacks = {
+          getSettings() {
+            return currentSettings;
+          },
+          setSettings(value) {
+            try {
+              localStorage.setItem(localSettingsSaveId, JSON.stringify(value));
+            } catch (e) {}
+            currentSettings = value;
+          },
+          now() {
+            return now();
+          }
+        };
+        if (hook) hook.on(HOOK_PLUGIN_SETTINGS_SET, ((pluginId, value) => {
+          if (pluginId === this.plugin.id) this.fallbacks.setSettings(value);
+        }));
+        this.proxiedOn = new Proxy({}, {
+          get: (_target, prop) => {
+            if (this.target) return this.target.on[prop]; else return (...args) => {
+              this.onQueue.push({
+                method: prop,
+                args: args
+              });
+            };
+          }
+        });
+        this.proxiedTarget = new Proxy({}, {
+          get: (_target, prop) => {
+            if (this.target) return this.target[prop]; else if ("on" === prop) return this.proxiedOn; else if (Object.keys(this.fallbacks).includes(prop)) return (...args) => {
+              this.targetQueue.push({
+                method: prop,
+                args: args,
+                resolve: () => {}
+              });
+              return this.fallbacks[prop](...args);
+            }; else return (...args) => new Promise((resolve => {
+              this.targetQueue.push({
+                method: prop,
+                args: args,
+                resolve: resolve
+              });
+            }));
+          }
+        });
+      }
+      async setRealTarget(target) {
+        this.target = target;
+        for (const item of this.onQueue) this.target.on[item.method](...item.args);
+        for (const item of this.targetQueue) item.resolve(await this.target[item.method](...item.args));
+      }
+    }
+    function setupDevtoolsPlugin(pluginDescriptor, setupFn) {
+      const descriptor = pluginDescriptor;
+      const target = getTarget();
+      const hook = getDevtoolsGlobalHook();
+      const enableProxy = isProxyAvailable && descriptor.enableEarlyProxy;
+      if (hook && (target.__VUE_DEVTOOLS_PLUGIN_API_AVAILABLE__ || !enableProxy)) hook.emit(HOOK_SETUP, pluginDescriptor, setupFn); else {
+        const proxy = enableProxy ? new ApiProxy(descriptor, hook) : null;
+        const list = target.__VUE_DEVTOOLS_PLUGINS__ = target.__VUE_DEVTOOLS_PLUGINS__ || [];
+        list.push({
+          pluginDescriptor: descriptor,
+          setupFn: setupFn,
+          proxy: proxy
+        });
+        if (proxy) setupFn(proxy.proxiedTarget);
+      }
+    }
+    /*!
+  * vue-router v4.0.14
+  * (c) 2022 Eduardo San Martin Morote
+  * @license MIT
+  */
+    const hasSymbol = "function" === typeof Symbol && "symbol" === typeof Symbol.toStringTag;
+    const PolySymbol = name => hasSymbol ? Symbol(false ? 0 : name) : (false ? 0 : "_vr_") + name;
+    const matchedRouteKey = PolySymbol(false ? 0 : "rvlm");
+    const viewDepthKey = PolySymbol(false ? 0 : "rvd");
+    const routerKey = PolySymbol(false ? 0 : "r");
+    const routeLocationKey = PolySymbol(false ? 0 : "rl");
+    const routerViewLocationKey = PolySymbol(false ? 0 : "rvl");
+    const isBrowser = "undefined" !== typeof window;
+    function isESModule(obj) {
+      return obj.__esModule || hasSymbol && "Module" === obj[Symbol.toStringTag];
+    }
+    const vue_router_esm_bundler_assign = Object.assign;
+    function applyToParams(fn, params) {
+      const newParams = {};
+      for (const key in params) {
+        const value = params[key];
+        newParams[key] = Array.isArray(value) ? value.map(fn) : fn(value);
+      }
+      return newParams;
+    }
+    const noop = () => {};
+    const TRAILING_SLASH_RE = /\/$/;
+    const removeTrailingSlash = path => path.replace(TRAILING_SLASH_RE, "");
+    function parseURL(parseQuery, location, currentLocation = "/") {
+      let path, query = {}, searchString = "", hash = "";
+      const searchPos = location.indexOf("?");
+      const hashPos = location.indexOf("#", searchPos > -1 ? searchPos : 0);
+      if (searchPos > -1) {
+        path = location.slice(0, searchPos);
+        searchString = location.slice(searchPos + 1, hashPos > -1 ? hashPos : location.length);
+        query = parseQuery(searchString);
+      }
+      if (hashPos > -1) {
+        path = path || location.slice(0, hashPos);
+        hash = location.slice(hashPos, location.length);
+      }
+      path = resolveRelativePath(null != path ? path : location, currentLocation);
+      return {
+        fullPath: path + (searchString && "?") + searchString + hash,
+        path: path,
+        query: query,
+        hash: hash
+      };
+    }
+    function stringifyURL(stringifyQuery, location) {
+      const query = location.query ? stringifyQuery(location.query) : "";
+      return location.path + (query && "?") + query + (location.hash || "");
+    }
+    function stripBase(pathname, base) {
+      if (!base || !pathname.toLowerCase().startsWith(base.toLowerCase())) return pathname;
+      return pathname.slice(base.length) || "/";
+    }
+    function isSameRouteLocation(stringifyQuery, a, b) {
+      const aLastIndex = a.matched.length - 1;
+      const bLastIndex = b.matched.length - 1;
+      return aLastIndex > -1 && aLastIndex === bLastIndex && isSameRouteRecord(a.matched[aLastIndex], b.matched[bLastIndex]) && isSameRouteLocationParams(a.params, b.params) && stringifyQuery(a.query) === stringifyQuery(b.query) && a.hash === b.hash;
+    }
+    function isSameRouteRecord(a, b) {
+      return (a.aliasOf || a) === (b.aliasOf || b);
+    }
+    function isSameRouteLocationParams(a, b) {
+      if (Object.keys(a).length !== Object.keys(b).length) return false;
+      for (const key in a) if (!isSameRouteLocationParamsValue(a[key], b[key])) return false;
+      return true;
+    }
+    function isSameRouteLocationParamsValue(a, b) {
+      return Array.isArray(a) ? isEquivalentArray(a, b) : Array.isArray(b) ? isEquivalentArray(b, a) : a === b;
+    }
+    function isEquivalentArray(a, b) {
+      return Array.isArray(b) ? a.length === b.length && a.every(((value, i) => value === b[i])) : 1 === a.length && a[0] === b;
+    }
+    function resolveRelativePath(to, from) {
+      if (to.startsWith("/")) return to;
+      if (false) ;
+      if (!to) return from;
+      const fromSegments = from.split("/");
+      const toSegments = to.split("/");
+      let position = fromSegments.length - 1;
+      let toPosition;
+      let segment;
+      for (toPosition = 0; toPosition < toSegments.length; toPosition++) {
+        segment = toSegments[toPosition];
+        if (1 === position || "." === segment) continue;
+        if (".." === segment) position--; else break;
+      }
+      return fromSegments.slice(0, position).join("/") + "/" + toSegments.slice(toPosition - (toPosition === toSegments.length ? 1 : 0)).join("/");
+    }
+    var NavigationType;
+    (function(NavigationType) {
+      NavigationType["pop"] = "pop";
+      NavigationType["push"] = "push";
+    })(NavigationType || (NavigationType = {}));
+    var NavigationDirection;
+    (function(NavigationDirection) {
+      NavigationDirection["back"] = "back";
+      NavigationDirection["forward"] = "forward";
+      NavigationDirection["unknown"] = "";
+    })(NavigationDirection || (NavigationDirection = {}));
+    function normalizeBase(base) {
+      if (!base) if (isBrowser) {
+        const baseEl = document.querySelector("base");
+        base = baseEl && baseEl.getAttribute("href") || "/";
+        base = base.replace(/^\w+:\/\/[^\/]+/, "");
+      } else base = "/";
+      if ("/" !== base[0] && "#" !== base[0]) base = "/" + base;
+      return removeTrailingSlash(base);
+    }
+    const BEFORE_HASH_RE = /^[^#]+#/;
+    function createHref(base, location) {
+      return base.replace(BEFORE_HASH_RE, "#") + location;
+    }
+    function getElementPosition(el, offset) {
+      const docRect = document.documentElement.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      return {
+        behavior: offset.behavior,
+        left: elRect.left - docRect.left - (offset.left || 0),
+        top: elRect.top - docRect.top - (offset.top || 0)
+      };
+    }
+    const computeScrollPosition = () => ({
+      left: window.pageXOffset,
+      top: window.pageYOffset
+    });
+    function scrollToPosition(position) {
+      let scrollToOptions;
+      if ("el" in position) {
+        const positionEl = position.el;
+        const isIdSelector = "string" === typeof positionEl && positionEl.startsWith("#");
+        if (false) ;
+        const el = "string" === typeof positionEl ? isIdSelector ? document.getElementById(positionEl.slice(1)) : document.querySelector(positionEl) : positionEl;
+        if (!el) {
+          false && 0;
+          return;
+        }
+        scrollToOptions = getElementPosition(el, position);
+      } else scrollToOptions = position;
+      if ("scrollBehavior" in document.documentElement.style) window.scrollTo(scrollToOptions); else window.scrollTo(null != scrollToOptions.left ? scrollToOptions.left : window.pageXOffset, null != scrollToOptions.top ? scrollToOptions.top : window.pageYOffset);
+    }
+    function getScrollKey(path, delta) {
+      const position = history.state ? history.state.position - delta : -1;
+      return position + path;
+    }
+    const scrollPositions = new Map;
+    function saveScrollPosition(key, scrollPosition) {
+      scrollPositions.set(key, scrollPosition);
+    }
+    function getSavedScrollPosition(key) {
+      const scroll = scrollPositions.get(key);
+      scrollPositions.delete(key);
+      return scroll;
+    }
+    let createBaseLocation = () => location.protocol + "//" + location.host;
+    function createCurrentLocation(base, location) {
+      const {pathname: pathname, search: search, hash: hash} = location;
+      const hashPos = base.indexOf("#");
+      if (hashPos > -1) {
+        let slicePos = hash.includes(base.slice(hashPos)) ? base.slice(hashPos).length : 1;
+        let pathFromHash = hash.slice(slicePos);
+        if ("/" !== pathFromHash[0]) pathFromHash = "/" + pathFromHash;
+        return stripBase(pathFromHash, "");
+      }
+      const path = stripBase(pathname, base);
+      return path + search + hash;
+    }
+    function useHistoryListeners(base, historyState, currentLocation, replace) {
+      let listeners = [];
+      let teardowns = [];
+      let pauseState = null;
+      const popStateHandler = ({state: state}) => {
+        const to = createCurrentLocation(base, location);
+        const from = currentLocation.value;
+        const fromState = historyState.value;
+        let delta = 0;
+        if (state) {
+          currentLocation.value = to;
+          historyState.value = state;
+          if (pauseState && pauseState === from) {
+            pauseState = null;
+            return;
+          }
+          delta = fromState ? state.position - fromState.position : 0;
+        } else replace(to);
+        listeners.forEach((listener => {
+          listener(currentLocation.value, from, {
+            delta: delta,
+            type: NavigationType.pop,
+            direction: delta ? delta > 0 ? NavigationDirection.forward : NavigationDirection.back : NavigationDirection.unknown
+          });
+        }));
+      };
+      function pauseListeners() {
+        pauseState = currentLocation.value;
+      }
+      function listen(callback) {
+        listeners.push(callback);
+        const teardown = () => {
+          const index = listeners.indexOf(callback);
+          if (index > -1) listeners.splice(index, 1);
+        };
+        teardowns.push(teardown);
+        return teardown;
+      }
+      function beforeUnloadListener() {
+        const {history: history} = window;
+        if (!history.state) return;
+        history.replaceState(vue_router_esm_bundler_assign({}, history.state, {
+          scroll: computeScrollPosition()
+        }), "");
+      }
+      function destroy() {
+        for (const teardown of teardowns) teardown();
+        teardowns = [];
+        window.removeEventListener("popstate", popStateHandler);
+        window.removeEventListener("beforeunload", beforeUnloadListener);
+      }
+      window.addEventListener("popstate", popStateHandler);
+      window.addEventListener("beforeunload", beforeUnloadListener);
+      return {
+        pauseListeners: pauseListeners,
+        listen: listen,
+        destroy: destroy
+      };
+    }
+    function buildState(back, current, forward, replaced = false, computeScroll = false) {
+      return {
+        back: back,
+        current: current,
+        forward: forward,
+        replaced: replaced,
+        position: window.history.length,
+        scroll: computeScroll ? computeScrollPosition() : null
+      };
+    }
+    function useHistoryStateNavigation(base) {
+      const {history: history, location: location} = window;
+      const currentLocation = {
+        value: createCurrentLocation(base, location)
+      };
+      const historyState = {
+        value: history.state
+      };
+      if (!historyState.value) changeLocation(currentLocation.value, {
+        back: null,
+        current: currentLocation.value,
+        forward: null,
+        position: history.length - 1,
+        replaced: true,
+        scroll: null
+      }, true);
+      function changeLocation(to, state, replace) {
+        const hashIndex = base.indexOf("#");
+        const url = hashIndex > -1 ? (location.host && document.querySelector("base") ? base : base.slice(hashIndex)) + to : createBaseLocation() + base + to;
+        try {
+          history[replace ? "replaceState" : "pushState"](state, "", url);
+          historyState.value = state;
+        } catch (err) {
+          if (false) ; else console.error(err);
+          location[replace ? "replace" : "assign"](url);
+        }
+      }
+      function replace(to, data) {
+        const state = vue_router_esm_bundler_assign({}, history.state, buildState(historyState.value.back, to, historyState.value.forward, true), data, {
+          position: historyState.value.position
+        });
+        changeLocation(to, state, true);
+        currentLocation.value = to;
+      }
+      function push(to, data) {
+        const currentState = vue_router_esm_bundler_assign({}, historyState.value, history.state, {
+          forward: to,
+          scroll: computeScrollPosition()
+        });
+        if (false) ;
+        changeLocation(currentState.current, currentState, true);
+        const state = vue_router_esm_bundler_assign({}, buildState(currentLocation.value, to, null), {
+          position: currentState.position + 1
+        }, data);
+        changeLocation(to, state, false);
+        currentLocation.value = to;
+      }
+      return {
+        location: currentLocation,
+        state: historyState,
+        push: push,
+        replace: replace
+      };
+    }
+    function createWebHistory(base) {
+      base = normalizeBase(base);
+      const historyNavigation = useHistoryStateNavigation(base);
+      const historyListeners = useHistoryListeners(base, historyNavigation.state, historyNavigation.location, historyNavigation.replace);
+      function go(delta, triggerListeners = true) {
+        if (!triggerListeners) historyListeners.pauseListeners();
+        history.go(delta);
+      }
+      const routerHistory = vue_router_esm_bundler_assign({
+        location: "",
+        base: base,
+        go: go,
+        createHref: createHref.bind(null, base)
+      }, historyNavigation, historyListeners);
+      Object.defineProperty(routerHistory, "location", {
+        enumerable: true,
+        get: () => historyNavigation.location.value
+      });
+      Object.defineProperty(routerHistory, "state", {
+        enumerable: true,
+        get: () => historyNavigation.state.value
+      });
+      return routerHistory;
+    }
+    function isRouteLocation(route) {
+      return "string" === typeof route || route && "object" === typeof route;
+    }
+    function isRouteName(name) {
+      return "string" === typeof name || "symbol" === typeof name;
+    }
+    const START_LOCATION_NORMALIZED = {
+      path: "/",
+      name: void 0,
+      params: {},
+      query: {},
+      hash: "",
+      fullPath: "/",
+      matched: [],
+      meta: {},
+      redirectedFrom: void 0
+    };
+    const NavigationFailureSymbol = PolySymbol(false ? 0 : "nf");
+    var NavigationFailureType;
+    (function(NavigationFailureType) {
+      NavigationFailureType[NavigationFailureType["aborted"] = 4] = "aborted";
+      NavigationFailureType[NavigationFailureType["cancelled"] = 8] = "cancelled";
+      NavigationFailureType[NavigationFailureType["duplicated"] = 16] = "duplicated";
+    })(NavigationFailureType || (NavigationFailureType = {}));
+    1, 2, 4, 8, 16;
+    function createRouterError(type, params) {
+      if (false) ; else return vue_router_esm_bundler_assign(new Error, {
+        type: type,
+        [NavigationFailureSymbol]: true
+      }, params);
+    }
+    function isNavigationFailure(error, type) {
+      return error instanceof Error && NavigationFailureSymbol in error && (null == type || !!(error.type & type));
+    }
+    const BASE_PARAM_PATTERN = "[^/]+?";
+    const BASE_PATH_PARSER_OPTIONS = {
+      sensitive: false,
+      strict: false,
+      start: true,
+      end: true
+    };
+    const REGEX_CHARS_RE = /[.+*?^${}()[\]/\\]/g;
+    function tokensToParser(segments, extraOptions) {
+      const options = vue_router_esm_bundler_assign({}, BASE_PATH_PARSER_OPTIONS, extraOptions);
+      const score = [];
+      let pattern = options.start ? "^" : "";
+      const keys = [];
+      for (const segment of segments) {
+        const segmentScores = segment.length ? [] : [ 90 ];
+        if (options.strict && !segment.length) pattern += "/";
+        for (let tokenIndex = 0; tokenIndex < segment.length; tokenIndex++) {
+          const token = segment[tokenIndex];
+          let subSegmentScore = 40 + (options.sensitive ? .25 : 0);
+          if (0 === token.type) {
+            if (!tokenIndex) pattern += "/";
+            pattern += token.value.replace(REGEX_CHARS_RE, "\\$&");
+            subSegmentScore += 40;
+          } else if (1 === token.type) {
+            const {value: value, repeatable: repeatable, optional: optional, regexp: regexp} = token;
+            keys.push({
+              name: value,
+              repeatable: repeatable,
+              optional: optional
+            });
+            const re = regexp ? regexp : BASE_PARAM_PATTERN;
+            if (re !== BASE_PARAM_PATTERN) {
+              subSegmentScore += 10;
+              try {
+                new RegExp(`(${re})`);
+              } catch (err) {
+                throw new Error(`Invalid custom RegExp for param "${value}" (${re}): ` + err.message);
+              }
+            }
+            let subPattern = repeatable ? `((?:${re})(?:/(?:${re}))*)` : `(${re})`;
+            if (!tokenIndex) subPattern = optional && segment.length < 2 ? `(?:/${subPattern})` : "/" + subPattern;
+            if (optional) subPattern += "?";
+            pattern += subPattern;
+            subSegmentScore += 20;
+            if (optional) subSegmentScore += -8;
+            if (repeatable) subSegmentScore += -20;
+            if (".*" === re) subSegmentScore += -50;
+          }
+          segmentScores.push(subSegmentScore);
+        }
+        score.push(segmentScores);
+      }
+      if (options.strict && options.end) {
+        const i = score.length - 1;
+        score[i][score[i].length - 1] += .7000000000000001;
+      }
+      if (!options.strict) pattern += "/?";
+      if (options.end) pattern += "$"; else if (options.strict) pattern += "(?:/|$)";
+      const re = new RegExp(pattern, options.sensitive ? "" : "i");
+      function parse(path) {
+        const match = path.match(re);
+        const params = {};
+        if (!match) return null;
+        for (let i = 1; i < match.length; i++) {
+          const value = match[i] || "";
+          const key = keys[i - 1];
+          params[key.name] = value && key.repeatable ? value.split("/") : value;
+        }
+        return params;
+      }
+      function stringify(params) {
+        let path = "";
+        let avoidDuplicatedSlash = false;
+        for (const segment of segments) {
+          if (!avoidDuplicatedSlash || !path.endsWith("/")) path += "/";
+          avoidDuplicatedSlash = false;
+          for (const token of segment) if (0 === token.type) path += token.value; else if (1 === token.type) {
+            const {value: value, repeatable: repeatable, optional: optional} = token;
+            const param = value in params ? params[value] : "";
+            if (Array.isArray(param) && !repeatable) throw new Error(`Provided param "${value}" is an array but it is not repeatable (* or + modifiers)`);
+            const text = Array.isArray(param) ? param.join("/") : param;
+            if (!text) if (optional) {
+              if (segment.length < 2) if (path.endsWith("/")) path = path.slice(0, -1); else avoidDuplicatedSlash = true;
+            } else throw new Error(`Missing required param "${value}"`);
+            path += text;
+          }
+        }
+        return path;
+      }
+      return {
+        re: re,
+        score: score,
+        keys: keys,
+        parse: parse,
+        stringify: stringify
+      };
+    }
+    function compareScoreArray(a, b) {
+      let i = 0;
+      while (i < a.length && i < b.length) {
+        const diff = b[i] - a[i];
+        if (diff) return diff;
+        i++;
+      }
+      if (a.length < b.length) return 1 === a.length && a[0] === 40 + 40 ? -1 : 1; else if (a.length > b.length) return 1 === b.length && b[0] === 40 + 40 ? 1 : -1;
+      return 0;
+    }
+    function comparePathParserScore(a, b) {
+      let i = 0;
+      const aScore = a.score;
+      const bScore = b.score;
+      while (i < aScore.length && i < bScore.length) {
+        const comp = compareScoreArray(aScore[i], bScore[i]);
+        if (comp) return comp;
+        i++;
+      }
+      return bScore.length - aScore.length;
+    }
+    const ROOT_TOKEN = {
+      type: 0,
+      value: ""
+    };
+    const VALID_PARAM_RE = /[a-zA-Z0-9_]/;
+    function tokenizePath(path) {
+      if (!path) return [ [] ];
+      if ("/" === path) return [ [ ROOT_TOKEN ] ];
+      if (!path.startsWith("/")) throw new Error(false ? 0 : `Invalid path "${path}"`);
+      function crash(message) {
+        throw new Error(`ERR (${state})/"${buffer}": ${message}`);
+      }
+      let state = 0;
+      let previousState = state;
+      const tokens = [];
+      let segment;
+      function finalizeSegment() {
+        if (segment) tokens.push(segment);
+        segment = [];
+      }
+      let i = 0;
+      let char;
+      let buffer = "";
+      let customRe = "";
+      function consumeBuffer() {
+        if (!buffer) return;
+        if (0 === state) segment.push({
+          type: 0,
+          value: buffer
+        }); else if (1 === state || 2 === state || 3 === state) {
+          if (segment.length > 1 && ("*" === char || "+" === char)) crash(`A repeatable param (${buffer}) must be alone in its segment. eg: '/:ids+.`);
+          segment.push({
+            type: 1,
+            value: buffer,
+            regexp: customRe,
+            repeatable: "*" === char || "+" === char,
+            optional: "*" === char || "?" === char
+          });
+        } else crash("Invalid state to consume buffer");
+        buffer = "";
+      }
+      function addCharToBuffer() {
+        buffer += char;
+      }
+      while (i < path.length) {
+        char = path[i++];
+        if ("\\" === char && 2 !== state) {
+          previousState = state;
+          state = 4;
+          continue;
+        }
+        switch (state) {
+         case 0:
+          if ("/" === char) {
+            if (buffer) consumeBuffer();
+            finalizeSegment();
+          } else if (":" === char) {
+            consumeBuffer();
+            state = 1;
+          } else addCharToBuffer();
+          break;
+
+         case 4:
+          addCharToBuffer();
+          state = previousState;
+          break;
+
+         case 1:
+          if ("(" === char) state = 2; else if (VALID_PARAM_RE.test(char)) addCharToBuffer(); else {
+            consumeBuffer();
+            state = 0;
+            if ("*" !== char && "?" !== char && "+" !== char) i--;
+          }
+          break;
+
+         case 2:
+          if (")" === char) if ("\\" == customRe[customRe.length - 1]) customRe = customRe.slice(0, -1) + char; else state = 3; else customRe += char;
+          break;
+
+         case 3:
+          consumeBuffer();
+          state = 0;
+          if ("*" !== char && "?" !== char && "+" !== char) i--;
+          customRe = "";
+          break;
+
+         default:
+          crash("Unknown state");
+          break;
+        }
+      }
+      if (2 === state) crash(`Unfinished custom RegExp for param "${buffer}"`);
+      consumeBuffer();
+      finalizeSegment();
+      return tokens;
+    }
+    function createRouteRecordMatcher(record, parent, options) {
+      const parser = tokensToParser(tokenizePath(record.path), options);
+      if (false) ;
+      const matcher = vue_router_esm_bundler_assign(parser, {
+        record: record,
+        parent: parent,
+        children: [],
+        alias: []
+      });
+      if (parent) if (!matcher.record.aliasOf === !parent.record.aliasOf) parent.children.push(matcher);
+      return matcher;
+    }
+    function createRouterMatcher(routes, globalOptions) {
+      const matchers = [];
+      const matcherMap = new Map;
+      globalOptions = mergeOptions({
+        strict: false,
+        end: true,
+        sensitive: false
+      }, globalOptions);
+      function getRecordMatcher(name) {
+        return matcherMap.get(name);
+      }
+      function addRoute(record, parent, originalRecord) {
+        const isRootAdd = !originalRecord;
+        const mainNormalizedRecord = normalizeRouteRecord(record);
+        mainNormalizedRecord.aliasOf = originalRecord && originalRecord.record;
+        const options = mergeOptions(globalOptions, record);
+        const normalizedRecords = [ mainNormalizedRecord ];
+        if ("alias" in record) {
+          const aliases = "string" === typeof record.alias ? [ record.alias ] : record.alias;
+          for (const alias of aliases) normalizedRecords.push(vue_router_esm_bundler_assign({}, mainNormalizedRecord, {
+            components: originalRecord ? originalRecord.record.components : mainNormalizedRecord.components,
+            path: alias,
+            aliasOf: originalRecord ? originalRecord.record : mainNormalizedRecord
+          }));
+        }
+        let matcher;
+        let originalMatcher;
+        for (const normalizedRecord of normalizedRecords) {
+          const {path: path} = normalizedRecord;
+          if (parent && "/" !== path[0]) {
+            const parentPath = parent.record.path;
+            const connectingSlash = "/" === parentPath[parentPath.length - 1] ? "" : "/";
+            normalizedRecord.path = parent.record.path + (path && connectingSlash + path);
+          }
+          if (false) ;
+          matcher = createRouteRecordMatcher(normalizedRecord, parent, options);
+          if (false) ;
+          if (originalRecord) {
+            originalRecord.alias.push(matcher);
+            if (false) ;
+          } else {
+            originalMatcher = originalMatcher || matcher;
+            if (originalMatcher !== matcher) originalMatcher.alias.push(matcher);
+            if (isRootAdd && record.name && !isAliasRecord(matcher)) removeRoute(record.name);
+          }
+          if ("children" in mainNormalizedRecord) {
+            const children = mainNormalizedRecord.children;
+            for (let i = 0; i < children.length; i++) addRoute(children[i], matcher, originalRecord && originalRecord.children[i]);
+          }
+          originalRecord = originalRecord || matcher;
+          insertMatcher(matcher);
+        }
+        return originalMatcher ? () => {
+          removeRoute(originalMatcher);
+        } : noop;
+      }
+      function removeRoute(matcherRef) {
+        if (isRouteName(matcherRef)) {
+          const matcher = matcherMap.get(matcherRef);
+          if (matcher) {
+            matcherMap.delete(matcherRef);
+            matchers.splice(matchers.indexOf(matcher), 1);
+            matcher.children.forEach(removeRoute);
+            matcher.alias.forEach(removeRoute);
+          }
+        } else {
+          const index = matchers.indexOf(matcherRef);
+          if (index > -1) {
+            matchers.splice(index, 1);
+            if (matcherRef.record.name) matcherMap.delete(matcherRef.record.name);
+            matcherRef.children.forEach(removeRoute);
+            matcherRef.alias.forEach(removeRoute);
+          }
+        }
+      }
+      function getRoutes() {
+        return matchers;
+      }
+      function insertMatcher(matcher) {
+        let i = 0;
+        while (i < matchers.length && comparePathParserScore(matcher, matchers[i]) >= 0 && (matcher.record.path !== matchers[i].record.path || !isRecordChildOf(matcher, matchers[i]))) i++;
+        matchers.splice(i, 0, matcher);
+        if (matcher.record.name && !isAliasRecord(matcher)) matcherMap.set(matcher.record.name, matcher);
+      }
+      function resolve(location, currentLocation) {
+        let matcher;
+        let params = {};
+        let path;
+        let name;
+        if ("name" in location && location.name) {
+          matcher = matcherMap.get(location.name);
+          if (!matcher) throw createRouterError(1, {
+            location: location
+          });
+          name = matcher.record.name;
+          params = vue_router_esm_bundler_assign(paramsFromLocation(currentLocation.params, matcher.keys.filter((k => !k.optional)).map((k => k.name))), location.params);
+          path = matcher.stringify(params);
+        } else if ("path" in location) {
+          path = location.path;
+          if (false) ;
+          matcher = matchers.find((m => m.re.test(path)));
+          if (matcher) {
+            params = matcher.parse(path);
+            name = matcher.record.name;
+          }
+        } else {
+          matcher = currentLocation.name ? matcherMap.get(currentLocation.name) : matchers.find((m => m.re.test(currentLocation.path)));
+          if (!matcher) throw createRouterError(1, {
+            location: location,
+            currentLocation: currentLocation
+          });
+          name = matcher.record.name;
+          params = vue_router_esm_bundler_assign({}, currentLocation.params, location.params);
+          path = matcher.stringify(params);
+        }
+        const matched = [];
+        let parentMatcher = matcher;
+        while (parentMatcher) {
+          matched.unshift(parentMatcher.record);
+          parentMatcher = parentMatcher.parent;
+        }
+        return {
+          name: name,
+          path: path,
+          params: params,
+          matched: matched,
+          meta: mergeMetaFields(matched)
+        };
+      }
+      routes.forEach((route => addRoute(route)));
+      return {
+        addRoute: addRoute,
+        resolve: resolve,
+        removeRoute: removeRoute,
+        getRoutes: getRoutes,
+        getRecordMatcher: getRecordMatcher
+      };
+    }
+    function paramsFromLocation(params, keys) {
+      const newParams = {};
+      for (const key of keys) if (key in params) newParams[key] = params[key];
+      return newParams;
+    }
+    function normalizeRouteRecord(record) {
+      return {
+        path: record.path,
+        redirect: record.redirect,
+        name: record.name,
+        meta: record.meta || {},
+        aliasOf: void 0,
+        beforeEnter: record.beforeEnter,
+        props: normalizeRecordProps(record),
+        children: record.children || [],
+        instances: {},
+        leaveGuards: new Set,
+        updateGuards: new Set,
+        enterCallbacks: {},
+        components: "components" in record ? record.components || {} : {
+          default: record.component
+        }
+      };
+    }
+    function normalizeRecordProps(record) {
+      const propsObject = {};
+      const props = record.props || false;
+      if ("component" in record) propsObject.default = props; else for (const name in record.components) propsObject[name] = "boolean" === typeof props ? props : props[name];
+      return propsObject;
+    }
+    function isAliasRecord(record) {
+      while (record) {
+        if (record.record.aliasOf) return true;
+        record = record.parent;
+      }
+      return false;
+    }
+    function mergeMetaFields(matched) {
+      return matched.reduce(((meta, record) => vue_router_esm_bundler_assign(meta, record.meta)), {});
+    }
+    function mergeOptions(defaults, partialOptions) {
+      const options = {};
+      for (const key in defaults) options[key] = key in partialOptions ? partialOptions[key] : defaults[key];
+      return options;
+    }
+    function isRecordChildOf(record, parent) {
+      return parent.children.some((child => child === record || isRecordChildOf(record, child)));
+    }
+    const HASH_RE = /#/g;
+    const AMPERSAND_RE = /&/g;
+    const SLASH_RE = /\//g;
+    const EQUAL_RE = /=/g;
+    const IM_RE = /\?/g;
+    const PLUS_RE = /\+/g;
+    const ENC_BRACKET_OPEN_RE = /%5B/g;
+    const ENC_BRACKET_CLOSE_RE = /%5D/g;
+    const ENC_CARET_RE = /%5E/g;
+    const ENC_BACKTICK_RE = /%60/g;
+    const ENC_CURLY_OPEN_RE = /%7B/g;
+    const ENC_PIPE_RE = /%7C/g;
+    const ENC_CURLY_CLOSE_RE = /%7D/g;
+    const ENC_SPACE_RE = /%20/g;
+    function commonEncode(text) {
+      return encodeURI("" + text).replace(ENC_PIPE_RE, "|").replace(ENC_BRACKET_OPEN_RE, "[").replace(ENC_BRACKET_CLOSE_RE, "]");
+    }
+    function encodeHash(text) {
+      return commonEncode(text).replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
+    }
+    function encodeQueryValue(text) {
+      return commonEncode(text).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
+    }
+    function encodeQueryKey(text) {
+      return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
+    }
+    function encodePath(text) {
+      return commonEncode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F");
+    }
+    function encodeParam(text) {
+      return null == text ? "" : encodePath(text).replace(SLASH_RE, "%2F");
+    }
+    function decode(text) {
+      try {
+        return decodeURIComponent("" + text);
+      } catch (err) {
+        false && 0;
+      }
+      return "" + text;
+    }
+    function parseQuery(search) {
+      const query = {};
+      if ("" === search || "?" === search) return query;
+      const hasLeadingIM = "?" === search[0];
+      const searchParams = (hasLeadingIM ? search.slice(1) : search).split("&");
+      for (let i = 0; i < searchParams.length; ++i) {
+        const searchParam = searchParams[i].replace(PLUS_RE, " ");
+        const eqPos = searchParam.indexOf("=");
+        const key = decode(eqPos < 0 ? searchParam : searchParam.slice(0, eqPos));
+        const value = eqPos < 0 ? null : decode(searchParam.slice(eqPos + 1));
+        if (key in query) {
+          let currentValue = query[key];
+          if (!Array.isArray(currentValue)) currentValue = query[key] = [ currentValue ];
+          currentValue.push(value);
+        } else query[key] = value;
+      }
+      return query;
+    }
+    function stringifyQuery(query) {
+      let search = "";
+      for (let key in query) {
+        const value = query[key];
+        key = encodeQueryKey(key);
+        if (null == value) {
+          if (void 0 !== value) search += (search.length ? "&" : "") + key;
+          continue;
+        }
+        const values = Array.isArray(value) ? value.map((v => v && encodeQueryValue(v))) : [ value && encodeQueryValue(value) ];
+        values.forEach((value => {
+          if (void 0 !== value) {
+            search += (search.length ? "&" : "") + key;
+            if (null != value) search += "=" + value;
+          }
+        }));
+      }
+      return search;
+    }
+    function normalizeQuery(query) {
+      const normalizedQuery = {};
+      for (const key in query) {
+        const value = query[key];
+        if (void 0 !== value) normalizedQuery[key] = Array.isArray(value) ? value.map((v => null == v ? null : "" + v)) : null == value ? value : "" + value;
+      }
+      return normalizedQuery;
+    }
+    function useCallbacks() {
+      let handlers = [];
+      function add(handler) {
+        handlers.push(handler);
+        return () => {
+          const i = handlers.indexOf(handler);
+          if (i > -1) handlers.splice(i, 1);
+        };
+      }
+      function reset() {
+        handlers = [];
+      }
+      return {
+        add: add,
+        list: () => handlers,
+        reset: reset
+      };
+    }
+    function guardToPromiseFn(guard, to, from, record, name) {
+      const enterCallbackArray = record && (record.enterCallbacks[name] = record.enterCallbacks[name] || []);
+      return () => new Promise(((resolve, reject) => {
+        const next = valid => {
+          if (false === valid) reject(createRouterError(4, {
+            from: from,
+            to: to
+          })); else if (valid instanceof Error) reject(valid); else if (isRouteLocation(valid)) reject(createRouterError(2, {
+            from: to,
+            to: valid
+          })); else {
+            if (enterCallbackArray && record.enterCallbacks[name] === enterCallbackArray && "function" === typeof valid) enterCallbackArray.push(valid);
+            resolve();
+          }
+        };
+        const guardReturn = guard.call(record && record.instances[name], to, from, false ? 0 : next);
+        let guardCall = Promise.resolve(guardReturn);
+        if (guard.length < 3) guardCall = guardCall.then(next);
+        if (false) ;
+        guardCall.catch((err => reject(err)));
+      }));
+    }
+    function extractComponentsGuards(matched, guardType, to, from) {
+      const guards = [];
+      for (const record of matched) for (const name in record.components) {
+        let rawComponent = record.components[name];
+        if (false) ;
+        if ("beforeRouteEnter" !== guardType && !record.instances[name]) continue;
+        if (isRouteComponent(rawComponent)) {
+          const options = rawComponent.__vccOpts || rawComponent;
+          const guard = options[guardType];
+          guard && guards.push(guardToPromiseFn(guard, to, from, record, name));
+        } else {
+          let componentPromise = rawComponent();
+          if (false) ;
+          guards.push((() => componentPromise.then((resolved => {
+            if (!resolved) return Promise.reject(new Error(`Couldn't resolve component "${name}" at "${record.path}"`));
+            const resolvedComponent = isESModule(resolved) ? resolved.default : resolved;
+            record.components[name] = resolvedComponent;
+            const options = resolvedComponent.__vccOpts || resolvedComponent;
+            const guard = options[guardType];
+            return guard && guardToPromiseFn(guard, to, from, record, name)();
+          }))));
+        }
+      }
+      return guards;
+    }
+    function isRouteComponent(component) {
+      return "object" === typeof component || "displayName" in component || "props" in component || "__vccOpts" in component;
+    }
+    function useLink(props) {
+      const router = (0, runtime_core_esm_bundler.f3)(routerKey);
+      const currentRoute = (0, runtime_core_esm_bundler.f3)(routeLocationKey);
+      const route = (0, runtime_core_esm_bundler.Fl)((() => router.resolve((0, reactivity_esm_bundler.SU)(props.to))));
+      const activeRecordIndex = (0, runtime_core_esm_bundler.Fl)((() => {
+        const {matched: matched} = route.value;
+        const {length: length} = matched;
+        const routeMatched = matched[length - 1];
+        const currentMatched = currentRoute.matched;
+        if (!routeMatched || !currentMatched.length) return -1;
+        const index = currentMatched.findIndex(isSameRouteRecord.bind(null, routeMatched));
+        if (index > -1) return index;
+        const parentRecordPath = getOriginalPath(matched[length - 2]);
+        return length > 1 && getOriginalPath(routeMatched) === parentRecordPath && currentMatched[currentMatched.length - 1].path !== parentRecordPath ? currentMatched.findIndex(isSameRouteRecord.bind(null, matched[length - 2])) : index;
+      }));
+      const isActive = (0, runtime_core_esm_bundler.Fl)((() => activeRecordIndex.value > -1 && includesParams(currentRoute.params, route.value.params)));
+      const isExactActive = (0, runtime_core_esm_bundler.Fl)((() => activeRecordIndex.value > -1 && activeRecordIndex.value === currentRoute.matched.length - 1 && isSameRouteLocationParams(currentRoute.params, route.value.params)));
+      function navigate(e = {}) {
+        if (guardEvent(e)) return router[(0, reactivity_esm_bundler.SU)(props.replace) ? "replace" : "push"]((0, 
+        reactivity_esm_bundler.SU)(props.to)).catch(noop);
+        return Promise.resolve();
+      }
+      if ((false || __VUE_PROD_DEVTOOLS__) && isBrowser) {
+        const instance = (0, runtime_core_esm_bundler.FN)();
+        if (instance) {
+          const linkContextDevtools = {
+            route: route.value,
+            isActive: isActive.value,
+            isExactActive: isExactActive.value
+          };
+          instance.__vrl_devtools = instance.__vrl_devtools || [];
+          instance.__vrl_devtools.push(linkContextDevtools);
+          (0, runtime_core_esm_bundler.m0)((() => {
+            linkContextDevtools.route = route.value;
+            linkContextDevtools.isActive = isActive.value;
+            linkContextDevtools.isExactActive = isExactActive.value;
+          }), {
+            flush: "post"
+          });
+        }
+      }
+      return {
+        route: route,
+        href: (0, runtime_core_esm_bundler.Fl)((() => route.value.href)),
+        isActive: isActive,
+        isExactActive: isExactActive,
+        navigate: navigate
+      };
+    }
+    const RouterLinkImpl = (0, runtime_core_esm_bundler.aZ)({
+      name: "RouterLink",
+      props: {
+        to: {
+          type: [ String, Object ],
+          required: true
+        },
+        replace: Boolean,
+        activeClass: String,
+        exactActiveClass: String,
+        custom: Boolean,
+        ariaCurrentValue: {
+          type: String,
+          default: "page"
+        }
+      },
+      useLink: useLink,
+      setup(props, {slots: slots}) {
+        const link = (0, reactivity_esm_bundler.qj)(useLink(props));
+        const {options: options} = (0, runtime_core_esm_bundler.f3)(routerKey);
+        const elClass = (0, runtime_core_esm_bundler.Fl)((() => ({
+          [getLinkClass(props.activeClass, options.linkActiveClass, "router-link-active")]: link.isActive,
+          [getLinkClass(props.exactActiveClass, options.linkExactActiveClass, "router-link-exact-active")]: link.isExactActive
+        })));
+        return () => {
+          const children = slots.default && slots.default(link);
+          return props.custom ? children : (0, runtime_core_esm_bundler.h)("a", {
+            "aria-current": link.isExactActive ? props.ariaCurrentValue : null,
+            href: link.href,
+            onClick: link.navigate,
+            class: elClass.value
+          }, children);
+        };
+      }
+    });
+    const RouterLink = RouterLinkImpl;
+    function guardEvent(e) {
+      if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return;
+      if (e.defaultPrevented) return;
+      if (void 0 !== e.button && 0 !== e.button) return;
+      if (e.currentTarget && e.currentTarget.getAttribute) {
+        const target = e.currentTarget.getAttribute("target");
+        if (/\b_blank\b/i.test(target)) return;
+      }
+      if (e.preventDefault) e.preventDefault();
+      return true;
+    }
+    function includesParams(outer, inner) {
+      for (const key in inner) {
+        const innerValue = inner[key];
+        const outerValue = outer[key];
+        if ("string" === typeof innerValue) {
+          if (innerValue !== outerValue) return false;
+        } else if (!Array.isArray(outerValue) || outerValue.length !== innerValue.length || innerValue.some(((value, i) => value !== outerValue[i]))) return false;
+      }
+      return true;
+    }
+    function getOriginalPath(record) {
+      return record ? record.aliasOf ? record.aliasOf.path : record.path : "";
+    }
+    const getLinkClass = (propClass, globalClass, defaultClass) => null != propClass ? propClass : null != globalClass ? globalClass : defaultClass;
+    const RouterViewImpl = (0, runtime_core_esm_bundler.aZ)({
+      name: "RouterView",
+      inheritAttrs: false,
+      props: {
+        name: {
+          type: String,
+          default: "default"
+        },
+        route: Object
+      },
+      setup(props, {attrs: attrs, slots: slots}) {
+        false && 0;
+        const injectedRoute = (0, runtime_core_esm_bundler.f3)(routerViewLocationKey);
+        const routeToDisplay = (0, runtime_core_esm_bundler.Fl)((() => props.route || injectedRoute.value));
+        const depth = (0, runtime_core_esm_bundler.f3)(viewDepthKey, 0);
+        const matchedRouteRef = (0, runtime_core_esm_bundler.Fl)((() => routeToDisplay.value.matched[depth]));
+        (0, runtime_core_esm_bundler.JJ)(viewDepthKey, depth + 1);
+        (0, runtime_core_esm_bundler.JJ)(matchedRouteKey, matchedRouteRef);
+        (0, runtime_core_esm_bundler.JJ)(routerViewLocationKey, routeToDisplay);
+        const viewRef = (0, reactivity_esm_bundler.iH)();
+        (0, runtime_core_esm_bundler.YP)((() => [ viewRef.value, matchedRouteRef.value, props.name ]), (([instance, to, name], [oldInstance, from, oldName]) => {
+          if (to) {
+            to.instances[name] = instance;
+            if (from && from !== to && instance && instance === oldInstance) {
+              if (!to.leaveGuards.size) to.leaveGuards = from.leaveGuards;
+              if (!to.updateGuards.size) to.updateGuards = from.updateGuards;
+            }
+          }
+          if (instance && to && (!from || !isSameRouteRecord(to, from) || !oldInstance)) (to.enterCallbacks[name] || []).forEach((callback => callback(instance)));
+        }), {
+          flush: "post"
+        });
+        return () => {
+          const route = routeToDisplay.value;
+          const matchedRoute = matchedRouteRef.value;
+          const ViewComponent = matchedRoute && matchedRoute.components[props.name];
+          const currentName = props.name;
+          if (!ViewComponent) return normalizeSlot(slots.default, {
+            Component: ViewComponent,
+            route: route
+          });
+          const routePropsOption = matchedRoute.props[props.name];
+          const routeProps = routePropsOption ? true === routePropsOption ? route.params : "function" === typeof routePropsOption ? routePropsOption(route) : routePropsOption : null;
+          const onVnodeUnmounted = vnode => {
+            if (vnode.component.isUnmounted) matchedRoute.instances[currentName] = null;
+          };
+          const component = (0, runtime_core_esm_bundler.h)(ViewComponent, vue_router_esm_bundler_assign({}, routeProps, attrs, {
+            onVnodeUnmounted: onVnodeUnmounted,
+            ref: viewRef
+          }));
+          if ((false || __VUE_PROD_DEVTOOLS__) && isBrowser && component.ref) {
+            const info = {
+              depth: depth,
+              name: matchedRoute.name,
+              path: matchedRoute.path,
+              meta: matchedRoute.meta
+            };
+            const internalInstances = Array.isArray(component.ref) ? component.ref.map((r => r.i)) : [ component.ref.i ];
+            internalInstances.forEach((instance => {
+              instance.__vrv_devtools = info;
+            }));
+          }
+          return normalizeSlot(slots.default, {
+            Component: component,
+            route: route
+          }) || component;
+        };
+      }
+    });
+    function normalizeSlot(slot, data) {
+      if (!slot) return null;
+      const slotContent = slot(data);
+      return 1 === slotContent.length ? slotContent[0] : slotContent;
+    }
+    const RouterView = RouterViewImpl;
+    function formatRouteLocation(routeLocation, tooltip) {
+      const copy = vue_router_esm_bundler_assign({}, routeLocation, {
+        matched: routeLocation.matched.map((matched => omit(matched, [ "instances", "children", "aliasOf" ])))
+      });
+      return {
+        _custom: {
+          type: null,
+          readOnly: true,
+          display: routeLocation.fullPath,
+          tooltip: tooltip,
+          value: copy
+        }
+      };
+    }
+    function formatDisplay(display) {
+      return {
+        _custom: {
+          display: display
+        }
+      };
+    }
+    let routerId = 0;
+    function addDevtools(app, router, matcher) {
+      if (router.__hasDevtools) return;
+      router.__hasDevtools = true;
+      const id = routerId++;
+      setupDevtoolsPlugin({
+        id: "org.vuejs.router" + (id ? "." + id : ""),
+        label: "Vue Router",
+        packageName: "vue-router",
+        homepage: "https://router.vuejs.org",
+        logo: "https://router.vuejs.org/logo.png",
+        componentStateTypes: [ "Routing" ],
+        app: app
+      }, (api => {
+        api.on.inspectComponent(((payload, ctx) => {
+          if (payload.instanceData) payload.instanceData.state.push({
+            type: "Routing",
+            key: "$route",
+            editable: false,
+            value: formatRouteLocation(router.currentRoute.value, "Current Route")
+          });
+        }));
+        api.on.visitComponentTree((({treeNode: node, componentInstance: componentInstance}) => {
+          if (componentInstance.__vrv_devtools) {
+            const info = componentInstance.__vrv_devtools;
+            node.tags.push({
+              label: (info.name ? `${info.name.toString()}: ` : "") + info.path,
+              textColor: 0,
+              tooltip: "This component is rendered by &lt;router-view&gt;",
+              backgroundColor: PINK_500
+            });
+          }
+          if (Array.isArray(componentInstance.__vrl_devtools)) {
+            componentInstance.__devtoolsApi = api;
+            componentInstance.__vrl_devtools.forEach((devtoolsData => {
+              let backgroundColor = ORANGE_400;
+              let tooltip = "";
+              if (devtoolsData.isExactActive) {
+                backgroundColor = LIME_500;
+                tooltip = "This is exactly active";
+              } else if (devtoolsData.isActive) {
+                backgroundColor = BLUE_600;
+                tooltip = "This link is active";
+              }
+              node.tags.push({
+                label: devtoolsData.route.path,
+                textColor: 0,
+                tooltip: tooltip,
+                backgroundColor: backgroundColor
+              });
+            }));
+          }
+        }));
+        (0, runtime_core_esm_bundler.YP)(router.currentRoute, (() => {
+          refreshRoutesView();
+          api.notifyComponentUpdate();
+          api.sendInspectorTree(routerInspectorId);
+          api.sendInspectorState(routerInspectorId);
+        }));
+        const navigationsLayerId = "router:navigations:" + id;
+        api.addTimelineLayer({
+          id: navigationsLayerId,
+          label: `Router${id ? " " + id : ""} Navigations`,
+          color: 4237508
+        });
+        router.onError(((error, to) => {
+          api.addTimelineEvent({
+            layerId: navigationsLayerId,
+            event: {
+              title: "Error during Navigation",
+              subtitle: to.fullPath,
+              logType: "error",
+              time: api.now(),
+              data: {
+                error: error
+              },
+              groupId: to.meta.__navigationId
+            }
+          });
+        }));
+        let navigationId = 0;
+        router.beforeEach(((to, from) => {
+          const data = {
+            guard: formatDisplay("beforeEach"),
+            from: formatRouteLocation(from, "Current Location during this navigation"),
+            to: formatRouteLocation(to, "Target location")
+          };
+          Object.defineProperty(to.meta, "__navigationId", {
+            value: navigationId++
+          });
+          api.addTimelineEvent({
+            layerId: navigationsLayerId,
+            event: {
+              time: api.now(),
+              title: "Start of navigation",
+              subtitle: to.fullPath,
+              data: data,
+              groupId: to.meta.__navigationId
+            }
+          });
+        }));
+        router.afterEach(((to, from, failure) => {
+          const data = {
+            guard: formatDisplay("afterEach")
+          };
+          if (failure) {
+            data.failure = {
+              _custom: {
+                type: Error,
+                readOnly: true,
+                display: failure ? failure.message : "",
+                tooltip: "Navigation Failure",
+                value: failure
+              }
+            };
+            data.status = formatDisplay("❌");
+          } else data.status = formatDisplay("✅");
+          data.from = formatRouteLocation(from, "Current Location during this navigation");
+          data.to = formatRouteLocation(to, "Target location");
+          api.addTimelineEvent({
+            layerId: navigationsLayerId,
+            event: {
+              title: "End of navigation",
+              subtitle: to.fullPath,
+              time: api.now(),
+              data: data,
+              logType: failure ? "warning" : "default",
+              groupId: to.meta.__navigationId
+            }
+          });
+        }));
+        const routerInspectorId = "router-inspector:" + id;
+        api.addInspector({
+          id: routerInspectorId,
+          label: "Routes" + (id ? " " + id : ""),
+          icon: "book",
+          treeFilterPlaceholder: "Search routes"
+        });
+        function refreshRoutesView() {
+          if (!activeRoutesPayload) return;
+          const payload = activeRoutesPayload;
+          let routes = matcher.getRoutes().filter((route => !route.parent));
+          routes.forEach(resetMatchStateOnRouteRecord);
+          if (payload.filter) routes = routes.filter((route => isRouteMatching(route, payload.filter.toLowerCase())));
+          routes.forEach((route => markRouteRecordActive(route, router.currentRoute.value)));
+          payload.rootNodes = routes.map(formatRouteRecordForInspector);
+        }
+        let activeRoutesPayload;
+        api.on.getInspectorTree((payload => {
+          activeRoutesPayload = payload;
+          if (payload.app === app && payload.inspectorId === routerInspectorId) refreshRoutesView();
+        }));
+        api.on.getInspectorState((payload => {
+          if (payload.app === app && payload.inspectorId === routerInspectorId) {
+            const routes = matcher.getRoutes();
+            const route = routes.find((route => route.record.__vd_id === payload.nodeId));
+            if (route) payload.state = {
+              options: formatRouteRecordMatcherForStateInspector(route)
+            };
+          }
+        }));
+        api.sendInspectorTree(routerInspectorId);
+        api.sendInspectorState(routerInspectorId);
+      }));
+    }
+    function modifierForKey(key) {
+      if (key.optional) return key.repeatable ? "*" : "?"; else return key.repeatable ? "+" : "";
+    }
+    function formatRouteRecordMatcherForStateInspector(route) {
+      const {record: record} = route;
+      const fields = [ {
+        editable: false,
+        key: "path",
+        value: record.path
+      } ];
+      if (null != record.name) fields.push({
+        editable: false,
+        key: "name",
+        value: record.name
+      });
+      fields.push({
+        editable: false,
+        key: "regexp",
+        value: route.re
+      });
+      if (route.keys.length) fields.push({
+        editable: false,
+        key: "keys",
+        value: {
+          _custom: {
+            type: null,
+            readOnly: true,
+            display: route.keys.map((key => `${key.name}${modifierForKey(key)}`)).join(" "),
+            tooltip: "Param keys",
+            value: route.keys
+          }
+        }
+      });
+      if (null != record.redirect) fields.push({
+        editable: false,
+        key: "redirect",
+        value: record.redirect
+      });
+      if (route.alias.length) fields.push({
+        editable: false,
+        key: "aliases",
+        value: route.alias.map((alias => alias.record.path))
+      });
+      fields.push({
+        key: "score",
+        editable: false,
+        value: {
+          _custom: {
+            type: null,
+            readOnly: true,
+            display: route.score.map((score => score.join(", "))).join(" | "),
+            tooltip: "Score used to sort routes",
+            value: route.score
+          }
+        }
+      });
+      return fields;
+    }
+    const PINK_500 = 15485081;
+    const BLUE_600 = 2450411;
+    const LIME_500 = 8702998;
+    const CYAN_400 = 2282478;
+    const ORANGE_400 = 16486972;
+    const DARK = 6710886;
+    function formatRouteRecordForInspector(route) {
+      const tags = [];
+      const {record: record} = route;
+      if (null != record.name) tags.push({
+        label: String(record.name),
+        textColor: 0,
+        backgroundColor: CYAN_400
+      });
+      if (record.aliasOf) tags.push({
+        label: "alias",
+        textColor: 0,
+        backgroundColor: ORANGE_400
+      });
+      if (route.__vd_match) tags.push({
+        label: "matches",
+        textColor: 0,
+        backgroundColor: PINK_500
+      });
+      if (route.__vd_exactActive) tags.push({
+        label: "exact",
+        textColor: 0,
+        backgroundColor: LIME_500
+      });
+      if (route.__vd_active) tags.push({
+        label: "active",
+        textColor: 0,
+        backgroundColor: BLUE_600
+      });
+      if (record.redirect) tags.push({
+        label: "redirect: " + ("string" === typeof record.redirect ? record.redirect : "Object"),
+        textColor: 16777215,
+        backgroundColor: DARK
+      });
+      let id = record.__vd_id;
+      if (null == id) {
+        id = String(routeRecordId++);
+        record.__vd_id = id;
+      }
+      return {
+        id: id,
+        label: record.path,
+        tags: tags,
+        children: route.children.map(formatRouteRecordForInspector)
+      };
+    }
+    let routeRecordId = 0;
+    const EXTRACT_REGEXP_RE = /^\/(.*)\/([a-z]*)$/;
+    function markRouteRecordActive(route, currentRoute) {
+      const isExactActive = currentRoute.matched.length && isSameRouteRecord(currentRoute.matched[currentRoute.matched.length - 1], route.record);
+      route.__vd_exactActive = route.__vd_active = isExactActive;
+      if (!isExactActive) route.__vd_active = currentRoute.matched.some((match => isSameRouteRecord(match, route.record)));
+      route.children.forEach((childRoute => markRouteRecordActive(childRoute, currentRoute)));
+    }
+    function resetMatchStateOnRouteRecord(route) {
+      route.__vd_match = false;
+      route.children.forEach(resetMatchStateOnRouteRecord);
+    }
+    function isRouteMatching(route, filter) {
+      const found = String(route.re).match(EXTRACT_REGEXP_RE);
+      route.__vd_match = false;
+      if (!found || found.length < 3) return false;
+      const nonEndingRE = new RegExp(found[1].replace(/\$$/, ""), found[2]);
+      if (nonEndingRE.test(filter)) {
+        route.children.forEach((child => isRouteMatching(child, filter)));
+        if ("/" !== route.record.path || "/" === filter) {
+          route.__vd_match = route.re.test(filter);
+          return true;
+        }
+        return false;
+      }
+      const path = route.record.path.toLowerCase();
+      const decodedPath = decode(path);
+      if (!filter.startsWith("/") && (decodedPath.includes(filter) || path.includes(filter))) return true;
+      if (decodedPath.startsWith(filter) || path.startsWith(filter)) return true;
+      if (route.record.name && String(route.record.name).includes(filter)) return true;
+      return route.children.some((child => isRouteMatching(child, filter)));
+    }
+    function omit(obj, keys) {
+      const ret = {};
+      for (const key in obj) if (!keys.includes(key)) ret[key] = obj[key];
+      return ret;
+    }
+    function createRouter(options) {
+      const matcher = createRouterMatcher(options.routes, options);
+      const parseQuery$1 = options.parseQuery || parseQuery;
+      const stringifyQuery$1 = options.stringifyQuery || stringifyQuery;
+      const routerHistory = options.history;
+      if (false) ;
+      const beforeGuards = useCallbacks();
+      const beforeResolveGuards = useCallbacks();
+      const afterGuards = useCallbacks();
+      const currentRoute = (0, reactivity_esm_bundler.XI)(START_LOCATION_NORMALIZED);
+      let pendingLocation = START_LOCATION_NORMALIZED;
+      if (isBrowser && options.scrollBehavior && "scrollRestoration" in history) history.scrollRestoration = "manual";
+      const normalizeParams = applyToParams.bind(null, (paramValue => "" + paramValue));
+      const encodeParams = applyToParams.bind(null, encodeParam);
+      const decodeParams = applyToParams.bind(null, decode);
+      function addRoute(parentOrRoute, route) {
+        let parent;
+        let record;
+        if (isRouteName(parentOrRoute)) {
+          parent = matcher.getRecordMatcher(parentOrRoute);
+          record = route;
+        } else record = parentOrRoute;
+        return matcher.addRoute(record, parent);
+      }
+      function removeRoute(name) {
+        const recordMatcher = matcher.getRecordMatcher(name);
+        if (recordMatcher) matcher.removeRoute(recordMatcher); else if (false) ;
+      }
+      function getRoutes() {
+        return matcher.getRoutes().map((routeMatcher => routeMatcher.record));
+      }
+      function hasRoute(name) {
+        return !!matcher.getRecordMatcher(name);
+      }
+      function resolve(rawLocation, currentLocation) {
+        currentLocation = vue_router_esm_bundler_assign({}, currentLocation || currentRoute.value);
+        if ("string" === typeof rawLocation) {
+          const locationNormalized = parseURL(parseQuery$1, rawLocation, currentLocation.path);
+          const matchedRoute = matcher.resolve({
+            path: locationNormalized.path
+          }, currentLocation);
+          const href = routerHistory.createHref(locationNormalized.fullPath);
+          if (false) ;
+          return vue_router_esm_bundler_assign(locationNormalized, matchedRoute, {
+            params: decodeParams(matchedRoute.params),
+            hash: decode(locationNormalized.hash),
+            redirectedFrom: void 0,
+            href: href
+          });
+        }
+        let matcherLocation;
+        if ("path" in rawLocation) {
+          if (false) ;
+          matcherLocation = vue_router_esm_bundler_assign({}, rawLocation, {
+            path: parseURL(parseQuery$1, rawLocation.path, currentLocation.path).path
+          });
+        } else {
+          const targetParams = vue_router_esm_bundler_assign({}, rawLocation.params);
+          for (const key in targetParams) if (null == targetParams[key]) delete targetParams[key];
+          matcherLocation = vue_router_esm_bundler_assign({}, rawLocation, {
+            params: encodeParams(rawLocation.params)
+          });
+          currentLocation.params = encodeParams(currentLocation.params);
+        }
+        const matchedRoute = matcher.resolve(matcherLocation, currentLocation);
+        const hash = rawLocation.hash || "";
+        if (false) ;
+        matchedRoute.params = normalizeParams(decodeParams(matchedRoute.params));
+        const fullPath = stringifyURL(stringifyQuery$1, vue_router_esm_bundler_assign({}, rawLocation, {
+          hash: encodeHash(hash),
+          path: matchedRoute.path
+        }));
+        const href = routerHistory.createHref(fullPath);
+        if (false) ;
+        return vue_router_esm_bundler_assign({
+          fullPath: fullPath,
+          hash: hash,
+          query: stringifyQuery$1 === stringifyQuery ? normalizeQuery(rawLocation.query) : rawLocation.query || {}
+        }, matchedRoute, {
+          redirectedFrom: void 0,
+          href: href
+        });
+      }
+      function locationAsObject(to) {
+        return "string" === typeof to ? parseURL(parseQuery$1, to, currentRoute.value.path) : vue_router_esm_bundler_assign({}, to);
+      }
+      function checkCanceledNavigation(to, from) {
+        if (pendingLocation !== to) return createRouterError(8, {
+          from: from,
+          to: to
+        });
+      }
+      function push(to) {
+        return pushWithRedirect(to);
+      }
+      function replace(to) {
+        return push(vue_router_esm_bundler_assign(locationAsObject(to), {
+          replace: true
+        }));
+      }
+      function handleRedirectRecord(to) {
+        const lastMatched = to.matched[to.matched.length - 1];
+        if (lastMatched && lastMatched.redirect) {
+          const {redirect: redirect} = lastMatched;
+          let newTargetLocation = "function" === typeof redirect ? redirect(to) : redirect;
+          if ("string" === typeof newTargetLocation) {
+            newTargetLocation = newTargetLocation.includes("?") || newTargetLocation.includes("#") ? newTargetLocation = locationAsObject(newTargetLocation) : {
+              path: newTargetLocation
+            };
+            newTargetLocation.params = {};
+          }
+          if (false) ;
+          return vue_router_esm_bundler_assign({
+            query: to.query,
+            hash: to.hash,
+            params: to.params
+          }, newTargetLocation);
+        }
+      }
+      function pushWithRedirect(to, redirectedFrom) {
+        const targetLocation = pendingLocation = resolve(to);
+        const from = currentRoute.value;
+        const data = to.state;
+        const force = to.force;
+        const replace = true === to.replace;
+        const shouldRedirect = handleRedirectRecord(targetLocation);
+        if (shouldRedirect) return pushWithRedirect(vue_router_esm_bundler_assign(locationAsObject(shouldRedirect), {
+          state: data,
+          force: force,
+          replace: replace
+        }), redirectedFrom || targetLocation);
+        const toLocation = targetLocation;
+        toLocation.redirectedFrom = redirectedFrom;
+        let failure;
+        if (!force && isSameRouteLocation(stringifyQuery$1, from, targetLocation)) {
+          failure = createRouterError(16, {
+            to: toLocation,
+            from: from
+          });
+          handleScroll(from, from, true, false);
+        }
+        return (failure ? Promise.resolve(failure) : navigate(toLocation, from)).catch((error => isNavigationFailure(error) ? isNavigationFailure(error, 2) ? error : markAsReady(error) : triggerError(error, toLocation, from))).then((failure => {
+          if (failure) {
+            if (isNavigationFailure(failure, 2)) {
+              if (false) ;
+              return pushWithRedirect(vue_router_esm_bundler_assign(locationAsObject(failure.to), {
+                state: data,
+                force: force,
+                replace: replace
+              }), redirectedFrom || toLocation);
+            }
+          } else failure = finalizeNavigation(toLocation, from, true, replace, data);
+          triggerAfterEach(toLocation, from, failure);
+          return failure;
+        }));
+      }
+      function checkCanceledNavigationAndReject(to, from) {
+        const error = checkCanceledNavigation(to, from);
+        return error ? Promise.reject(error) : Promise.resolve();
+      }
+      function navigate(to, from) {
+        let guards;
+        const [leavingRecords, updatingRecords, enteringRecords] = extractChangingRecords(to, from);
+        guards = extractComponentsGuards(leavingRecords.reverse(), "beforeRouteLeave", to, from);
+        for (const record of leavingRecords) record.leaveGuards.forEach((guard => {
+          guards.push(guardToPromiseFn(guard, to, from));
+        }));
+        const canceledNavigationCheck = checkCanceledNavigationAndReject.bind(null, to, from);
+        guards.push(canceledNavigationCheck);
+        return runGuardQueue(guards).then((() => {
+          guards = [];
+          for (const guard of beforeGuards.list()) guards.push(guardToPromiseFn(guard, to, from));
+          guards.push(canceledNavigationCheck);
+          return runGuardQueue(guards);
+        })).then((() => {
+          guards = extractComponentsGuards(updatingRecords, "beforeRouteUpdate", to, from);
+          for (const record of updatingRecords) record.updateGuards.forEach((guard => {
+            guards.push(guardToPromiseFn(guard, to, from));
+          }));
+          guards.push(canceledNavigationCheck);
+          return runGuardQueue(guards);
+        })).then((() => {
+          guards = [];
+          for (const record of to.matched) if (record.beforeEnter && !from.matched.includes(record)) if (Array.isArray(record.beforeEnter)) for (const beforeEnter of record.beforeEnter) guards.push(guardToPromiseFn(beforeEnter, to, from)); else guards.push(guardToPromiseFn(record.beforeEnter, to, from));
+          guards.push(canceledNavigationCheck);
+          return runGuardQueue(guards);
+        })).then((() => {
+          to.matched.forEach((record => record.enterCallbacks = {}));
+          guards = extractComponentsGuards(enteringRecords, "beforeRouteEnter", to, from);
+          guards.push(canceledNavigationCheck);
+          return runGuardQueue(guards);
+        })).then((() => {
+          guards = [];
+          for (const guard of beforeResolveGuards.list()) guards.push(guardToPromiseFn(guard, to, from));
+          guards.push(canceledNavigationCheck);
+          return runGuardQueue(guards);
+        })).catch((err => isNavigationFailure(err, 8) ? err : Promise.reject(err)));
+      }
+      function triggerAfterEach(to, from, failure) {
+        for (const guard of afterGuards.list()) guard(to, from, failure);
+      }
+      function finalizeNavigation(toLocation, from, isPush, replace, data) {
+        const error = checkCanceledNavigation(toLocation, from);
+        if (error) return error;
+        const isFirstNavigation = from === START_LOCATION_NORMALIZED;
+        const state = !isBrowser ? {} : history.state;
+        if (isPush) if (replace || isFirstNavigation) routerHistory.replace(toLocation.fullPath, vue_router_esm_bundler_assign({
+          scroll: isFirstNavigation && state && state.scroll
+        }, data)); else routerHistory.push(toLocation.fullPath, data);
+        currentRoute.value = toLocation;
+        handleScroll(toLocation, from, isPush, isFirstNavigation);
+        markAsReady();
+      }
+      let removeHistoryListener;
+      function setupListeners() {
+        removeHistoryListener = routerHistory.listen(((to, _from, info) => {
+          const toLocation = resolve(to);
+          const shouldRedirect = handleRedirectRecord(toLocation);
+          if (shouldRedirect) {
+            pushWithRedirect(vue_router_esm_bundler_assign(shouldRedirect, {
+              replace: true
+            }), toLocation).catch(noop);
+            return;
+          }
+          pendingLocation = toLocation;
+          const from = currentRoute.value;
+          if (isBrowser) saveScrollPosition(getScrollKey(from.fullPath, info.delta), computeScrollPosition());
+          navigate(toLocation, from).catch((error => {
+            if (isNavigationFailure(error, 4 | 8)) return error;
+            if (isNavigationFailure(error, 2)) {
+              pushWithRedirect(error.to, toLocation).then((failure => {
+                if (isNavigationFailure(failure, 4 | 16) && !info.delta && info.type === NavigationType.pop) routerHistory.go(-1, false);
+              })).catch(noop);
+              return Promise.reject();
+            }
+            if (info.delta) routerHistory.go(-info.delta, false);
+            return triggerError(error, toLocation, from);
+          })).then((failure => {
+            failure = failure || finalizeNavigation(toLocation, from, false);
+            if (failure) if (info.delta) routerHistory.go(-info.delta, false); else if (info.type === NavigationType.pop && isNavigationFailure(failure, 4 | 16)) routerHistory.go(-1, false);
+            triggerAfterEach(toLocation, from, failure);
+          })).catch(noop);
+        }));
+      }
+      let readyHandlers = useCallbacks();
+      let errorHandlers = useCallbacks();
+      let ready;
+      function triggerError(error, to, from) {
+        markAsReady(error);
+        const list = errorHandlers.list();
+        if (list.length) list.forEach((handler => handler(error, to, from))); else {
+          if (false) ;
+          console.error(error);
+        }
+        return Promise.reject(error);
+      }
+      function isReady() {
+        if (ready && currentRoute.value !== START_LOCATION_NORMALIZED) return Promise.resolve();
+        return new Promise(((resolve, reject) => {
+          readyHandlers.add([ resolve, reject ]);
+        }));
+      }
+      function markAsReady(err) {
+        if (!ready) {
+          ready = !err;
+          setupListeners();
+          readyHandlers.list().forEach((([resolve, reject]) => err ? reject(err) : resolve()));
+          readyHandlers.reset();
+        }
+        return err;
+      }
+      function handleScroll(to, from, isPush, isFirstNavigation) {
+        const {scrollBehavior: scrollBehavior} = options;
+        if (!isBrowser || !scrollBehavior) return Promise.resolve();
+        const scrollPosition = !isPush && getSavedScrollPosition(getScrollKey(to.fullPath, 0)) || (isFirstNavigation || !isPush) && history.state && history.state.scroll || null;
+        return (0, runtime_core_esm_bundler.Y3)().then((() => scrollBehavior(to, from, scrollPosition))).then((position => position && scrollToPosition(position))).catch((err => triggerError(err, to, from)));
+      }
+      const go = delta => routerHistory.go(delta);
+      let started;
+      const installedApps = new Set;
+      const router = {
+        currentRoute: currentRoute,
+        addRoute: addRoute,
+        removeRoute: removeRoute,
+        hasRoute: hasRoute,
+        getRoutes: getRoutes,
+        resolve: resolve,
+        options: options,
+        push: push,
+        replace: replace,
+        go: go,
+        back: () => go(-1),
+        forward: () => go(1),
+        beforeEach: beforeGuards.add,
+        beforeResolve: beforeResolveGuards.add,
+        afterEach: afterGuards.add,
+        onError: errorHandlers.add,
+        isReady: isReady,
+        install(app) {
+          const router = this;
+          app.component("RouterLink", RouterLink);
+          app.component("RouterView", RouterView);
+          app.config.globalProperties.$router = router;
+          Object.defineProperty(app.config.globalProperties, "$route", {
+            enumerable: true,
+            get: () => (0, reactivity_esm_bundler.SU)(currentRoute)
+          });
+          if (isBrowser && !started && currentRoute.value === START_LOCATION_NORMALIZED) {
+            started = true;
+            push(routerHistory.location).catch((err => {
+              if (false) ;
+            }));
+          }
+          const reactiveRoute = {};
+          for (const key in START_LOCATION_NORMALIZED) reactiveRoute[key] = (0, runtime_core_esm_bundler.Fl)((() => currentRoute.value[key]));
+          app.provide(routerKey, router);
+          app.provide(routeLocationKey, (0, reactivity_esm_bundler.qj)(reactiveRoute));
+          app.provide(routerViewLocationKey, currentRoute);
+          const unmountApp = app.unmount;
+          installedApps.add(app);
+          app.unmount = function() {
+            installedApps.delete(app);
+            if (installedApps.size < 1) {
+              pendingLocation = START_LOCATION_NORMALIZED;
+              removeHistoryListener && removeHistoryListener();
+              currentRoute.value = START_LOCATION_NORMALIZED;
+              started = false;
+              ready = false;
+            }
+            unmountApp();
+          };
+          if ((false || __VUE_PROD_DEVTOOLS__) && isBrowser) addDevtools(app, router, matcher);
+        }
+      };
+      return router;
+    }
+    function runGuardQueue(guards) {
+      return guards.reduce(((promise, guard) => promise.then((() => guard()))), Promise.resolve());
+    }
+    function extractChangingRecords(to, from) {
+      const leavingRecords = [];
+      const updatingRecords = [];
+      const enteringRecords = [];
+      const len = Math.max(from.matched.length, to.matched.length);
+      for (let i = 0; i < len; i++) {
+        const recordFrom = from.matched[i];
+        if (recordFrom) if (to.matched.find((record => isSameRouteRecord(record, recordFrom)))) updatingRecords.push(recordFrom); else leavingRecords.push(recordFrom);
+        const recordTo = to.matched[i];
+        if (recordTo) if (!from.matched.find((record => isSameRouteRecord(record, recordTo)))) enteringRecords.push(recordTo);
+      }
+      return [ leavingRecords, updatingRecords, enteringRecords ];
+    }
   },
   5346: function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
     "use strict";

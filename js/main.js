@@ -1,18 +1,19 @@
 (function() {
   var __webpack_modules__ = {
     8950: function() {},
-    5051: function() {},
-    9251: function() {},
-    6129: function() {},
-    4233: function() {},
-    3372: function() {},
-    6259: function() {},
-    5339: function() {},
-    7799: function() {},
+    1209: function() {},
+    565: function() {},
+    8598: function() {},
+    7734: function() {},
+    5270: function() {},
+    242: function() {},
+    4929: function() {},
+    5419: function() {},
     9259: function() {},
-    5190: function() {},
+    5869: function() {},
     4422: function() {},
-    4355: function() {},
+    3971: function() {},
+    5186: function() {},
     1018: function(module, __unused_webpack_exports, __webpack_require__) {
       var content = __webpack_require__(8950);
       if (content.__esModule) content = content.default;
@@ -22,76 +23,76 @@
       add("f687b144", content, false, {});
       if (false) ;
     },
-    5432: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(5051);
+    6447: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(1209);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("ec4630c6", content, false, {});
+      add("3834cbd4", content, false, {});
       if (false) ;
     },
-    534: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(9251);
+    859: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(565);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("67ccf961", content, false, {});
+      add("346c5a93", content, false, {});
       if (false) ;
     },
-    7640: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(6129);
+    6176: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(8598);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("f4e0593e", content, false, {});
+      add("72e25a9f", content, false, {});
       if (false) ;
     },
-    5124: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(4233);
+    1882: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(7734);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("8dea222e", content, false, {});
+      add("f19578b2", content, false, {});
       if (false) ;
     },
-    8766: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(3372);
+    4198: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(5270);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("171f8d02", content, false, {});
+      add("b529fb08", content, false, {});
       if (false) ;
     },
-    9343: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(6259);
+    504: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(242);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("91bbc954", content, false, {});
+      add("c990186e", content, false, {});
       if (false) ;
     },
-    7439: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(5339);
+    209: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(4929);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("734b1682", content, false, {});
+      add("6a7f821b", content, false, {});
       if (false) ;
     },
-    9404: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(7799);
+    4451: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(5419);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("68d4be56", content, false, {});
+      add("4ea8104a", content, false, {});
       if (false) ;
     },
     9500: function(module, __unused_webpack_exports, __webpack_require__) {
@@ -103,13 +104,13 @@
       add("1905723f", content, false, {});
       if (false) ;
     },
-    6427: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(5190);
+    7028: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(5869);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("2af4d1bd", content, false, {});
+      add("2baff0c4", content, false, {});
       if (false) ;
     },
     7102: function(module, __unused_webpack_exports, __webpack_require__) {
@@ -121,32 +122,57 @@
       add("33789166", content, false, {});
       if (false) ;
     },
-    7888: function(module, __unused_webpack_exports, __webpack_require__) {
-      var content = __webpack_require__(4355);
+    4001: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(3971);
       if (content.__esModule) content = content.default;
       if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
       if (content.locals) module.exports = content.locals;
       var add = __webpack_require__(5346).Z;
-      add("5798342c", content, false, {});
+      add("f87cc278", content, false, {});
       if (false) ;
     },
-    4790: function(__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) {
+    2542: function(module, __unused_webpack_exports, __webpack_require__) {
+      var content = __webpack_require__(5186);
+      if (content.__esModule) content = content.default;
+      if ("string" === typeof content) content = [ [ module.id, content, "" ] ];
+      if (content.locals) module.exports = content.locals;
+      var add = __webpack_require__(5346).Z;
+      add("3874d5e8", content, false, {});
+      if (false) ;
+    },
+    202: function(__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) {
       "use strict";
       __webpack_require__(1018);
       __webpack_require__(5202);
       window["FLS"] = false;
       var runtime_dom_esm_bundler = __webpack_require__(9963);
       var runtime_core_esm_bundler = __webpack_require__(6252);
+      function render(_ctx, _cache, $props, $setup, $data, $options) {
+        const _component_router_view = (0, runtime_core_esm_bundler.up)("router-view");
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.j4)(_component_router_view);
+      }
+      var Appvue_type_script_lang_js = {};
+      __webpack_require__(6447);
+      var exportHelper = __webpack_require__(3744);
+      const __exports__ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", render ] ]);
+      var App = __exports__;
+      function Mainvue_type_template_id_2052cec6_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        const _component_aside_bar = (0, runtime_core_esm_bundler.up)("aside-bar");
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.j4)(_component_aside_bar);
+      }
+      var Mainvue_type_script_lang_js = {};
+      const Main_exports_ = (0, exportHelper.Z)(Mainvue_type_script_lang_js, [ [ "render", Mainvue_type_template_id_2052cec6_lang_pug_render ] ]);
+      var Main = Main_exports_;
       const _hoisted_1 = (0, runtime_core_esm_bundler._)("header", null, null, -1);
       const _hoisted_2 = {
         class: "page__profile"
       };
-      function render(_ctx, _cache, $props, $setup, $data, $options) {
+      function Profilevue_type_template_id_6449909f_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
         const _component_aside_bar = (0, runtime_core_esm_bundler.up)("aside-bar");
         const _component_about_person = (0, runtime_core_esm_bundler.up)("about-person");
-        const _component_spinner_loader = (0, runtime_core_esm_bundler.up)("spinner-loader");
         const _component_about_me = (0, runtime_core_esm_bundler.up)("about-me");
         const _component_skills = (0, runtime_core_esm_bundler.up)("skills");
+        const _component_spinner_loader = (0, runtime_core_esm_bundler.up)("spinner-loader");
         const _component_more_employees = (0, runtime_core_esm_bundler.up)("more-employees");
         return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, [ _hoisted_1, (0, 
         runtime_core_esm_bundler.Wm)(_component_aside_bar), (0, runtime_core_esm_bundler._)("main", _hoisted_2, [ !$data.isProfileLoading ? ((0, 
@@ -154,113 +180,193 @@
           key: 0,
           profile: $data.profile,
           facts: $data.facts
-        }, null, 8, [ "profile", "facts" ])) : ((0, runtime_core_esm_bundler.wg)(), (0, 
-        runtime_core_esm_bundler.j4)(_component_spinner_loader, {
-          key: 1
-        })), (0, runtime_core_esm_bundler.Wm)(_component_about_me, {
+        }, null, 8, [ "profile", "facts" ])) : (0, runtime_core_esm_bundler.kq)("v-if", true), !$data.isProfileLoading ? ((0, 
+        runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.j4)(_component_about_me, {
+          key: 1,
           questions: $data.questions
-        }, null, 8, [ "questions" ]), (0, runtime_core_esm_bundler.Wm)(_component_skills), (0, 
-        runtime_core_esm_bundler.Wm)(_component_more_employees) ]) ], 64);
+        }, null, 8, [ "questions" ])) : (0, runtime_core_esm_bundler.kq)("v-if", true), !$data.isProfileLoading ? ((0, 
+        runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.j4)(_component_skills, {
+          key: 2,
+          skillsBase: $data.skillsBase,
+          skillsSecondary: $data.skillsSecondary,
+          qualifications: $data.qualifications
+        }, null, 8, [ "skillsBase", "skillsSecondary", "qualifications" ])) : ((0, runtime_core_esm_bundler.wg)(), 
+        (0, runtime_core_esm_bundler.j4)(_component_spinner_loader, {
+          key: 3
+        })), (0, runtime_core_esm_bundler.Wm)(_component_more_employees) ]) ], 64);
       }
       var axios = __webpack_require__(9669);
       var axios_default = __webpack_require__.n(axios);
-      const _withScopeId = n => ((0, runtime_core_esm_bundler.dD)("data-v-782ef64b"), 
+      const _withScopeId = n => ((0, runtime_core_esm_bundler.dD)("data-v-0c073ee8"), 
       n = n(), (0, runtime_core_esm_bundler.Cn)(), n);
-      const Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_hoisted_1 = {
+      const Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_hoisted_1 = {
         class: "skills"
       };
-      const Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_hoisted_2 = {
+      const Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_hoisted_2 = {
         class: "skills__container"
       };
       const _hoisted_3 = _withScopeId((() => (0, runtime_core_esm_bundler._)("h2", {
         class: "skills__title"
       }, "Навыки", -1)));
-      function Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+      function Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
         const _component_basic_skills = (0, runtime_core_esm_bundler.up)("basic-skills");
         const _component_secondary_skills = (0, runtime_core_esm_bundler.up)("secondary-skills");
         const _component_qualification_skills = (0, runtime_core_esm_bundler.up)("qualification-skills");
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_hoisted_1, [ (0, 
-        runtime_core_esm_bundler._)("div", Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_hoisted_2, [ _hoisted_3, (0, 
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_hoisted_1, [ (0, 
+        runtime_core_esm_bundler._)("div", Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_hoisted_2, [ _hoisted_3, (0, 
         runtime_core_esm_bundler.Wm)(_component_basic_skills, {
-          class: "skills__basic-skills"
-        }), (0, runtime_core_esm_bundler.Wm)(_component_secondary_skills, {
-          class: "skills__secondary-skills"
-        }), (0, runtime_core_esm_bundler.Wm)(_component_qualification_skills, {
-          class: "skills__qualification-skills"
-        }) ]) ]);
+          class: "skills__basic-skills",
+          skillsBase: $props.skillsBase
+        }, null, 8, [ "skillsBase" ]), (0, runtime_core_esm_bundler.Wm)(_component_secondary_skills, {
+          class: "skills__secondary-skills",
+          skillsSecondary: $props.skillsSecondary
+        }, null, 8, [ "skillsSecondary" ]), (0, runtime_core_esm_bundler.Wm)(_component_qualification_skills, {
+          class: "skills__qualification-skills",
+          qualifications: $props.qualifications
+        }, null, 8, [ "qualifications" ]) ]) ]);
       }
-      const BasicSkillsvue_type_template_id_1de8bce6_lang_pug_hoisted_1 = {
+      var shared_esm_bundler = __webpack_require__(3577);
+      const BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_1 = {
         class: "basic-skills"
       };
-      const BasicSkillsvue_type_template_id_1de8bce6_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler.uE)('<h3 class="basic-skills__title">Основные навыки</h3><div class="basic-skills__items"><div class="basic-skills__item">Креативное мышление</div><div class="basic-skills__item">Web-design</div><div class="basic-skills__item">UX-design</div><div class="basic-skills__item">Фигменный стиль</div></div>', 2);
-      const _hoisted_4 = [ BasicSkillsvue_type_template_id_1de8bce6_lang_pug_hoisted_2 ];
-      function BasicSkillsvue_type_template_id_1de8bce6_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", BasicSkillsvue_type_template_id_1de8bce6_lang_pug_hoisted_1, _hoisted_4);
+      const BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_2 = (0, runtime_core_esm_bundler._)("h3", {
+        class: "basic-skills__title"
+      }, "Основные навыки", -1);
+      const BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_3 = {
+        class: "basic-skills__items"
+      };
+      const _hoisted_4 = {
+        class: "basic-skills__item-title"
+      };
+      function BasicSkillsvue_type_template_id_040e12ea_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_1, [ BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_2, (0, 
+        runtime_core_esm_bundler._)("div", BasicSkillsvue_type_template_id_040e12ea_lang_pug_hoisted_3, [ ((0, 
+        runtime_core_esm_bundler.wg)(true), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, (0, 
+        runtime_core_esm_bundler.Ko)($props.skillsBase, (skillBase => ((0, runtime_core_esm_bundler.wg)(), 
+        (0, runtime_core_esm_bundler.iD)("div", {
+          class: "basic-skills__item",
+          key: skillBase.length
+        }, [ (0, runtime_core_esm_bundler._)("div", _hoisted_4, (0, shared_esm_bundler.zw)(skillBase), 1) ])))), 128)) ]) ]);
       }
       var BasicSkillsvue_type_script_lang_js = {
-        name: "basic-skills"
+        name: "basic-skills",
+        props: {
+          skillsBase: {}
+        }
       };
-      __webpack_require__(7640);
-      var exportHelper = __webpack_require__(3744);
-      const __exports__ = (0, exportHelper.Z)(BasicSkillsvue_type_script_lang_js, [ [ "render", BasicSkillsvue_type_template_id_1de8bce6_lang_pug_render ] ]);
-      var BasicSkills = __exports__;
-      const SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_1 = {
+      __webpack_require__(6176);
+      const BasicSkills_exports_ = (0, exportHelper.Z)(BasicSkillsvue_type_script_lang_js, [ [ "render", BasicSkillsvue_type_template_id_040e12ea_lang_pug_render ] ]);
+      var BasicSkills = BasicSkills_exports_;
+      const SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_withScopeId = n => ((0, 
+      runtime_core_esm_bundler.dD)("data-v-2cff8b36"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
+      n);
+      const SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_1 = {
         class: "secondary-skills"
       };
-      const SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_2 = (0, 
-      runtime_core_esm_bundler.uE)('<h3 class="secondary-skills__title" data-v-ca5959ca>Вторичные навыки</h3><div class="secondary-skills__items" data-v-ca5959ca><div class="secondary-skills__item" data-v-ca5959ca>Арт-дизайн</div><div class="secondary-skills__item" data-v-ca5959ca>CSS</div><div class="secondary-skills__item" data-v-ca5959ca>Брендинг</div><div class="secondary-skills__item" data-v-ca5959ca>Графический дизайнер</div><div class="secondary-skills__item" data-v-ca5959ca>HTML</div><div class="secondary-skills__item" data-v-ca5959ca>Социальные сети</div><div class="secondary-skills__item" data-v-ca5959ca>Иллюстрации</div></div>', 2);
-      const SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_4 = [ SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_2 ];
-      function SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_1, SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_hoisted_4);
+      const SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_2 = SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_withScopeId((() => (0, 
+      runtime_core_esm_bundler._)("h3", {
+        class: "secondary-skills__title"
+      }, "Вторичные навыки", -1)));
+      const SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_3 = {
+        class: "secondary-skills__items"
+      };
+      const SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_4 = {
+        class: "secondary-skills__item-title"
+      };
+      function SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_1, [ SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_2, (0, 
+        runtime_core_esm_bundler._)("div", SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_3, [ ((0, 
+        runtime_core_esm_bundler.wg)(true), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, (0, 
+        runtime_core_esm_bundler.Ko)($props.skillsSecondary, (skillSecondary => ((0, runtime_core_esm_bundler.wg)(), 
+        (0, runtime_core_esm_bundler.iD)("div", {
+          class: "secondary-skills__item",
+          key: skillSecondary.length
+        }, [ (0, runtime_core_esm_bundler._)("div", SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_hoisted_4, (0, 
+        shared_esm_bundler.zw)(skillSecondary), 1) ])))), 128)) ]) ]);
       }
       var SecondarySkillsvue_type_script_lang_js = {
-        name: "secondary-skills"
+        name: "secondary-skills",
+        props: {
+          skillsSecondary: {}
+        }
       };
-      __webpack_require__(8766);
-      const SecondarySkills_exports_ = (0, exportHelper.Z)(SecondarySkillsvue_type_script_lang_js, [ [ "render", SecondarySkillsvue_type_template_id_ca5959ca_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-ca5959ca" ] ]);
+      __webpack_require__(4198);
+      const SecondarySkills_exports_ = (0, exportHelper.Z)(SecondarySkillsvue_type_script_lang_js, [ [ "render", SecondarySkillsvue_type_template_id_2cff8b36_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-2cff8b36" ] ]);
       var SecondarySkills = SecondarySkills_exports_;
-      const QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_1 = {
+      const QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_withScopeId = n => ((0, 
+      runtime_core_esm_bundler.dD)("data-v-03f6b4ae"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
+      n);
+      const QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_1 = {
         class: "qualification-skills"
       };
-      const QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_2 = (0, 
-      runtime_core_esm_bundler.uE)('<h3 class="qualification-skills__title" data-v-a456cf1e>Квалификация </h3><div class="qualification-skills__items" data-v-a456cf1e><div class="qualification-skills__item" data-v-a456cf1e><span data-v-a456cf1e>Курсы Skillbox</span><span data-v-a456cf1e><time class="qualification-skills__time qualification-skills__time_begin" datetime="2021" data-v-a456cf1e>2021</time><time class="qualification-skills__time qualification-skills__time_end" datetime="2022" data-v-a456cf1e>2022</time></span></div><div class="qualification-skills__item" data-v-a456cf1e><span data-v-a456cf1e>Курсы GeekBrains</span><span data-v-a456cf1e><time class="qualification-skills__time qualification-skills__time_begin" datetime="2019" data-v-a456cf1e>2019</time><time class="qualification-skills__time qualification-skills__time_end" datetime="2020" data-v-a456cf1e>2020</time></span></div></div>', 2);
-      const QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_4 = [ QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_2 ];
-      function QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_1, QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_hoisted_4);
+      const QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_2 = QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_withScopeId((() => (0, 
+      runtime_core_esm_bundler._)("h3", {
+        class: "qualification-skills__title"
+      }, "Квалификация ", -1)));
+      const QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_3 = {
+        class: "qualification-skills__items"
+      };
+      const QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_4 = [ "datetime" ];
+      const _hoisted_5 = [ "datetime" ];
+      function QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_1, [ QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_2, (0, 
+        runtime_core_esm_bundler._)("div", QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_3, [ ((0, 
+        runtime_core_esm_bundler.wg)(true), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, (0, 
+        runtime_core_esm_bundler.Ko)($props.qualifications, (qualification => ((0, runtime_core_esm_bundler.wg)(), 
+        (0, runtime_core_esm_bundler.iD)("div", {
+          class: "qualification-skills__item",
+          key: qualification.id_certification
+        }, [ (0, runtime_core_esm_bundler._)("span", null, (0, shared_esm_bundler.zw)(qualification.title), 1), (0, 
+        runtime_core_esm_bundler._)("span", null, [ (0, runtime_core_esm_bundler._)("time", {
+          class: "qualification-skills__time qualification-skills__time_begin",
+          datetime: qualification.start_year
+        }, (0, shared_esm_bundler.zw)(qualification.start_year), 9, QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_hoisted_4), (0, 
+        runtime_core_esm_bundler._)("time", {
+          class: "qualification-skills__time qualification-skills__time_end",
+          datetime: qualification.ended_year
+        }, (0, shared_esm_bundler.zw)(qualification.ended_year), 9, _hoisted_5) ]) ])))), 128)) ]) ]);
       }
       var QualificationSkillsvue_type_script_lang_js = {
-        name: "qualification-skills"
+        name: "qualification-skills",
+        props: {
+          qualifications: {}
+        }
       };
-      __webpack_require__(5124);
-      const QualificationSkills_exports_ = (0, exportHelper.Z)(QualificationSkillsvue_type_script_lang_js, [ [ "render", QualificationSkillsvue_type_template_id_a456cf1e_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-a456cf1e" ] ]);
+      __webpack_require__(1882);
+      const QualificationSkills_exports_ = (0, exportHelper.Z)(QualificationSkillsvue_type_script_lang_js, [ [ "render", QualificationSkillsvue_type_template_id_03f6b4ae_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-03f6b4ae" ] ]);
       var QualificationSkills = QualificationSkills_exports_;
       var Skillsvue_type_script_lang_js = {
         name: "skills",
+        props: {
+          skillsBase: {},
+          skillsSecondary: {},
+          qualifications: {}
+        },
         components: {
           BasicSkills: BasicSkills,
           SecondarySkills: SecondarySkills,
           QualificationSkills: QualificationSkills
         }
       };
-      __webpack_require__(9343);
-      const Skills_exports_ = (0, exportHelper.Z)(Skillsvue_type_script_lang_js, [ [ "render", Skillsvue_type_template_id_782ef64b_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-782ef64b" ] ]);
+      __webpack_require__(504);
+      const Skills_exports_ = (0, exportHelper.Z)(Skillsvue_type_script_lang_js, [ [ "render", Skillsvue_type_template_id_0c073ee8_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-0c073ee8" ] ]);
       var Skills = Skills_exports_;
-      const MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_1 = {
+      const MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_1 = {
         class: "more-employees"
       };
-      const MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_2 = (0, 
-      runtime_core_esm_bundler.uE)('<div class="more-employees__container" data-v-45f32e1a><h2 class="more-employees__title" data-v-45f32e1a>Больше сотрудников</h2><div class="more-employees__items" data-v-45f32e1a><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/anton-shapovalov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/anton-shapovalov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/anton-shapovalov.jpg" alt="Антон Шаповалов" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Антон Шаповалов</div><div class="more-employees__item-subtitle" data-v-45f32e1a>QA-специалист</div></a></article><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/anton-permyakov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/anton-permyakov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/anton-permyakov.jpg" alt="Антон Пермяков" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Антон Пермяков</div><div class="more-employees__item-subtitle" data-v-45f32e1a>Директор, совладелец компании</div></a></article><article class="more-employees__item" data-v-45f32e1a><div class="more-employees__item-img" data-v-45f32e1a><picture data-v-45f32e1a><source srcset="img/persons/andrey-stepanov.avif" type="image/avif" data-v-45f32e1a><source srcset="img/persons/andrey-stepanov.webp" type="image/webp" data-v-45f32e1a><img src="img/persons/andrey-stepanov.jpg" alt="Андрей Степанов" width="324" height="320" loading="lazy" data-v-45f32e1a></picture></div><a class="more-employees__item-footer" href="#" data-v-45f32e1a><div class="more-employees__item-title" data-v-45f32e1a>Андрей Степанов</div><div class="more-employees__item-subtitle" data-v-45f32e1a>Технический директор</div></a></article></div><button class="more-employees__btn-more" data-v-45f32e1a>Посмотреть ещё</button></div>', 1);
-      const MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_3 = [ MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_2 ];
-      function MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_1, MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_hoisted_3);
+      const MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_2 = (0, 
+      runtime_core_esm_bundler.uE)('<div class="more-employees__container" data-v-e7313cdc><h2 class="more-employees__title" data-v-e7313cdc>Больше сотрудников</h2><div class="more-employees__items" data-v-e7313cdc><article class="more-employees__item" data-v-e7313cdc><picture data-v-e7313cdc><source srcset="img/persons/anton-shapovalov.avif" type="image/avif" data-v-e7313cdc><source srcset="img/persons/anton-shapovalov.webp" type="image/webp" data-v-e7313cdc><img class="more-employees__item-img" src="img/persons/anton-shapovalov.jpg" alt="Антон Шаповалов" width="" height="" loading="lazy" data-v-e7313cdc></picture><a class="more-employees__item-footer" href="#" data-v-e7313cdc><div class="more-employees__item-title" data-v-e7313cdc>Антон Шаповалов</div><div class="more-employees__item-subtitle" data-v-e7313cdc>QA-специалист</div></a></article><article class="more-employees__item" data-v-e7313cdc><picture data-v-e7313cdc><source srcset="img/persons/anton-permyakov.avif" type="image/avif" data-v-e7313cdc><source srcset="img/persons/anton-permyakov.webp" type="image/webp" data-v-e7313cdc><img class="more-employees__item-img" src="img/persons/anton-permyakov.jpg" alt="Антон Пермяков" width="" height="" loading="lazy" data-v-e7313cdc></picture><a class="more-employees__item-footer" href="#" data-v-e7313cdc><div class="more-employees__item-title" data-v-e7313cdc>Антон Пермяков</div><div class="more-employees__item-subtitle" data-v-e7313cdc>Директор, совладелец компании</div></a></article><article class="more-employees__item" data-v-e7313cdc><picture data-v-e7313cdc><source srcset="img/persons/andrey-stepanov.avif" type="image/avif" data-v-e7313cdc><source srcset="img/persons/andrey-stepanov.webp" type="image/webp" data-v-e7313cdc><img class="more-employees__item-img" src="img/persons/andrey-stepanov.jpg" alt="Андрей Степанов" width="" height="" loading="lazy" data-v-e7313cdc></picture><a class="more-employees__item-footer" href="#" data-v-e7313cdc><div class="more-employees__item-title" data-v-e7313cdc>Андрей Степанов</div><div class="more-employees__item-subtitle" data-v-e7313cdc>Технический директор</div></a></article></div><button class="more-employees__btn-more" data-v-e7313cdc>Посмотреть ещё</button></div>', 1);
+      const MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_3 = [ MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_2 ];
+      function MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_1, MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_hoisted_3);
       }
       var MoreEmployeesvue_type_script_lang_js = {
         name: "more-employees"
       };
-      __webpack_require__(534);
-      const MoreEmployees_exports_ = (0, exportHelper.Z)(MoreEmployeesvue_type_script_lang_js, [ [ "render", MoreEmployeesvue_type_template_id_45f32e1a_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-45f32e1a" ] ]);
+      __webpack_require__(859);
+      const MoreEmployees_exports_ = (0, exportHelper.Z)(MoreEmployeesvue_type_script_lang_js, [ [ "render", MoreEmployeesvue_type_template_id_e7313cdc_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-e7313cdc" ] ]);
       var MoreEmployees = MoreEmployees_exports_;
-      var Appvue_type_script_lang_js = {
+      var Profilevue_type_script_lang_js = {
         components: {
           Skills: Skills,
           MoreEmployees: MoreEmployees
@@ -271,6 +377,9 @@
             profile: [],
             facts: [],
             questions: [],
+            skillsBase: [],
+            skillsSecondary: [],
+            qualifications: [],
             isProfileLoading: false
           };
         },
@@ -278,16 +387,17 @@
           async fetchProfile() {
             try {
               this.isProfileLoading = true;
-              setTimeout((async () => {
-                const response = await axios_default().get("http://www.pageform.ru/api/profile/");
-                this.data = response.data;
-                this.profile = this.data.profile[0];
-                this.facts = this.data.Fact;
-                this.questions = this.data.question;
-                console.log(this.data);
-                console.log(this.questions);
-                this.isProfileLoading = false;
-              }), 1e3);
+              const response = await axios_default().get("http://www.pageform.ru/api/profile/");
+              this.data = response.data;
+              this.profile = this.data.profile[0];
+              this.facts = this.data.Fact;
+              this.questions = this.data.question;
+              this.skillsBase = this.data.skills[1];
+              this.skillsSecondary = this.data.skills[2];
+              this.qualifications = this.data.certification;
+              console.log(this.data);
+              console.log(this.profile);
+              this.isProfileLoading = false;
             } catch (error) {
               console.log(error);
             }
@@ -297,9 +407,22 @@
           this.fetchProfile();
         }
       };
-      __webpack_require__(5432);
-      const App_exports_ = (0, exportHelper.Z)(Appvue_type_script_lang_js, [ [ "render", render ] ]);
-      var App = App_exports_;
+      __webpack_require__(2542);
+      const Profile_exports_ = (0, exportHelper.Z)(Profilevue_type_script_lang_js, [ [ "render", Profilevue_type_template_id_6449909f_lang_pug_render ] ]);
+      var Profile = Profile_exports_;
+      var vue_router_esm_bundler = __webpack_require__(4949);
+      const routes = [ {
+        path: "/",
+        component: Main
+      }, {
+        path: "/profile",
+        component: Profile
+      } ];
+      const router = (0, vue_router_esm_bundler.p7)({
+        routes: routes,
+        history: (0, vue_router_esm_bundler.PO)()
+      });
+      var router_router = router;
       const AsideBarvue_type_template_id_9ff08f48_scoped_true_lang_pug_hoisted_1 = {
         class: "aside"
       };
@@ -315,57 +438,52 @@
       __webpack_require__(9500);
       const AsideBar_exports_ = (0, exportHelper.Z)(AsideBarvue_type_script_lang_js, [ [ "render", AsideBarvue_type_template_id_9ff08f48_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-9ff08f48" ] ]);
       var AsideBar = AsideBar_exports_;
-      var shared_esm_bundler = __webpack_require__(3577);
-      const AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_1 = {
+      const AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_1 = {
         class: "about-person"
       };
-      const AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_2 = {
+      const AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_2 = {
         class: "about-person__container"
       };
-      const AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_3 = {
+      const AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_3 = {
         class: "about-person__wrapper"
       };
-      const AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_4 = {
-        class: "about-person__avatar"
-      };
-      const _hoisted_5 = [ "src" ];
-      const _hoisted_6 = {
+      const AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_4 = [ "src" ];
+      const AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_5 = {
         class: "about-person__info"
       };
-      const _hoisted_7 = {
+      const _hoisted_6 = {
         class: "about-person__info-headings"
       };
-      const _hoisted_8 = {
+      const _hoisted_7 = {
         class: "about-person__title"
       };
-      const _hoisted_9 = {
+      const _hoisted_8 = {
         class: "about-person__subtitle"
       };
-      const _hoisted_10 = {
+      const _hoisted_9 = {
         class: "about-person__info-paragraphs"
       };
-      const _hoisted_11 = {
-        class: "about-person__paragraph"
-      };
-      function AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+      const _hoisted_10 = [ "innerHTML" ];
+      function AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
         const _component_socials = (0, runtime_core_esm_bundler.up)("socials");
         const _component_personal_facts = (0, runtime_core_esm_bundler.up)("personal-facts");
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_1, [ (0, 
-        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_2, [ (0, 
-        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_3, [ (0, 
-        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_hoisted_4, [ (0, 
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_1, [ (0, 
+        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_2, [ (0, 
+        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_3, [ (0, 
         runtime_core_esm_bundler._)("img", {
+          class: "about-person__avatar",
           src: `img/persons/` + $props.profile.photo,
           alt: "",
-          width: "384",
-          height: "540",
           loading: "lazy"
-        }, null, 8, _hoisted_5) ]), (0, runtime_core_esm_bundler._)("div", _hoisted_6, [ (0, 
-        runtime_core_esm_bundler._)("div", _hoisted_7, [ (0, runtime_core_esm_bundler._)("h1", _hoisted_8, (0, 
+        }, null, 8, AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_4), (0, 
+        runtime_core_esm_bundler._)("div", AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_hoisted_5, [ (0, 
+        runtime_core_esm_bundler._)("div", _hoisted_6, [ (0, runtime_core_esm_bundler._)("h1", _hoisted_7, (0, 
         shared_esm_bundler.zw)($props.profile.first_name) + " " + (0, shared_esm_bundler.zw)($props.profile.last_name), 1), (0, 
-        runtime_core_esm_bundler._)("div", _hoisted_9, (0, shared_esm_bundler.zw)($props.profile.position_name), 1) ]), (0, 
-        runtime_core_esm_bundler._)("div", _hoisted_10, [ (0, runtime_core_esm_bundler._)("p", _hoisted_11, (0, 
-        shared_esm_bundler.zw)($props.profile.about_me), 1) ]), (0, runtime_core_esm_bundler.Wm)(_component_socials, {
+        runtime_core_esm_bundler._)("div", _hoisted_8, (0, shared_esm_bundler.zw)($props.profile.position_name), 1) ]), (0, 
+        runtime_core_esm_bundler._)("div", _hoisted_9, [ (0, runtime_core_esm_bundler._)("p", {
+          class: "about-person__paragraph",
+          innerHTML: $props.profile.about_me
+        }, null, 8, _hoisted_10) ]), (0, runtime_core_esm_bundler.Wm)(_component_socials, {
           class: "about-person__socials"
         }) ]) ]), (0, runtime_core_esm_bundler.Wm)(_component_personal_facts, {
           class: "about-person__facts",
@@ -379,8 +497,8 @@
           facts: {}
         }
       };
-      __webpack_require__(9404);
-      const AboutPerson_exports_ = (0, exportHelper.Z)(AboutPersonvue_type_script_lang_js, [ [ "render", AboutPersonvue_type_template_id_39fd6689_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-39fd6689" ] ]);
+      __webpack_require__(4451);
+      const AboutPerson_exports_ = (0, exportHelper.Z)(AboutPersonvue_type_script_lang_js, [ [ "render", AboutPersonvue_type_template_id_70af6574_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-70af6574" ] ]);
       var AboutPerson = AboutPerson_exports_;
       const Socialsvue_type_template_id_3d33456a_scoped_true_lang_pug_hoisted_1 = {
         class: "socials"
@@ -397,24 +515,24 @@
       __webpack_require__(7102);
       const Socials_exports_ = (0, exportHelper.Z)(Socialsvue_type_script_lang_js, [ [ "render", Socialsvue_type_template_id_3d33456a_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-3d33456a" ] ]);
       var Socials = Socials_exports_;
-      const PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_1 = {
+      const PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_1 = {
         class: "personal-facts"
       };
-      const PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_2 = {
+      const PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_2 = {
         class: "personal-facts__title"
       };
-      const PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_3 = {
+      const PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_3 = {
         class: "personal-facts__subtitle"
       };
-      function PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_1, [ ((0, 
+      function PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_1, [ ((0, 
         runtime_core_esm_bundler.wg)(true), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, (0, 
         runtime_core_esm_bundler.Ko)($props.facts, (fact => ((0, runtime_core_esm_bundler.wg)(), 
         (0, runtime_core_esm_bundler.iD)("div", {
           class: "personal-facts__item",
           key: fact.id_fact
-        }, [ (0, runtime_core_esm_bundler._)("div", PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_2, (0, 
-        shared_esm_bundler.zw)(fact.count), 1), (0, runtime_core_esm_bundler._)("div", PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_hoisted_3, (0, 
+        }, [ (0, runtime_core_esm_bundler._)("div", PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_2, (0, 
+        shared_esm_bundler.zw)(fact.count), 1), (0, runtime_core_esm_bundler._)("div", PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_hoisted_3, (0, 
         shared_esm_bundler.zw)(fact.name), 1) ])))), 128)) ]);
       }
       var PersonalFactsvue_type_script_lang_js = {
@@ -423,42 +541,42 @@
           facts: {}
         }
       };
-      __webpack_require__(6427);
-      const PersonalFacts_exports_ = (0, exportHelper.Z)(PersonalFactsvue_type_script_lang_js, [ [ "render", PersonalFactsvue_type_template_id_427d2136_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-427d2136" ] ]);
+      __webpack_require__(7028);
+      const PersonalFacts_exports_ = (0, exportHelper.Z)(PersonalFactsvue_type_script_lang_js, [ [ "render", PersonalFactsvue_type_template_id_90935dd2_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-90935dd2" ] ]);
       var PersonalFacts = PersonalFacts_exports_;
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_withScopeId = n => ((0, 
-      runtime_core_esm_bundler.dD)("data-v-cdd5c0f6"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_withScopeId = n => ((0, 
+      runtime_core_esm_bundler.dD)("data-v-20d4dbba"), n = n(), (0, runtime_core_esm_bundler.Cn)(), 
       n);
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_1 = {
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_1 = {
         class: "about-me"
       };
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_2 = {
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_2 = {
         class: "about-me__container"
       };
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_3 = AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_withScopeId((() => (0, 
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_3 = AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_withScopeId((() => (0, 
       runtime_core_esm_bundler._)("h2", {
         class: "about-me__title"
       }, "О себе", -1)));
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_4 = {
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_4 = {
         class: "about-me__body"
       };
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_5 = {
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_5 = {
         class: "about-me__item-title"
       };
-      const AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_6 = {
+      const AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_6 = {
         class: "about-me__item-decription"
       };
-      function AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_1, [ (0, 
-        runtime_core_esm_bundler._)("div", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_2, [ AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_3, (0, 
-        runtime_core_esm_bundler._)("div", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_4, [ ((0, 
+      function AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("section", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_1, [ (0, 
+        runtime_core_esm_bundler._)("div", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_2, [ AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_3, (0, 
+        runtime_core_esm_bundler._)("div", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_4, [ ((0, 
         runtime_core_esm_bundler.wg)(true), (0, runtime_core_esm_bundler.iD)(runtime_core_esm_bundler.HY, null, (0, 
         runtime_core_esm_bundler.Ko)($props.questions, (question => ((0, runtime_core_esm_bundler.wg)(), 
         (0, runtime_core_esm_bundler.iD)("div", {
           class: "about-me__item",
           key: question.id_question
-        }, [ (0, runtime_core_esm_bundler._)("h3", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_5, (0, 
-        shared_esm_bundler.zw)(question.question), 1), (0, runtime_core_esm_bundler._)("p", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_hoisted_6, (0, 
+        }, [ (0, runtime_core_esm_bundler._)("h3", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_5, (0, 
+        shared_esm_bundler.zw)(question.question), 1), (0, runtime_core_esm_bundler._)("p", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_hoisted_6, (0, 
         shared_esm_bundler.zw)(question.answer), 1) ])))), 128)) ]) ]) ]);
       }
       var AboutMevue_type_script_lang_js = {
@@ -467,27 +585,27 @@
           questions: {}
         }
       };
-      __webpack_require__(7439);
-      const AboutMe_exports_ = (0, exportHelper.Z)(AboutMevue_type_script_lang_js, [ [ "render", AboutMevue_type_template_id_cdd5c0f6_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-cdd5c0f6" ] ]);
+      __webpack_require__(209);
+      const AboutMe_exports_ = (0, exportHelper.Z)(AboutMevue_type_script_lang_js, [ [ "render", AboutMevue_type_template_id_20d4dbba_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-20d4dbba" ] ]);
       var AboutMe = AboutMe_exports_;
-      const SpinnerLoadervue_type_template_id_7d5f6c4e_scoped_true_lang_pug_hoisted_1 = {
+      const SpinnerLoadervue_type_template_id_01b04b90_scoped_true_lang_pug_hoisted_1 = {
         class: "loader"
       };
-      function SpinnerLoadervue_type_template_id_7d5f6c4e_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
-        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", SpinnerLoadervue_type_template_id_7d5f6c4e_scoped_true_lang_pug_hoisted_1);
+      function SpinnerLoadervue_type_template_id_01b04b90_scoped_true_lang_pug_render(_ctx, _cache, $props, $setup, $data, $options) {
+        return (0, runtime_core_esm_bundler.wg)(), (0, runtime_core_esm_bundler.iD)("div", SpinnerLoadervue_type_template_id_01b04b90_scoped_true_lang_pug_hoisted_1);
       }
       var SpinnerLoadervue_type_script_lang_js = {
         name: "spinner-loader"
       };
-      __webpack_require__(7888);
-      const SpinnerLoader_exports_ = (0, exportHelper.Z)(SpinnerLoadervue_type_script_lang_js, [ [ "render", SpinnerLoadervue_type_template_id_7d5f6c4e_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-7d5f6c4e" ] ]);
+      __webpack_require__(4001);
+      const SpinnerLoader_exports_ = (0, exportHelper.Z)(SpinnerLoadervue_type_script_lang_js, [ [ "render", SpinnerLoadervue_type_template_id_01b04b90_scoped_true_lang_pug_render ], [ "__scopeId", "data-v-01b04b90" ] ]);
       var SpinnerLoader = SpinnerLoader_exports_;
       var _index = [ AsideBar, AboutPerson, Socials, PersonalFacts, AboutMe, SpinnerLoader ];
       const app = (0, runtime_dom_esm_bundler.ri)(App);
       if (_index.length >= 1) _index.forEach((component => {
         app.component(component.name, component);
       }));
-      app.mount("#app");
+      app.use(router_router).mount("#app");
     }
   };
   var __webpack_module_cache__ = {};
@@ -599,7 +717,7 @@
     chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
   }();
   var __webpack_exports__ = __webpack_require__.O(void 0, [ 216 ], (function() {
-    return __webpack_require__(4790);
+    return __webpack_require__(202);
   }));
   __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 })();
