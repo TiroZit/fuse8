@@ -2,7 +2,7 @@
 include /_mixins
 section.skills
   .skills__container
-    h2.skills__title Навыки
+    title-h2.skills__title Навыки
     basic-skills.skills__basic-skills(:skillsBase='skillsBase')
     secondary-skills.skills__secondary-skills(:skillsSecondary='skillsSecondary')
     qualification-skills.skills__qualification-skills(:qualifications='qualifications')
@@ -30,8 +30,6 @@ export default {
 .skills{
   @include adaptiveValue("margin-top", 70, 55);
   &__title{
-    font-weight: 900;
-    @include adaptiveValue("font-size", 60, 42);
   }
   &__basic-skills{
     margin-top: rem(25);

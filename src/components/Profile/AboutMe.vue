@@ -2,7 +2,7 @@
 include /_mixins
 section.about-me
   .about-me__container
-    h2.about-me__title О себе
+    title-h2.about-me__title О себе
     .about-me__body
       .about-me__item(v-for="question in questions" :key="question.id_question")
         h3.about-me__item-title {{question.question}}
@@ -24,8 +24,6 @@ export default {
   }
   // .about-me__title
   &__title {
-    font-weight: 900;
-    @include adaptiveValue("font-size", 60, 42);
   }
   // .about-me__body
   &__body {

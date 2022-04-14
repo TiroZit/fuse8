@@ -2,7 +2,7 @@
 include /_mixins
 section.more-employees
   .more-employees__container
-    h2.more-employees__title Больше сотрудников
+    title-h2.more-employees__title Больше сотрудников
     .more-employees__items
       article.more-employees__item
         +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов').more-employees__item-img
@@ -35,7 +35,6 @@ export default {
   }
   // .more-employees__title
   &__title {
-    @include adaptiveValue("font-size", 60, 42);
   }
   // .more-employees__items
   &__items {
