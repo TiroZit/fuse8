@@ -1,22 +1,21 @@
 <template lang="pug">
 include /_mixins
 aside.aside
-  .aside__wrapper
-    .aside__logo
-      svg.i-logo(aria-hidden)
-        use(xlink:href=`img/icons/icons.svg#svg-logo`)
-    .aside__menu
-      .aside__burger
-        button.burger(type='button')
-          span
-      a.aside__search(href='#')
-        svg.i-search(style=`fill: currentColor;` aria-hidden)
-          use(xlink:href=`img/icons/icons.svg#svg-search`)
-      a.aside__edit.active(href='#')
-        svg.i-pencil(style=`fill: currentColor;` aria-hidden)
-          use(xlink:href=`img/icons/icons.svg#svg-pencil`)
-      a.aside__avatar(href='#')
-        +image('@img/avatar.jpg', 'аватар', '41', '41')
+  .aside__logo
+    svg.i-logo(aria-hidden)
+      use(xlink:href=`img/icons/icons.svg#svg-logo`)
+  .aside__menu
+    .aside__burger
+      button.burger(type='button')
+        span
+    a.aside__search(href='#')
+      svg.i-search(style=`fill: currentColor;` aria-hidden)
+        use(xlink:href=`img/icons/icons.svg#svg-search`)
+    a.aside__edit.active(href='#')
+      svg.i-pencil(style=`fill: currentColor;` aria-hidden)
+        use(xlink:href=`img/icons/icons.svg#svg-pencil`)
+    a.aside__avatar(href='#')
+      +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
 export default {
@@ -25,14 +24,28 @@ export default {
 </script>
 <style scoped lang="scss">
 .aside {
-  position: relative;
-  background-color: var(--color-yellow);
-  &__wrapper{
-    position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  @include media-breakpoint-up(tablet){
+    height: 100%;
+    padding-bottom: rem(20);
   }
+  @include media-breakpoint-down(tablet){
+    display: flex;
+    width: 100%;
+    padding-right: rem(10);
+  }
+  background-color: var(--color-yellow);
   &__logo {
     position: relative;
-    margin-bottom: rem(30);
+    @include media-breakpoint-up(tablet){
+      margin-bottom: rem(30);
+    }
+    @include media-breakpoint-down(tablet){
+      @include adaptiveValue("margin-right", 30, 15, 768);
+    }
     & .i-logo{
       width: rem(80);
       height: rem(80);
@@ -41,17 +54,31 @@ export default {
       content: "";
       display: block;
       position: absolute;
-      left: calc(50% - rem(33));
-      bottom: 0;
+      @include media-breakpoint-up(tablet){
+        left: calc(50% - rem(33));
+        bottom: 0;
+      }
       width: rem(66);
       height: 2px;
       background-color: #000;
+      @include media-breakpoint-down(tablet){
+        right: 0;
+        top: calc(50% - rem(33));
+        width: 2px;
+        height: rem(66);
+      }
     }
   }
   &__menu {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    @include media-breakpoint-up(tablet){
+      flex-direction: column;
+    }
+    @include media-breakpoint-down(tablet){
+      justify-content: center;
+      width: 100%;
+    }
   }
   &__burger,
   &__search,
@@ -59,9 +86,19 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: rem(62);
+    @include media-breakpoint-up(tablet){
+      height: rem(60);
+    }
+    @include media-breakpoint-down(tablet){
+      flex: 0 1 rem(60);
+    }
     &.active {
-      width: 100%;
+      @include media-breakpoint-up(tablet){
+        width: 100%;
+      }
+      @include media-breakpoint-down(tablet){
+        height: 100%;
+      }
       background-color: var(--color-black);
     }
   }
@@ -87,7 +124,13 @@ export default {
     }
   }
   &__avatar{
-    margin-top: rem(35);
+    @include media-breakpoint-up(tablet){
+      margin-top: rem(35);
+    }
+    @include media-breakpoint-down(tablet){
+      padding-left: rem(10);
+      margin-left: auto;
+    }
     & img{
       border-radius: 50%;
     }

@@ -18,11 +18,11 @@ section.about-person
 </template>
 <script>
 export default {
-  name: "about-person",
-  props:{
-    profile: {},
-    facts: {}
-  },
+    name: "about-person",
+    props: {
+        profile: {},
+        facts: {}
+    },
 };
 </script>
 <style lang="scss" scoped>
