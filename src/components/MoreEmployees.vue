@@ -40,6 +40,7 @@ export default {
   &__items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(rem(300), rem(324)));
+    grid-template-rows: repeat(auto-fit, rem(392));
     justify-content: space-between;
     gap: rem(30);
     @include adaptiveValue("margin-top", 50, 30);
@@ -55,6 +56,7 @@ export default {
   // .more-employees__item-img
   &__item-img {
     width: 100%;
+    height: rem(317);
   }
   // .more-employees__item-footer
   &__item-footer {
