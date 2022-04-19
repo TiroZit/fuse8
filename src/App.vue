@@ -12,8 +12,8 @@ export default {
 .wrapper {
   display: grid;
   grid-template-rows: rem(80) 1fr;
-  overflow: hidden;
   min-height: 100%;
+  overflow: hidden;
   @include media-breakpoint-down(tablet){
     grid-template-rows: rem(80) rem(80) 1fr;
     grid-template-columns: 1fr;
@@ -36,7 +36,7 @@ export default {
   }
   > main {
     @include media-breakpoint-up(tablet){
-      grid-column: 3;
+      grid-column: 2;
     }
     @include media-breakpoint-down(tablet){
       grid-row: 3;
