@@ -35,6 +35,7 @@ export default {
   @include media-breakpoint-down(tablet){
     display: flex;
     width: 100%;
+    height: rem(80);
     padding-right: rem(10);
   }
   background-color: var(--color-yellow);
