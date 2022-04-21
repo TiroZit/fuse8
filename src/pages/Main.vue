@@ -4,12 +4,15 @@ aside-bar
 my-header
 main.page__main
   .page__container
-    article.edit-profile.edit-profile_brown
-      .edit-profile__info
-        h2.edit-profile__title Обновите свой профиль
-        p.edit-profile__text Обновите информацию в своём профиле, чтобы людям было легче найти или узнать о вас больше
-        button.edit-profile__btn Редактировать
-      img.edit-profile__img(src='@img/edit-profile.jpg' alt='офис' loading='lazy')
+    article.post.post_brown
+      .post__info
+        h2.post__title Обновите свой профиль
+        p.post__text Обновите информацию в своём профиле, чтобы людям было легче найти или узнать о вас больше
+        button.post__btn Редактировать
+      img.post__img(src='@img/edit-profile.jpg' alt='офис' loading='lazy')
+    .post__empty
+      b Скоро тут что то будет...
+      span но это не точно)
 </template>
 <script>
 export default {
@@ -18,10 +21,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .page__main{
-  @include adaptiveValue("margin-top", 100, 50);
+  @include adaptiveValue("margin-top", 50, 0);
 }
-.edit-profile{
+.post{
   display: flex;
+  margin-top: rem(50);
   &_brown{
     background-color: #B2AA99;
   }
@@ -50,6 +54,19 @@ export default {
     width: percent(600, 1351);
     @include media-breakpoint-down(mobile){
       display: none;
+    }
+  }
+  &__empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: rem(200);
+    b{
+      @include adaptiveValue("font-size", 29, 20);
+      font-weight: 500;
+    }
+    span{
+      @include adaptiveValue("font-size", 21, 16);
     }
   }
 }
