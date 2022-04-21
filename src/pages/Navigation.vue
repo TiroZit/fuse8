@@ -28,8 +28,9 @@ export default {
     display: block;
     @include adaptiveValue("font-size", 55, 21);
     text-decoration: underline;
+    padding: rem(10) 0;
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 50, 20);
+      @include adaptiveValue("margin-bottom", 40, 20);
     }
   }
 }
