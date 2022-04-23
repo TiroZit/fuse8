@@ -1,29 +1,28 @@
 <template lang="pug">
+<post-list/>
 include /_mixins
 section.more-employees
   .more-employees__container
     title-h2.more-employees__title Больше сотрудников
     .more-employees__items
-      article.more-employees__item
-        +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Антон Шаповалов
-          .more-employees__item-subtitle QA-специалист
-      article.more-employees__item
-        +image('@img/persons/anton-permyakov.jpg', 'Антон Пермяков').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Антон Пермяков
-          .more-employees__item-subtitle Директор, совладелец компании
-      article.more-employees__item
-        +image('@img/persons/andrey-stepanov.jpg', 'Андрей Степанов').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Андрей Степанов
-          .more-employees__item-subtitle Технический директор
-    button.more-employees__btn-more Посмотреть ещё
+      article.more-employees__item(v-for="profile in profiles" :key="profile.id_profile")
+        div(v-bind:id="profile.id_profile" @click="getNameId(profile.id_profile)")
+          img(:src='`http://www.pageform.ru/persons/` + profile.photo' alt='' loading='lazy' class='more-employees__item-img')
+          a.more-employees__item-footer(href='#')
+            .more-employees__item-title {{profile.first_name}} {{profile.last_name}}
+            .more-employees__item-subtitle {{profile.position_name}}
 </template>
 <script>
 export default {
   name: "more-employees",
+  props:{
+    profiles: {},
+  },
+  methods: {
+    getNameId(id) {
+      this.$emit('getProfile', id)
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
