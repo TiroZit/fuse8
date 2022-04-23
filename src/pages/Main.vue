@@ -1,7 +1,7 @@
 <template lang="pug">
 include /_mixins
-aside-bar
 my-header
+aside-bar
 main.page__main
   .page__container
     article.post.post_brown

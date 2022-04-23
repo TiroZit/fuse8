@@ -14,7 +14,7 @@ aside.aside
     router-link.aside__edit(to="/profile" active-class="active")
       svg.i-pencil(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-pencil`)
-    router-link.aside__avatar(to="/profile" active-class="active")
+    router-link.aside__avatar(to="/profile")
       +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
