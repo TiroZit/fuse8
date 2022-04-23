@@ -2,6 +2,7 @@ import Main from "@pages/Main";
 import Profile from "@pages/Profile";
 import Navigation from "@pages/Navigation";
 import Search from "@pages/Search";
+import Department from "@pages/Department";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -20,6 +21,10 @@ const routes = [
   {
     path: "/search",
     component: Search,
+  },
+  {
+    path: "/department",
+    component: Department,
   },
 ];
 

@@ -1,20 +1,20 @@
 <template lang="pug">
 include /_mixins
 aside.aside
-  .aside__logo
+  router-link.aside__logo(to="/")
     svg.i-logo(aria-hidden)
       use(xlink:href=`img/icons/icons.svg#svg-logo`)
   .aside__menu
-    .aside__burger
+    router-link.aside__burger(to="/navigation" active-class="active")
       button.burger(type='button')
         span
-    a.aside__search(href='#')
+    router-link.aside__search(to="/search" active-class="active")
       svg.i-search(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-search`)
-    a.aside__edit.active(href='#')
+    router-link.aside__edit(to="/profile" active-class="active")
       svg.i-pencil(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-pencil`)
-    a.aside__avatar(href='#')
+    router-link.aside__avatar(to="/profile" active-class="active")
       +image('@img/avatar.jpg', 'аватар', '41', '41')
 </template>
 <script>
@@ -41,6 +41,7 @@ export default {
   background-color: var(--color-yellow);
   &__logo {
     position: relative;
+    display: block;
     @include media-breakpoint-up(tablet){
       margin-bottom: rem(30);
     }
@@ -165,20 +166,10 @@ export default {
     top: calc(50% - rem(2));
   }
   .active & {
-    span {
-      width: 0;
-    }
+    span,
     &::before,
     &::after {
       background-color: var(--color-white);
-    }
-    &::before {
-      top: calc(50% - rem(2));
-      transform: rotate(-45deg);
-    }
-    &::after {
-      bottom: calc(50% - rem(2));
-      transform: rotate(45deg);
     }
   }
 }
