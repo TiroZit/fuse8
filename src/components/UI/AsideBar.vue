@@ -11,7 +11,7 @@ aside.aside
     router-link.aside__search(to="/search" active-class="active")
       svg.i-search(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-search`)
-    router-link.aside__edit(to="/profile" active-class="active")
+    router-link.aside__edit(to="/edit-profile" active-class="active")
       svg.i-pencil(style=`fill: currentColor;` aria-hidden)
         use(xlink:href=`img/icons/icons.svg#svg-pencil`)
     router-link.aside__avatar(to="/profile")

@@ -1,5 +1,6 @@
 import Main from "@pages/Main";
 import Profile from "@pages/Profile";
+import EditProfile from "@pages/EditProfile";
 import Navigation from "@pages/Navigation";
 import Search from "@pages/Search";
 import Department from "@pages/Department";
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/profile",
     component: Profile,
+  },
+  {
+    path: "/edit-profile",
+    component: EditProfile,
   },
   {
     path: "/navigation",
