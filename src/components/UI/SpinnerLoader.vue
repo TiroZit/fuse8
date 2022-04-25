@@ -9,11 +9,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .loader {
-  display: block;
   position: absolute;
   top: calc(50% - rem(100));
   left: calc(50% - rem(90));
-  margin: auto;
   width: rem(100);
   height: rem(100);
   border-radius: 50%;
@@ -33,10 +31,10 @@ export default {
     animation: loader-outter 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
   }
   &::after {
+    top: calc(50% - rem(30));
+    left: calc(50% - rem(30));
     width: rem(60);
     height: rem(60);
-    left: calc(50% - rem(30));
-    top: calc(50% - rem(30));
     border-right: 0;
     border-top-color: transparent;
     animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
