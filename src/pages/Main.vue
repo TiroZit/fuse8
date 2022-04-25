@@ -8,7 +8,7 @@ main.page__main
       .post__info
         h2.post__title Обновите свой профиль
         p.post__text Обновите информацию в своём профиле, чтобы людям было легче найти или узнать о вас больше
-        button.post__btn Редактировать
+        my-button.post__btn Редактировать
       img.post__img(src='@img/edit-profile.jpg' alt='офис' loading='lazy')
     .post__empty
       b Скоро тут что то будет...
@@ -31,6 +31,7 @@ export default {
   }
   &__info{
     flex: 1 1 rem(600);
+    font-weight: 500;
     @include adaptiveValue("padding", 50, 15);
   }
   &__title{
@@ -39,16 +40,13 @@ export default {
   }
   &__text{
     @include adaptiveValue("font-size", 21, 16);
-    font-weight: 500;
     max-width: rem(480);
     margin-top: em(10,21);
     @include adaptiveValue("margin-bottom", 70, 30);
   }
   &__btn{
     @include adaptiveValue("font-size", 21, 16);
-    font-weight: 500;
     padding: rem(10) rem(30);
-    border: 2px solid var(--color-blackRaisin);
   }
   &__img{
     width: percent(600, 1351);
