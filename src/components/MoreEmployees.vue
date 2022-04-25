@@ -5,21 +5,6 @@ section.more-employees
     title-h2.more-employees__title Больше сотрудников
     .more-employees__items
       //- employee.more-employees__item(:profile='profile')
-      //- article.more-employees__item
-      //-   +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов').more-employees__item-img
-      //-   a(href='#')
-      //-     .more-employees__item-title Антон Шаповалов
-      //-     .more-employees__item-subtitle QA-специалист
-      //- article.more-employees__item
-      //-   +image('@img/persons/anton-permyakov.jpg', 'Антон Пермяков').more-employees__item-img
-      //-   a.more-employees__item-footer(href='#')
-      //-     .more-employees__item-title Антон Пермяков
-      //-     .more-employees__item-subtitle Директор, совладелец компании
-      //- article.more-employees__item
-      //-   +image('@img/persons/andrey-stepanov.jpg', 'Андрей Степанов').more-employees__item-img
-      //-   a.more-employees__item-footer(href='#')
-      //-     .more-employees__item-title 
-      //-     .more-employees__item-subtitle 
     button.more-employees__btn-more Посмотреть ещё
 </template>
 <script>
