@@ -4,21 +4,22 @@ section.more-employees
   .more-employees__container
     title-h2.more-employees__title Больше сотрудников
     .more-employees__items
-      article.more-employees__item
-        +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Антон Шаповалов
-          .more-employees__item-subtitle QA-специалист
-      article.more-employees__item
-        +image('@img/persons/anton-permyakov.jpg', 'Антон Пермяков').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Антон Пермяков
-          .more-employees__item-subtitle Директор, совладелец компании
-      article.more-employees__item
-        +image('@img/persons/andrey-stepanov.jpg', 'Андрей Степанов').more-employees__item-img
-        a.more-employees__item-footer(href='#')
-          .more-employees__item-title Андрей Степанов
-          .more-employees__item-subtitle Технический директор
+      //- employee.more-employees__item(:profile='profile')
+      //- article.more-employees__item
+      //-   +image('@img/persons/anton-shapovalov.jpg', 'Антон Шаповалов').more-employees__item-img
+      //-   a(href='#')
+      //-     .more-employees__item-title Антон Шаповалов
+      //-     .more-employees__item-subtitle QA-специалист
+      //- article.more-employees__item
+      //-   +image('@img/persons/anton-permyakov.jpg', 'Антон Пермяков').more-employees__item-img
+      //-   a.more-employees__item-footer(href='#')
+      //-     .more-employees__item-title Антон Пермяков
+      //-     .more-employees__item-subtitle Директор, совладелец компании
+      //- article.more-employees__item
+      //-   +image('@img/persons/andrey-stepanov.jpg', 'Андрей Степанов').more-employees__item-img
+      //-   a.more-employees__item-footer(href='#')
+      //-     .more-employees__item-title 
+      //-     .more-employees__item-subtitle 
     button.more-employees__btn-more Посмотреть ещё
 </template>
 <script>
@@ -47,36 +48,6 @@ export default {
     @include media-breakpoint-down(tablet){
       justify-content: center;
     }
-  }
-  // .more-employees__item
-  &__item {
-    position: relative;
-    border: 2px solid var(--color-blackRaisin);
-  }
-  // .more-employees__item-img
-  &__item-img {
-    width: 100%;
-    height: rem(317);
-  }
-  // .more-employees__item-footer
-  &__item-footer {
-    display: block;
-    border-top: 2px solid var(--color-blackRaisin);
-    padding: rem(15) rem(10);
-    background-color: var(--color-yellow);
-    &::before{
-      content:'';
-      position: absolute;
-      inset: 0;
-    }
-  }
-  // .more-employees__item-title
-  &__item-title {
-    @include adaptiveValue("font-size", 24, 18);
-  }
-  // .more-employees__item-subtitle
-  &__item-subtitle {
-    font-size: rem(15);
   }
   &__btn-more{
     display: block;
