@@ -1,41 +1,46 @@
-import Main from "@pages/Main";
-import Profile from "@pages/Profile";
-import EditProfile from "@pages/EditProfile";
-import Navigation from "@pages/Navigation";
-import Search from "@pages/Search";
-import Department from "@pages/Department";
-import { createRouter, createWebHistory } from "vue-router";
+import Main from '@pages/Main'
+import Auth from '@pages/Auth'
+import Profile from '@pages/Profile'
+import EditProfile from '@pages/EditProfile'
+import Navigation from '@pages/Navigation'
+import Search from '@pages/Search'
+import Department from '@pages/Department'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     component: Main,
   },
   {
-    path: "/profile",
+    path: '/auth',
+    component: Auth,
+  },
+  {
+    path: '/profile',
     component: Profile,
   },
   {
-    path: "/edit-profile",
+    path: '/edit-profile',
     component: EditProfile,
   },
   {
-    path: "/navigation",
+    path: '/navigation',
     component: Navigation,
   },
   {
-    path: "/search",
+    path: '/search',
     component: Search,
   },
   {
-    path: "/department",
+    path: '/department',
     component: Department,
   },
-];
+]
 
 const router = createRouter({
   routes,
   history: createWebHistory(),
-});
+})
 
-export default router;
+export default router

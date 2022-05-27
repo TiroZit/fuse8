@@ -12,34 +12,32 @@ main.page__department.department
       my-button.department__btn-more Посмотреть ещё
 </template>
 <script>
-export default {
-  
-}
+export default {}
 </script>
 <style lang="scss" scoped>
-.department{
-  @include adaptiveValue("margin-top", 50, 0);
-  &__info{
+.department {
+  @include adaptiveValue('margin-top', 50, 0);
+  &__info {
     display: flex;
     justify-content: space-between;
   }
-  &__title{
-    @include adaptiveValue("font-size", 78, 42);
+  &__title {
+    @include adaptiveValue('font-size', 78, 42);
     font-weight: 900;
   }
-  &__text{
-    @include adaptiveValue("font-size", 26, 16);
+  &__text {
+    @include adaptiveValue('font-size', 26, 16);
     font-weight: 500;
     flex: 0 1 rem(700);
   }
-  &__items{
-    @include adaptiveValue("margin-top", 150, 50);
+  &__items {
+    @include adaptiveValue('margin-top', 150, 50);
   }
-  &__btn-more{
+  &__btn-more {
     display: block;
     font-weight: 900;
     margin: rem(75) auto rem(0) auto;
-    @include media-breakpoint-down(tablet){
+    @include media-breakpoint-down(tablet) {
       margin: rem(45) auto rem(0) auto;
     }
   }

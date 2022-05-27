@@ -3,9 +3,7 @@ include /_mixins
 router-view
 </template>
 <script>
-export default {
-  
-}
+export default {}
 </script>
 <style lang="scss">
 // Оболочка
@@ -14,31 +12,35 @@ export default {
   grid-template-rows: rem(80) 1fr;
   min-height: 100%;
   overflow: hidden;
-  @include media-breakpoint-down(tablet){
+  & .page__auth {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;
+  }
+  @include media-breakpoint-down(tablet) {
     grid-template-rows: rem(80) rem(80) 1fr;
     grid-template-columns: 1fr;
   }
-  @include media-breakpoint-up(tablet){
+  @include media-breakpoint-up(tablet) {
     grid-template-columns: rem(80) 1fr;
   }
-  > header{
-    @include media-breakpoint-up(tablet){
+  > header {
+    @include media-breakpoint-up(tablet) {
       grid-column: 2;
     }
-    @include media-breakpoint-down(tablet){
+    @include media-breakpoint-down(tablet) {
       grid-row: 2;
     }
   }
-  > aside{
-    @include media-breakpoint-up(tablet){
+  > aside {
+    @include media-breakpoint-up(tablet) {
       grid-row: 1 / span 2;
     }
   }
   > main {
-    @include media-breakpoint-up(tablet){
+    @include media-breakpoint-up(tablet) {
       grid-column: 2;
     }
-    @include media-breakpoint-down(tablet){
+    @include media-breakpoint-down(tablet) {
       grid-row: 3;
     }
   }
