@@ -2,7 +2,7 @@
 @import "base/variables";
 
 // Основные цвета
-:root{
+:root {
 	--color-black: #000;
 	--color-blackRaisin: #232021;
 	--color-gray: #474747;
@@ -29,13 +29,15 @@ body {
 	// .loaded & {
 	// }
 }
+
 // Ограничивающий контейнер
-.js-focus-visible :focus-visible{
+.js-focus-visible :focus-visible {
 	transition: outline .1s ease 0s;
-  outline: rem(3) solid var(--color-yellow);
+	outline: rem(3) solid var(--color-yellow);
 }
-.js-focus-visible :focus:not(.focus-visible){
-  outline: none
+
+.js-focus-visible :focus:not(.focus-visible) {
+	outline: none
 }
 
 /*
@@ -50,6 +52,7 @@ body {
 		box-sizing: content-box;
 		margin: 0 auto;
 	}
+
 	@if ($containerPadding>0) {
 		padding: 0 rem(math.div($containerPadding, 2));
 	}
@@ -58,3 +61,17 @@ body {
 // Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
+
+.input {
+	font-weight: 700;
+	border: 2px solid var(--color-black);
+
+	&::placeholder {
+		color: #C4C4C4;
+	}
+}
+
+.button-add {
+	font-size: rem(22) !important;
+	font-weight: 500;
+}
