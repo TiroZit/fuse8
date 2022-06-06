@@ -1,17 +1,20 @@
-*{
+* {
 	box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
-:focus{
+
+:focus {
 	outline: none;
 }
+
 html,
 body {
 	height: 100%;
-	min-width: $minWidth + px;
+	min-width: 375px;
 }
+
 body {
 	color: var(--color-blackRaisin);
 	background-color: var(--color-white);
@@ -24,6 +27,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 input,
 button,
 textarea {
@@ -31,30 +35,37 @@ textarea {
 	font-size: inherit;
 	color: inherit;
 }
+
 button {
 	cursor: pointer;
 	color: inherit;
 	background-color: inherit;
 	font-weight: inherit;
 }
+
 a {
 	color: inherit;
 }
+
 a:link,
 a:visited {
 	text-decoration: none;
 }
+
 a:hover {
 	text-decoration: none;
 }
+
 ul,
-ol{
+ol {
 	list-style: none;
 }
+
 img {
 	vertical-align: top;
 	object-fit: cover;
 }
+
 h1,
 h2,
 h3,
@@ -64,6 +75,7 @@ h6 {
 	font-weight: inherit;
 	font-size: inherit;
 }
-address{
-  font-style: unset;
+
+address {
+	font-style: unset;
 }

@@ -87,7 +87,7 @@ export default {
   }
   // .about-person__title
   &__title {
-    font-size: rem(40);
+    @include adaptiveValue('font-size', 40, 24);
     font-weight: 900;
     &-input {
       padding: rem(20);

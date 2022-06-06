@@ -17,7 +17,7 @@ export default {
   components: { MyButton },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .basic-skills {
   &__title,
   &__item {
@@ -37,18 +37,14 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    flex: 0 0 rem(415);
-    @include adaptiveValue('flex-basis', 215, 140);
-    text-align: start;
-    border-radius: unset;
-    background-color: transparent;
-    min-height: rem(140);
+    flex: 0 1 rem(415);
+    @include adaptiveValue('flex-basis', 215, 120);
+    @include adaptiveValue('min-height', 140, 100);
     input {
-      width: 100%;
       height: 100%;
-      padding: rem(20);
+      @include adaptiveValue('padding', 20, 10);
       overflow-wrap: break-word;
-      font-size: rem(20);
+      @include adaptiveValue('font-size', 20, 16);
     }
     // @include media-breakpoint-up(container) {
     //   &:not(:last-child) {
