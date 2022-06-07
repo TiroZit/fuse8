@@ -6,7 +6,7 @@ main.page__profile
   about-me(:questions='questions' v-if="!isProfileLoading")
   skills(:skillsBase='skillsBase' :skillsSecondary='skillsSecondary' :qualifications='qualifications' v-if="!isProfileLoading")
   spinner-loader(v-else)
-  more-employees(:profiles='profiles' v-if="!isProfileLoading" @getProfile= "fetchProfile")
+  more-employees(:profiles='profiles' v-if="!isProfileLoading" @getProfile="fetchProfile")
 </template>
 
 <script>
@@ -30,6 +30,8 @@ export default {
   },
   data() {
     return {
+      id: '',
+      login: false,
       profiles: [],
       data: [],
       profile: [],
@@ -42,32 +44,42 @@ export default {
     };
   },
   methods: {
-    async fetchProfile(idProfile = 1){
-
+    async fetchCheckAuth(){
+      fetch("http://www.pageform.ru/session/")
+          .then(response => response.json())
+          .then(data => {
+            this.login = data.auth
+            this.id = data.id
+            if(this.login == false){
+              this.$router.push('/auth')
+            }
+            else {
+              this.fetchProfile(this.id)
+            }
+          })
+    },
+    async fetchProfile(idProfile) {
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: idProfile })
+        headers: {"Content-Type": "application/json", },
+        body: JSON.stringify({id: idProfile})
       };
       fetch("http://www.pageform.ru/api/profile/", requestOptions)
           .then(response => response.json())
           .then(data => {
             this.isProfileLoading = true;
-            setTimeout(async() => {
+            setTimeout(async () => {
               this.profiles = await axios.get("http://www.pageform.ru/api/allProfiles/")
               this.profiles = this.profiles.data.profile
-              console.log(this.profiles)
               this.data = data;
               this.profile = this.data.profile[0];
               this.facts = this.data.Fact;
-              console.log(this.data)
               this.questions = this.data.question;
               this.skillsBase = this.data.skills[1];
               this.skillsSecondary = this.data.skills[2];
               this.qualifications = this.data.certification;
-
               this.isProfileLoading = false;
-            }, );
+            },);
           })
           .catch(error => {
             console.log(error);
@@ -75,8 +87,8 @@ export default {
     },
   },
   mounted() {
-    this.fetchProfile();
-  },
+      this.fetchCheckAuth();
+    }
 };
 </script>
 

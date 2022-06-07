@@ -4,29 +4,58 @@ section.about-person
   .about-person__container
     .about-person__wrapper
       .about-person__avatar
-        img(:src='`@img/persons/` + profile.photo' alt='' loading='lazy')
+        img(v-bind:src='`storage/` + profile.profile_photo_path' id="photo" alt='' loading='lazy')
         .about-person__btns
-          button.about-person__btn-edit.about-person__btn-edit_photo Редактировать фото
-          button.about-person__btn-edit.about-person__btn-edit_thumbnail Редактировать миниатюру
+          input.about-person__btn-edit.about-person__btn-edit_photo.input(type="file" id="file" ref="file" v-on:change="handleFileUpload()")
+          button.about-person__btn-edit.about-person__btn-edit_thumbnail(@click="getNameId()") Редактировать миниатюру
       .about-person__info
         .about-person__info-headings
           h1.about-person__title
-            input.about-person__title-input.input(type="text" value="" placeholder="Имя Фамилия")
+            input.about-person__title-input.input(type="text" id="name" v-bind:value="profile.name" placeholder="Имя Фамилия" )
           .about-person__subtitle
-            input.about-person__subtitle-input.input(type="text" value="" placeholder="Должность")
+            input.about-person__subtitle-input.input(type="text" id="position" v-bind:value="profile.position" value="" placeholder="Должность")
         .about-person__info-paragraphs
           p.about-person__paragraph
-            textarea.about-person__paragraph-input.input(type="text" value="" placeholder="Информация о себе")
+            textarea.about-person__paragraph-input.input(type="text" id="about_me" placeholder="Информация о себе" v-bind:value="profile.about_me")
         socials.about-person__socials
     personal-facts.about-person__facts(:facts='facts')
+
+
 </template>
 <script>
+import axios from "axios";
+
 export default {
   name: 'about-person',
   props: {
     profile: {},
-    facts: {},
   },
+  methods: {
+    handleFileUpload() {
+      this.file = this.$refs.file.files[0];
+      if (this.file.type.indexOf('image') === 0) {
+        let formData = new FormData();
+        formData.append("file", this.file);
+        axios.post('http://www.pageform.ru/api/test', formData,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            }
+        ).then( data => {
+          let photo = data.data.photo
+          document.getElementById('photo').src='storage/' + photo;
+          this.profile.profile_photo_path = photo
+        })
+            .catch(function () {
+              console.log('FAILURE!!');
+            });
+      } else {
+        this.$refs.file.value = ''
+      }
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -87,7 +116,7 @@ export default {
   }
   // .about-person__title
   &__title {
-    font-size: rem(40);
+    @include adaptiveValue('font-size', 40, 24);
     font-weight: 900;
     &-input {
       padding: rem(20);

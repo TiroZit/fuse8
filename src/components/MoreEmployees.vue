@@ -3,13 +3,13 @@
 include /_mixins
 section.more-employees
   .more-employees__container
-    title-h2.more-employees__title Больше сотрудников
+    title-h2.more-employees__title(id="moreemployees") Больше сотрудников
     .more-employees__items
       article.more-employees__item(v-for="profile in profiles" :key="profile.id_profile")
-        div(v-bind:id="profile.id_profile" @click="getNameId(profile.id_profile)")
-          img(:src='`http://www.pageform.ru/persons/` + profile.photo' alt='' loading='lazy' class='more-employees__item-img')
+        div(v-bind:id="profile.id_profile" @click="getNameId(profile.id)")
+          img(:src='`http://www.pageform.ru/storage/` + profile.profile_photo_path' alt='' loading='lazy' class='more-employees__item-img')
           a.more-employees__item-footer(href='#')
-            .more-employees__item-title {{profile.first_name}} {{profile.last_name}}
+            .more-employees__item-title {{profile.name}}
             .more-employees__item-subtitle {{profile.position_name}}
     my-button.more-employees__btn-more Посмотреть ещё
 </template>
@@ -23,10 +23,11 @@ export default {
     getNameId(id) {
       this.$emit('getProfile', id)
     }
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
+
 .more-employees {
   @include adaptiveValue("margin-top", 70, 55);
   font-weight: 900;
@@ -35,6 +36,10 @@ export default {
   }
   // .more-employees__title
   &__title {
+  }
+  &__item-img{
+    width: 330px;
+    height: 330px;
   }
   // .more-employees__items
   &__items {

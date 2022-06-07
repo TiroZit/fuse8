@@ -8,15 +8,41 @@ main.page__main
       .post__info
         h2.post__title Обновите свой профиль
         p.post__text Обновите информацию в своём профиле, чтобы людям было легче найти или узнать о вас больше
-        my-button.post__btn Редактировать
+        my-button.post__btn(to="/edit-profile") Редактировать
       img.post__img(src='@img/edit-profile.jpg' alt='офис' loading='lazy')
-    .post__empty
-      b Скоро тут что то будет...
-      span но это не точно)
+
+    more-employees(:profiles='profiles' v-if="!isProfileLoading" )
 </template>
 <script>
+
+import axios from "axios";
+import MoreEmployees from "@components/MoreEmployees";
 export default {
-  
+  components: {
+    MoreEmployees,
+  },
+  data() {
+    return {
+      isProfileLoading: false,
+      profiles: {},
+      setState: "",
+    };
+  },
+  methods: {
+    async fetchProfiles(){
+      setTimeout(async () => {
+        this.profiles = await axios.get("http://www.pageform.ru/api/getAllProfiles/")
+        this.profiles = this.profiles.data.profile
+        console.log(this.profiles)
+    })},
+    updateData(value){
+      this.setState = value
+    },
+  },
+  mounted(){
+    document.getElementById('moreemployees').innerHTML = ""
+    this.fetchProfiles();
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -54,6 +80,7 @@ export default {
       display: none;
     }
   }
+
   &__empty{
     display: flex;
     flex-direction: column;

@@ -3,13 +3,11 @@ include /_mixins
 section.about-person
   .about-person__container
     .about-person__wrapper
-      img.about-person__avatar(:src='`@img/persons/` + profile.photo' alt='' loading='lazy')
+      img.about-person__avatar(:src='`storage/` + profile.profile_photo_path' alt='' loading='lazy')
       .about-person__info
         .about-person__info-headings
           h1.about-person__title
-            | {{ profile.first_name }}
-            |  
-            | {{ profile.last_name }}
+            | {{ profile.name }}
           .about-person__subtitle {{ profile.position_name }}
         .about-person__info-paragraphs
           p.about-person__paragraph(v-html="profile.about_me")

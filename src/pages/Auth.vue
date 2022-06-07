@@ -7,10 +7,10 @@ main.page__auth
         h1.auth-card__title Добро пожаловать в Fuse8
         p.auth-card__text Войдите в учетную запись через корпоративную почту или Google
         form.auth-card__form(action="#" method="post")
-          input.auth-card__input(type='email' name='email' placeholder="Введите адрес электронной почты" required)
+          input.auth-card__input(type='email' name='email' placeholder="Введите адрес электронной почты")
           div или
           my-button.auth-card__btn
-            |Войти через
+            a(href='/auth/google') Войти через
             svg.i-google(aria-hidden)
               use(xlink:href='img/icons/icons.svg#svg-google')
     .aside-auth
@@ -18,7 +18,26 @@ main.page__auth
         use(xlink:href=`img/icons/icons.svg#svg-logo`)
 </template>
 <script>
-export default {}
+export default {
+  methods: {
+    async fetchCheckAuth() {
+      fetch("http://www.pageform.ru/api/checkAuth/")
+          .then(response => response.json())
+          .then(data => {
+            this.login = data.auth
+            this.id = data.id
+            if (this.login === false) {
+              this.$router.push('/auth')
+            } else {
+              this.fetchProfile(this.id)
+            }
+          })
+    },
+    mounted() {
+      //this.fetchCheckAuth();
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .page__auth {

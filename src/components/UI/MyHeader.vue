@@ -3,12 +3,14 @@ include /_mixins
 header.header
   .header__container
     h1.header__title
-      | Приветствую, 
-      b Леонид!
+
 </template>
 <script>
 export default {
-  name: 'my-header'
+  name: 'my-header',
+  props:{
+    name: "",
+  },
 }
 </script>
 <style lang="scss" scoped>

@@ -5,8 +5,8 @@ section.about-me
     title-h2.about-me__title О себе
     .about-me__body
       .about-me__item(v-for="question in questions" :key="question.id_question")
-        input.about-me__item-title.input(type="text" value="" placeholder="Название блока")
-        textarea.about-me__item-decription.input(type="text" value="" placeholder="Название блока")
+        input.about-me__item-title.input(type="text" v-bind:value="question.question" placeholder="Название блока")
+        textarea.about-me__item-decription.input(type="text" v-bind:value="question.answer" placeholder="Название блока")
       MyButton.about-me__btn.button-add.button Добавить ещё блок
 </template>
 <script>
